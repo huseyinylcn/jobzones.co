@@ -1,6 +1,5 @@
 const nodemailer = require("nodemailer");
-let yusuf=22
-let hsyn = 15
+
 let verifiFunc = (code, mail) => {
   return new Promise((resolve, reject) => {
     let transporter = nodemailer.createTransport({

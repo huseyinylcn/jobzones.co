@@ -1,0 +1,178 @@
+
+  <!-- HEADER -->
+  <%- include('../partical/header.ejs') %>
+  <!-- END HEADER -->
+
+<br><br><br>
+  <section class="form-sticky stc2">
+    <div class="tf-container">
+      <div class="job-search-form st1 employers-form">
+        <form method="post">
+          <div class="row-group-search inner-form">
+            <div class="form-group-1 form-style-1">
+              <input type="text" class="input-filter-search" placeholder="key words">
+              <span class="icon-search search-job"></span>
+            </div>
+            <div class="form-group-2 form-style-1">
+              <span class="icon-map-pin"></span>
+              <select class="select-location" style="display: none;">
+                <option value="">All Location</option>
+                <option value="">Japan</option>
+                <option value="">Canada</option>
+                <option value="">England</option>
+                <option value="">Mexico</option>
+              </select>
+              <div class="nice-select select-location" tabindex="0">
+                <span class="current">All Location</span>
+                <ul class="list">
+                  <li data-value="" class="option selected focus">All Location</li>
+                  <li data-value="" class="option">Singapore</li>
+                  <li data-value="" class="option">Japan</li>
+                  <li data-value="" class="option">Korea</li>
+                  <li data-value="" class="option">Italia</li>
+                  <li data-value="" class="option">Canada</li> 
+                </ul>
+              </div>
+            </div>
+            <div class="form-group-3 form-style-1">
+              <select class="select-location" style="display: none;">
+                <option value="">Job Title</option>
+                <option value="">Job Title 1</option>
+                <option value="">Job Title 2</option>
+                <option value="">Job Title 3</option>
+              </select>
+              <div class="nice-select select-location" tabindex="0"><span class="current">Job Title</span>
+                <ul class="list">
+                  <li data-value="" class="option selected focus">Job Title</li>
+                  <li data-value="" class="option">Design & Creative </li>
+                  <li data-value="" class="option">Design</li>
+                  <li data-value="" class="option">Ux/Ui</li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group-4 form-style-1">
+              <select class="select-location" style="display: none;">
+                <option value="">Any Distance</option>
+                <option value="">Any Distance 1</option>
+                <option value="">Any Distance 2</option>
+                <option value="">Any Distance 3</option>
+              </select>
+              <div class="nice-select select-location" tabindex="0"><span class="current">Any Distance</span>
+                <ul class="list">
+                  <li data-value="" class="option selected focus">Any Distance</li>
+                  <li data-value="" class="option">Any Distance 1</li>
+                  <li data-value="" class="option">Any Distance 2</li>
+                  <li data-value="" class="option">Any Distance 3</li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group-5 form-style-1">
+              <select class="select-location" style="display: none;">
+                <option value="">Company Size</option>
+                <option value="">Company Size 1</option>
+                <option value="">Company Size 2</option>
+                <option value="">Company Size 3</option>
+              </select>
+              <div class="nice-select select-location" tabindex="0"><span class="current">Company Size</span>
+                <ul class="list">
+                  <li data-value="" class="option selected focus">Company Size</li>
+                  <li data-value="" class="option">Company Size 1</li>
+                  <li data-value="" class="option">Company Size 2</li>
+                  <li data-value="" class="option">Company Size 3</li>
+                </ul>
+              </div>
+            </div>
+            <div class="form-group-6">
+              <button class="btn btn-find">Find Employers</button>
+            </div>
+          </div>
+
+        </form>
+        <!-- End Job  Search Form-->
+      </div>
+    </div>
+  </section>
+
+  <section class="inner-employer-section">
+    <div class="tf-container">
+      <div class="row">
+        <div class="col-lg-12 tf-tab">
+
+          <div class="content-tab">
+         
+            <div class="inner">
+              <div class="group-col-2">
+                <% result.forEach(element => { %>
+                  <div class="employer-block style-2 cl2">
+                    <div class="inner-box">
+                      <div class="logo-company">
+                        <img src="<%= element.photo  %>"
+                          alt="/img/logo-company/cty17.png" />
+                      </div>
+                      <div class="box-content">
+                        <div class="star">
+                          <span class="icon-star-full"></span>
+                          <span class="icon-star-full"></span>
+                          <span class="icon-star-full"></span>
+                          <span class="icon-star-full"></span>
+                          <span class="icon-star-full"></span>
+                        </div>
+                        <h3>
+                          <a href="/<%= element.username  %>"><%= element.fullName  %></a>
+                          <span class="icon-bolt"></span>
+                        </h3>
+                        <p class="info">
+                          <span class="icon-map-pin"></span>
+                         <%= element.location  %>
+                        </p>
+                      </div>
+                      <div class="button-readmore">
+                        <span class="icon-heart"></span>
+                        <button class="btn-employer">
+                          0 job openings
+                        </button>
+                      </div>
+                      
+                    </div>
+                  </div>
+                <% }) %>
+                
+              
+              </div>
+
+              <ul class="pagination-job p-top">
+                <li><a href="#"><i class="icon-keyboard_arrow_left"></i></a></li>
+                <li><a href="#">1</a></li>
+                <li class="current"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <%- include('../partical/footer.ejs') %>
+  </div><!-- /.boxed --> 
+
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/swiper-bundle.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src="/js/boostrap-select.min.js"></script>
+  <script src="/js/jquery.fancybox.js"></script>
+  <script src="/js/plugin.min.js"></script>
+  <script src='/js/wow.min.js'></script>
+  <script src="/js/range-side.html"></script>
+  <script src='/js/swiper.js'></script>
+  <script src='/js/jquery.nice-select.min.js'></script>
+  <script src="/js/jquery.cookie.js"></script>
+  <script src="/js/switcher.js"></script>
+
+  <script src="/js/main.js"></script>
+</body>
+
+
+<!-- Mirrored from themesflat.co/html/jobtex/employers_grid.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:44:52 GMT -->
+</html>

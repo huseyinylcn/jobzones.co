@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]><html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><!--<![endif]-->
+
+
+<!-- Mirrored from themesflat.co/html/jobtex/dashboard/candidates-dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:05 GMT -->
+<head>
+  <!-- Basic Page Needs -->
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+  <title>Jobtex TF</title>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- Font -->
+  <link rel="stylesheet" href="/font/fonts.css">
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+  <!-- swiper slider -->
+  <link rel="stylesheet" href="/css/swiper-bundle.min.css" />
+
+  <!-- Mobile Specific Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Theme Style -->
+  <link rel="stylesheet" type="text/css" href="/css/shortcodes.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/dashboard.css">
+  <link rel="stylesheet" type="text/css" href="/css/hyprofile.css">
+
+
+  <!-- Responsive -->
+  <link rel="stylesheet" type="text/css" href="/css/responsive.css">
+
+  <!-- Favicon and Touch Icons  -->
+  <link rel="shortcut icon" href="/img/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="/img/favicon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<style>
+  a{
+    text-decoration: none;
+  }
+  .inputSelectLi{
+    border-bottom: 1px solid rgba(220, 220, 220, 0.845); padding: 4px 2px;
+
+  }
+  .inputSelectLi:hover{
+    background-color: rgb(246, 246, 246);
+  }
+  .inputSelectUL{
+    font-family: 'Plus Jakarta Sans', sans-serif; padding: 7px; border-radius: 10px; position: absolute; top: 50px; left: 30px; background-color: white; width:300px ; height: auto; border: 1px solid rgba(223, 223, 223, 0.879);
+  }
+</style>
+</head>
+
+<body class="dashboard show ">
+
+
+
+
+
+<span id="modalEditOpenBtn" style="display: none; cursor: pointer;"><i style="font-size: 22px;" class="fa-regular fa-pen-to-square"></i></span>
+
+<span id="modalBoxInfoBtn" ><i style="display: none;font-size: 22px;" class="fa-regular fa-pen-to-square"></i></span>
+ <span  id="aboutMeEdit" style="display: none; cursor: pointer;"><i style="font-size: 22px;" class="fa-regular fa-pen-to-square"></i></span>
+
+
+
+<div id="modalBoxTops" class="modalBoxTop">
+<div class="modalbox">
+<h4 style="z-index: 999999999; background-color: white; position: sticky; top: 0px; padding: 15px 10px; border-bottom: 1px solid rgba(202, 202, 202, 0.785);">About Me <span id="aboutClose" style=" cursor: pointer; float: right; margin-right: 13px;"></span></h4>
+<p style="width: 90%; margin: auto; font-size: 14px; color: rgb(109, 109, 109);">Deneyim süreniz, sektörünüz ve yeteneklerinizden bahsedebilirsiniz. Diğer kişiler ayrıca başarılarına veya önceki iş tecrübelerine de değinir.</p>
+<textarea name="" id="aboutID" class="aboutMe"></textarea>
+<br>
+<h4 style="width: 90%; margin: auto;  padding: 10px 0px;">Education </h4>
+<p style=" width: 90%; margin: auto; font-size: 14px; color: rgb(109, 109, 109);">Deneyim süreniz, sektörünüz ve yeteneklerinizden bahsedebilirsiniz. Diğer kişiler ayrıca başarılarına veya önceki iş tecrübelerine de değinir.</p>
+
+<div id="educationBox" class="educationBox">
+  
+
+
+</div>
+
+
+<br>
+<button id="educationPush" style="display: flex; align-items: center; margin-left: 50px; border: none; "><i style="font-size: 30px; margin-right: 5px;" class="fa-solid fa-plus"></i>  Eğitim Ekle</button>
+
+<button id="aboutEducationBtn"></button>
+<br><br>
+<div class="closeBox">
+  <button style=" width: 100px;
+  display: block;
+  color: white;
+border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0e76a8;" id="saveInfoPluss"  class="obutBtn ">Save</button>
+</div>
+
+
+
+</div>
+</div>
+
+
+<div id="modalBoxInfo" class="modalBoxInfoClass">
+  <div class="modalboxInfoClass">
+  <h4 style="z-index: 999999999; background-color: white; position: sticky; top: 0px; padding: 15px 10px; border-bottom: 1px solid rgba(202, 202, 202, 0.785);">Edit <span id="modalBoxInfoClose" style=" cursor: pointer; float: right; margin-right: 13px;"></span></h4>
+
+
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Meslek</label>
+  <input id="jobProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Örn: UL/UX Desinger" type="text">
+  
+  <div style="position: relative;">
+    <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Location</label>
+    <input id="cadidatesLocationKeyWordID" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Turkey istanbul" type="text">
+    <ul id="inputSelectUL" class="inputSelectUL" style="top: 64px;">
+
+    </ul>
+</div>
+<select class="jobSelectClass mt-2"  name="" id="genderInput"> 
+  <option value="">Gender</option>
+
+  <option value="0">Woman</option>
+  <option value="1">Male</option>
+</select>
+
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Phone</label>
+  <input id="phoneProfil" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*xxx xxx xx xx " type="tel">
+
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Birth</label>
+  <input id="birthProfil" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;"  type="date">
+
+
+
+  <div id="languageBox">
+
+
+
+</div>
+
+ <div id="dilAddBoxId" class="dilAddBox"><i style="display: block; font-size: 26px; margin-right: 5px;" class="fa-solid fa-plus"></i>Dil Ekle</div>
+ <div id="sosialMadiaInputBox">
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Facebook</label>
+ <input id="focebookProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Linkedin</label>
+ <input id="linkedinProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Twitter</label>
+ <input id="tiwitterProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Pinteres</label>
+ <input id="pinterestProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Instagram</label>
+ <input id="instagramProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Youtube</label>
+ <input id="youtubeProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+
+</div>
+
+<button id="saveProfile"></button>
+
+  <br><br>
+  <div class="closeBox">
+    <button id="contiuneTwo" style=" width: 100px;
+    display: block;
+    color: white;
+  border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0e76a8;"   class="obutBtn ">Contiune</button>
+  </div>
+  
+  
+  
+  </div>
+  </div>
+
+  <div id="modalBoxprofile" class="modalBoxprofileClass">
+    <div class="modalboxInfoClass">
+    <h4 style="z-index: 999999999; background-color: white; position: sticky; top: 0px; padding: 15px 10px; border-bottom: 1px solid rgba(202, 202, 202, 0.785);">Edit Introduction<span id="modalBoxprofileClose" style=" cursor: pointer; float: right; margin-right: 13px;"></span></h4>
+  
+    <div  class="wrap-img flex2">
+      <div class="img-box relative " style="margin-left: 30px;">
+        <img  style="max-width: 120px; max-height: 120px; width: 120px;"  class="avatar " id="profileimg" src="/img/dashboard/image-up.jpg" alt="">
+      </div>
+      <div id="upload-profile" style="margin-left: 20px;">
+        <h5 class="fw-6">Upload a new avatar: </h5>
+        <h6>JPG 80x80px</h6>
+        <form >
+        <input class="up-file" id="imageFile" type="file" name="imageFile" required="">
+      </form>
+      </div>
+    </div>
+
+ 
+    <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; margin-top: 10px; ">*Full Name</label>
+    <input id="profileFullName" style="color: black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Full Name" value="<%= data.fullName %>" type="text">
+    
+    <div id="talentBox">
+      <div>
+      <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Talent <span onclick="talentClose(this)" style="cursor: pointer; float: right; margin-right: 10px;"><i  style="font-size: 20px;  " class="fa-solid fa-xmark"></i></span></label>
+      <input style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*example Javascript" type="text">
+    </div>
+  
+    </div>
+   
+
+    <div id="talentAddBoxId" class="dilAddBox"><i style="display: block; font-size: 26px; margin-right: 5px;" class="fa-solid fa-plus"></i>Talent add</div>
+   
+
+    <select class="jobSelectClass mt-2" name="" id="profileStatus">  
+      <option value="1">İş Arıyorum</option>
+      <option value="0">İş Aramıyorum</option>
+    </select>
+    <br><br><br><br>
+
+    <button id="profileTopBtn"></button>
+
+    <div class="closeBox">
+      <button id="continueOne" style=" width: 100px;
+      display: block;
+      color: white;
+    border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0e76a8;"   class="obutBtn ">Continue</button>
+    </div>
+    
+    
+    
+    </div>
+    </div>
+    
+
+
+    <p style="display: none;" id="aboutViewID" class="text-1"> </p>
+             
+    <div  style="display: none;" id="educationViewBox" class="education-wrap">
+     
+    </div>
+
+  
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/hyprofilesetting.js"></script>
+  <script src="/js/hyprofileInfoPush.js"></script>
+  <script src="/js/hyProfilesetting2.js"></script>
+  <script src="/js/hyprofilesetting3.js"></script>
+  <script src="/js/jquery.cookie.js"></script>
+  <script src="/js/swiper-bundle.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src='/js/wow.min.js'></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="/js/dashboard-menu.min.js"></script>
+  <script src="/js/dashboard-menu.js"></script>
+  <script src="/js/inputselect.js"></script>
+<script>
+let continueOne = document.getElementById('continueOne')
+let contiuneTwo = document.getElementById('contiuneTwo')
+let saveInfoPluss = document.getElementById('saveInfoPluss')
+
+
+
+    modalEditOpenBtn.click()
+    continueOne.addEventListener('click',()=>{
+        modalBoxprofileClose.click()
+        modalBoxInfoBtn.click()
+    })
+    contiuneTwo.addEventListener('click',()=>{
+        modalBoxInfoClose.click()
+        aboutMeEdit.click()
+    })
+
+    saveInfoPluss.addEventListener('click',()=>{
+        profileTopBtn.click()
+        saveProfile.click()
+        aboutEducationBtn.click()
+        $(".preload").show();
+
+        var showPreloader = function () {
+          $(".preload").fadeOut("slow", function () {
+            setTimeout(function () {
+              
+            }, 1000);
+          });
+    
+      };
+      
+      setTimeout(()=>{
+        showPreloader()
+        window.location.href = '/dashboard/profiloverview/'
+      }, 2000);
+
+     
+
+    })
+    
+
+</script>
+
+
+
+</body>
+
+
+<!-- Mirrored from themesflat.co/html/jobtex/dashboard/candidates-overview.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:35 GMT -->
+</html>

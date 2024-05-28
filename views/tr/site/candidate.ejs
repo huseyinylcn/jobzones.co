@@ -1,0 +1,284 @@
+
+  <!-- HEADER -->
+  <%- include('../partical/header.ejs') %>
+  <!-- END HEADER -->
+<style>
+  .currentAelement{
+    background-color: #14a077;
+  }
+  @media (max-width: 551px) {
+    #kaybol{
+      display: none;
+          }
+          #kaybol2{
+            display: block;
+                }
+}
+
+@media (min-width: 551px) {
+
+        #kaybol2{
+          display: none;
+              }
+}
+
+@media (max-width: 1024px) {
+  #filterBtn2{
+    display: none;
+        }
+        
+}
+
+@media (min-width: 1024px) {
+
+      #filterBtn{
+        display: none;
+            }
+}
+  
+  .inputSelectLi{
+    border-bottom: 1px solid rgba(220, 220, 220, 0.845); padding: 4px 2px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+
+
+  }
+  .inputSelectLi:hover{
+    background-color: rgb(246, 246, 246);
+  }
+  .inputSelectUL{
+   z-index: 9999999; font-family: 'Plus Jakarta Sans', sans-serif; padding: 7px; border-radius: 10px; position: absolute; top: 50px; left: 20px; background-color: white; width:300px ; height: auto; border: 1px solid rgba(223, 223, 223, 0.879);
+  }
+  #cadidatesLocationKeyWordID{
+    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #191919; margin-right: 10px; margin-left: 20px; border-radius: 10px;  border: 1px solid rgba(243, 243, 243, 0.851);
+  }
+</style>
+<br>
+  <section class="tf-slider sl9 ">
+    <div class="tf-container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="content" >
+            <div class="form-sl stc">
+              <form method="post" style="position: relative;">
+                <div id="filterBtn" style="cursor: pointer; position: absolute; right: 10px; top: -52px; font-size: 19px;  font-family:'Plus Jakarta Sans', sans-serif; width: 120px; margin: auto 5px; text-align: center; text-decoration: underline; height: 51px; border-radius: 5px; line-height: 51px; ">
+                  Filter <i style="color: #14a077; font-size: 19px;" class="fa-solid fa-filter"></i>
+                </div>
+                <div class="row-group-search home1 st">
+                  <div class="form-group-1 ">
+                    <span class="icon-search search-job"></span>
+                    <input id="candidateJobKeyWordID" type="text" class="input-filter-search" placeholder="Job title, key words or company">
+                  </div>
+                  <div class="form-group-2" style="position: relative;">
+                    <span class="icon-map-pin"></span>
+                    <input placeholder="Location"   id="cadidatesLocationKeyWordID" type="text">
+                      <ul class="inputSelectUL" id="inputSelectUL">
+                         
+                      </ul>
+                  </div>
+              
+                  <div class="form-group-4">
+                    <button id="keyWordUpdateBtnID" type="button" class="btn btn-find">Find Jobs</button>
+                  </div>
+                  <div id="filterBtn2"  style="cursor: pointer; font-size: 19px;  font-family:'Plus Jakarta Sans', sans-serif; width: 120px; margin: auto 5px; text-align: center; text-decoration: underline; height: 51px; border-radius: 5px; line-height: 51px; ">
+                    Filter <i style=" color: #14a077; font-size: 19px;" class="fa-solid fa-filter"></i>
+                  </div>
+
+                </div>
+              </form>
+              <!-- End Job  Search Form-->
+
+             
+            </div>
+           
+            
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+<div id="filterBox" style="overflow: scroll; overflow-x: hidden; border-right: 1px solid rgba(212, 212, 212, 0.846); position: fixed; top: 0px; transform: translateX(-100%); z-index: 99999; width: 300px; height: 100vh; background-color: white; border-radius: 0 5px 5px 0;" class="form-sticky stc2">
+
+  <div id="closefilter" style="padding-left: 30px; line-height: 60px; font-size: 20px; font-family:'Plus Jakarta Sans', sans-serif;   height: 60px; border-bottom: 1px solid rgba(227, 227, 227, 0.738) ;border-top: 1px solid rgba(212, 212, 212, 0.846) ;">
+   Filter
+  <i id="closeFilterID" style="float: right; font-size: 22px; padding: 20px;" class="fa-solid fa-xmark"></i>
+
+
+
+  <div style="width: 300px; background-color: white; position: absolute; left: 0px;" class="">
+    <div style="background-color: white;" class="content-left style2 po-sticky">
+      <div style="background-color: white;" class="inner st-filter">
+        <div style="background-color: white;" class="widget-filter style-scroll">
+          <form action="https://themesflat.co/html/jobtex/GET">
+   
+
+            <div  style="width: 100%;" class="group-form">
+              <label class="title">Departman</label>
+              <div style="width: 100%; margin-top: -20px;" class="group-input">
+          
+
+                <input type="text" id="depatmanSelectİnput" style="width: 100%; height: 40px;">
+              <ul id="depatmanSelect" class="inputSelectUL" style="width: 250px; left: 0px; font-size: 14px;">
+           
+
+              </ul>
+
+
+              </div>
+            </div>
+            <div  style="width: 100%;" class="group-form">
+              <label class="title">Mode of operation</label>
+              <div  style="width: 100%; margin-top: -20px;" class="group-input">
+                <select id="mode" style="border-radius: 10px; color: #191919;">
+                  <option value="">Select</option>
+                  <option value="remote">Remote</option>
+                  <option value="hybrid">Hybrid </option>
+                  <option value="fullTime">Full Time </option>
+                </select>
+              </div>
+            </div>
+           
+            <div  style="width: 100%;" class="group-form">
+              <label class="title">Gender</label>
+              <div  style="width: 100%; margin-top: -20px;" class="group-input">
+                <select id="gender" style="border-radius: 10px; color: #191919;">
+                  <option value="">Select</option>
+                  <option value="true">Male</option>
+                  <option value="false">Woman </option>
+                
+                </select>
+              </div>
+            </div>
+
+            <div  style="width: 100%;" class="group-form">
+              <label class="title">Age</label>
+              <div  style="width: 100%; margin-top: -10px; display: flex; " class="group-input">
+               
+                <input value="0" style="width: 70px; margin-right: 20px;" placeholder="Min:" type="text" name="" id="agemin">
+                <input value="100" style="width: 70px;" placeholder="Max:" type="text" name="" id="agemax">
+
+                
+            
+              </div>
+            </div>
+
+            <div  style="width: 100%;" class="group-form">
+              <label class="title">Date Posted</label>
+              <div  style="width: 100%; margin-top: -10px; display: flex; " class="group-input">
+               
+                <input style="width: 100px; margin-right: 10px;" type="date" name="" id="datepostedMax">
+                <input  style="width: 100px;"  type="date" name="" id="datepostedMin">
+
+                
+            
+              </div>
+            </div>
+
+            <div  style="width: 100%;" class="group-form">
+              <label class="title">Qualification</label>
+              <div  style="width: 100%; margin-top: -20px;" class="group-input">
+                <select id="qualification" style="border-radius: 10px; color: #191919;">
+                  <option value="">Select</option>
+                  <option value="master">Master</option>
+                  <option value="master 2">Master 2 </option>
+                
+                </select>
+              </div>
+            </div>
+
+
+            <div  style="width: 100%;" class="group-form">
+              <label class="title">Experience Time</label>
+              <div  style="width: 100%; margin-top: -20px;" class="group-input">
+        <input id="experencTime" placeholder="Experience Year" type="number">
+              </div>
+            </div>
+
+<br>
+        
+            <button id="filterSearchBtn" type="button">Find Jobs</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+</div> 
+
+
+
+
+
+  <section class="candidates-section">
+        <div class="tf-container">
+            <div class="row">
+                <div class="col-lg-12 tf-tab">
+                  
+                        <div class="content-tab">
+                          <div class="inner">
+                            <div id="candidatexBox" class="group-col-2">
+
+                       
+                          
+                     
+
+                            </div>
+
+                            <ul class="pagination-job p-top-st1">
+                                <li><a href="#"><i class="icon-keyboard_arrow_left"></i></a></li>
+                                <div id="pageBox" style="display: flex;">
+                                  <!-- <li><a href="#">1</a></li>-->
+                                 
+                               
+                                </div>
+                                <li><a  href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
+                              </ul>
+                        </div>
+                   
+                        </div>
+                        
+                </div>
+            </div>
+        </div>
+  </section>
+
+  <%- include('../partical/footer.ejs') %>
+  </div><!-- /.boxed --> 
+
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/boostrap-select.min.js"></script>
+<script src="/js/jquery.fancybox.js"></script>
+<script src="/js/plugin.min.js"></script>
+<script src='/js/wow.min.js'></script>
+<script src='/js/swiper.js'></script>
+<script src='/js/jquery.nice-select.min.js'></script>
+<script src="/js/jquery.cookie.js"></script>
+<script src="/js/switcher.js"></script>
+<script src="/js/hycandidate.js"></script>
+<script src="/js/inputselect.js"></script>
+<script src="/js/hydepartmanSelect.js"></script>
+
+
+<script src="/js/main.js"></script>
+
+
+<script src="javascript/main.js"></script>
+<script src="javascript/jquery-ui.min.js"></script>
+
+</body>
+
+<!-- Mirrored from themesflat.co/html/jobtex/candidate.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:00 GMT -->
+</html>

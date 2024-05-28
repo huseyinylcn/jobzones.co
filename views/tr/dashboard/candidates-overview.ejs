@@ -1,0 +1,505 @@
+
+
+<%- include('../partical/admindashboard.ejs') %>
+
+
+<style>
+
+
+
+  .inputSelectLi{
+    border-bottom: 1px solid rgba(220, 220, 220, 0.845); padding: 4px 2px;
+    height: 30px;
+    line-height: 30px;
+    overflow: hidden;
+
+
+  }
+  .inputSelectLi:hover{
+    background-color: rgb(246, 246, 246);
+  }
+  .inputSelectUL{
+   z-index: 9999999; font-family: 'Plus Jakarta Sans', sans-serif; padding: 7px; border-radius: 10px; position: absolute; top: 50px; left: 20px; background-color: white; width:300px ; height: auto; border: 1px solid rgba(223, 223, 223, 0.879);
+  }
+
+
+
+
+   
+  .modeUl{
+      width: 250px;
+      position: absolute;
+      top: 55px;
+      left: 22px;
+
+      border: 1px solid rgba(199, 199, 199, 0.917);
+      border-radius: 0px 0px 10px 10px;
+      list-style-type: none;
+      margin-top: -15px;
+  margin-left: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: white;
+  }
+  .modeUl li{
+   width: 100%;
+   border-bottom: 1px solid rgb(169, 169, 169);
+   height: 35px;
+   line-height: 35px;
+   margin-left: -20px;
+   cursor: pointer;
+   color: black;
+  }
+
+  .modeUl li:hover{
+  background-color: rgb(235, 235, 235);
+     }
+  .modePElementView{
+      width: 90%;
+      margin: auto;
+      height: 40px;
+      text-justify: center;
+      padding-top: 4px;
+      overflow: hidden;
+      text-align: left;
+      padding-left: 10px;
+      border: 1px solid rgba(180, 180, 180, 0.917);
+      border-radius: 10px;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+  }
+
+
+</style>
+
+
+  <div class="dashboard__content">
+    
+    <section class="mt-5">
+      <br><br>
+    </section>
+    <section class="flat-dashboard-user flat-dashboard-profile">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div class="wrap-profile flex2 bg-white">
+
+              <div class="box-profile flex2" style="position: relative;">
+            <span id="modalEditOpenBtn" style="cursor: pointer; position: absolute; right: 20px; top: 10px;"><i style="font-size: 22px;" class="fa-regular fa-pen-to-square"></i></span>
+               
+                <div class="images" style=" width: 120px;
+                height: 120px;
+           overflow: hidden;
+                ">
+                
+                  <img id="profileImgview" style=" width: 100%;
+                  height: auto;
+                border-radius: 10px;
+                  " src="<%= data.photo %>" alt="">
+                </div>
+                <div class="content">
+                  <h5 class="fw-6 color-3"><%= data.job %></h5>
+                  <div class="check-box flex2" style="align-items: start;">
+                  <div>
+                    <h3 id="profileFullnameView"><%= data.fullName %></h3>
+                  <span style="display: block; height: 13px; font-size: 13px; font-weight: 700; color: #1b3111; font-family: Plus Jakarta Sans;"><%= data.username %></span>
+                </div>
+                    <svg style="margin-top: 5px;" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M0 10C0 4.47715 4.47715 0 10 0C15.5228 0 20 4.47715 20 10C20 15.5228 15.5228 20 10 20C4.47715 20 0 15.5228 0 10Z"
+                        fill="#504CFE" />
+                      <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10.9099 3.73218C11.052 3.77687 11.1762 3.86573 11.2643 3.98583C11.3524 4.10593 11.3999 4.25102 11.3999 4.39998V7.89998H14.1999C14.328 7.89992 14.4536 7.93499 14.5631 8.00136C14.6726 8.06773 14.7618 8.16286 14.821 8.2764C14.8801 8.38994 14.9071 8.51754 14.8988 8.64532C14.8905 8.77309 14.8473 8.89614 14.7739 9.00108L9.87392 16.0011C9.78864 16.1233 9.6666 16.215 9.52556 16.2631C9.38452 16.3111 9.23183 16.3129 9.08971 16.2681C8.94759 16.2234 8.82345 16.1344 8.73537 16.0143C8.64728 15.8941 8.59983 15.749 8.59992 15.6V12.1H5.79992C5.67188 12.1 5.54627 12.065 5.43677 11.9986C5.32727 11.9322 5.23808 11.8371 5.17889 11.7236C5.1197 11.61 5.09279 11.4824 5.10108 11.3546C5.10937 11.2269 5.15255 11.1038 5.22592 10.9989L10.1259 3.99888C10.2113 3.87693 10.3334 3.78539 10.4744 3.73755C10.6154 3.68972 10.7679 3.68808 10.9099 3.73288V3.73218Z"
+                        fill="white" />
+                    </svg>
+
+                    <div class="status-wrap">
+                      <% if(data.status == 1){ %>
+                        <div data-value="1" id="statutView" class="button-status fs-12 color-3 style-bt"> Available now</div>
+  
+                        <% }else{ %>
+                          <div data-value="0" id="statutView" class="button-status fs-12 color-3 style-bt"> Not Available</div>
+
+                          <% }%>
+                          
+                    </div>
+                  </div>
+
+                  <div class="tag-wrap flex">
+                    <div id="talentBoxView" style="max-width: 700px; min-width: 250px;"  class="tag-box flex">
+                      <% tales.forEach(datas=>{ %>
+                        <a style="color: rgb(0, 155, 46); font-weight: 400;" class="mt-2" href="#"> <%= datas %></a>
+                             
+                        <% }) %>
+                    </div>
+                    
+                    <div style="min-width: 200px;" class=" color-4"></div>
+                  </div>
+
+                </div>
+              </div>
+         
+
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="flat-dashboard-overview flat-dashboard-about">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div class="wrap-about flex">
+              <div class="side-bar">
+                <div class="sidebar-map bg-white">
+                  <div style="height: 20px; display: flex; justify-content: right; align-items: center;" class="title-box flex">
+                  
+                    <span id="modalBoxInfoBtn" style="float: right;"><i style="font-size: 22px;" class="fa-regular fa-pen-to-square"></i></span>
+                  </div>
+                  <div class="title-box flex">
+                    <div class="p-16">Career Finding</div>
+                    <h4 id="jobProfileView" class="color-"><%= data.job %></h4>
+                  </div>
+                  <div class="title-box flex">
+                    <div class="p-16">Location</div>
+                    <h4 id="locationProfileView"><%= data.location %></h4>
+                  </div>
+                  <div class="title-box flex">
+                    <div class="p-16">Phone Number</div>
+                    <h4 id="phoneProfilView"><%= data.phone %></h4>
+                  </div>
+                  <div class="title-box flex">
+                    <div class="p-16">Mode</div>
+                    <h4 id="modeProfilView">
+                    <% mode.forEach(element => { %>
+                      <%= element %>,
+                    <% }) %>
+                      
+                      </h4>
+                  </div>
+                  <div class="title-box flex">
+                    <div class="p-16">Email</div>
+                    <h4 ><%= data.email %></h4>
+                  </div>
+
+                  <div class="title-box flex">
+                    <div class="p-16">Gender</div>
+                    <% if (data.gender == true) { %>
+                      <h4 id="grnderView">Male</h4>
+                    <% } else if(data.gender == false){ %>
+                    <h4 id="grnderView">Woman</h4>
+                    <% }else{ %>
+                      <h4 id="grnderView"></h4>
+                      <% } %>
+                  </div>
+
+                  <div  class=" row title-box flex">
+                    <div class="col-4 p-16">Language</div>
+                    <h4 id="languageProfileView" style="text-align: right;" class="col-8"><%= data.language %></h4>
+                  </div>
+
+
+                  <div class="title-box flex">
+                    <div class="p-16">Deparman </div>
+                    <h4 id="departmanView" style="max-width: 200px; overflow: hidden;" title="<%= data.departman %>"><%= data.departman %></h4>
+                  </div>
+
+
+                  <div class="title-box flex">
+                    <div class="p-16">Birth </div>
+                    <h4 id="birthProfilView"><%= data.birth2 %></h4>
+                  </div>
+                  <div class="wrap-icon">
+                    <h4>Socials:</h4>
+                    <div id="sosialMedia" class="box-icon flex">
+                      <a id="focebookProfileView" href="<%= data.facebook %>" class="icon-facebook"></a>
+                      <a id="linkedinProfileView" href="<%= data.linkedin %>" class="icon-linkedin2"></a>
+                      <a id="tiwitterProfileView" href="<%= data.twitter %>" class="icon-twitter"></a>
+                      <a id="pinterestProfileView" href="<%= data.pinteres %>" class="icon-pinterest"></a>
+                      <a id="instagramProfileView" href="<%= data.instagram %>" class="icon-instagram1"></a>
+                      <a id="youtubeProfileView" href="<%= data.youtube %>" class="icon-youtube"></a>
+
+                      
+                    </div>
+                  </div>
+                </div>
+     
+              </div>
+
+              <div class="post-about widget-dash-video bg-white">
+                <h3 class="title-about">About Me <span  id="aboutMeEdit" style="float: right; cursor: pointer;"><i style="font-size: 22px;" class="fa-regular fa-pen-to-square"></i></span></h3>
+
+           
+            
+                <p id="aboutViewID" class="text-1"> <%= data.about %></p>
+             
+
+                <h3 class="title-education">Education</h3>
+                <div id="educationViewBox" class="education-wrap">
+                  <% education.forEach(element=>{ %>
+
+                        <div class="education-box">
+                            <h5 style="display: inline-block; font-size: 18px;" class="subtitle-1 fw-7"><%= element.school %></h5>
+                            <span class="subtitle-2 fs-12 fw-5"><%= element.start %> - <%= element.stop %></span>
+                            <h4 class="job fw-7"><%= element.section %></h4>
+                            <b style="font-weight: 300;"><%= element.degree %></b>
+                            <p class="acoount"><%= element.account %></p><hr>
+                        </div>
+                        <% }) %>
+
+
+                </div>
+           
+
+
+
+
+              </div>
+            </div>
+
+
+ 
+            
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="flat-dashboard-bottom st1">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <h5 class="center">©2023 Jobtex. All Rights Reserved.</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+<div id="modalBoxTops" class="modalBoxTop">
+<div class="modalbox">
+<h4 style="z-index: 999999999; background-color: white; position: sticky; top: 0px; padding: 15px 10px; border-bottom: 1px solid rgba(202, 202, 202, 0.785);">About Me <span id="aboutClose" style=" cursor: pointer; float: right; margin-right: 13px;"><i style="font-size: 24px; " class="fa-solid fa-xmark"></i></span></h4>
+<p style="width: 90%; margin: auto; font-size: 14px; color: rgb(109, 109, 109);">Deneyim süreniz, sektörünüz ve yeteneklerinizden bahsedebilirsiniz. Diğer kişiler ayrıca başarılarına veya önceki iş tecrübelerine de değinir.</p>
+<textarea name="" id="aboutID" class="aboutMe"></textarea>
+<br>
+<h4 style="width: 90%; margin: auto;  padding: 10px 0px;">Education </h4>
+<p style=" width: 90%; margin: auto; font-size: 14px; color: rgb(109, 109, 109);">Deneyim süreniz, sektörünüz ve yeteneklerinizden bahsedebilirsiniz. Diğer kişiler ayrıca başarılarına veya önceki iş tecrübelerine de değinir.</p>
+
+<div id="educationBox" class="educationBox">
+  
+
+
+</div>
+
+<br>
+<button id="educationPush" style="display: flex; align-items: center; margin-left: 50px; border: none; "><i style="font-size: 30px; margin-right: 5px;" class="fa-solid fa-plus"></i>  Eğitim Ekle</button>
+
+
+<br><br>
+<div class="closeBox">
+  <button style=" width: 100px;
+  display: block;
+  color: white;
+border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0e76a8;" id="aboutEducationBtn"  class="obutBtn ">Save</button>
+</div>
+
+
+
+</div>
+</div>
+
+
+
+<div id="modalBoxInfo" class="modalBoxInfoClass">
+  <div class="modalboxInfoClass">
+  <h4 style="z-index: 999999999; background-color: white; position: sticky; top: 0px; padding: 15px 10px; border-bottom: 1px solid rgba(202, 202, 202, 0.785);">Edit Introduction<span id="modalBoxInfoClose" style=" cursor: pointer; float: right; margin-right: 13px;"><i style="font-size: 24px; " class="fa-solid fa-xmark"></i></span></h4>
+
+
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Meslek</label>
+  <input id="jobProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Örn: UL/UX Desinger" type="text">
+  <div style="position: relative;">
+    <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Location</label>
+    <input id="cadidatesLocationKeyWordID" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Turkey istanbul" type="text">
+    <ul id="inputSelectUL" class="inputSelectUL" style="top: 64px;">
+
+    </ul>
+</div>
+<div  style="width: 90%; margin: auto;" class="group-form">
+  <label style="color: rgb(144, 144, 144);" class="title">Departman</label>
+  <div style="width: 100%; position: relative; " class="group-input">
+
+
+    <input type="text" id="depatmanSelectİnput" style="width: 100%; color:black; height: 40px; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px;">
+  <ul id="depatmanSelect" class="inputSelectUL" style="width: 250px; left: 0px; font-size: 14px;">
+
+
+  </ul>
+
+
+  </div>
+</div>
+
+
+
+<label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Mode</label>
+<div style="position: relative;">
+  <p id="modePElementView" class="modePElementView" style="color: black;">Remote,Hybrid,Full Time</p>
+<ul id="modeUl" class="modeUl">
+   
+  <li><input data-value="Remote,remote" type="checkbox" > Remote</li>
+  <li><input data-value="Hybrid,hybrid" type="checkbox" > Hybrid</li>
+  <li><input data-value="Full Time,fullTime" type="checkbox" > Full Timee</li>
+
+</ul>
+</div>
+
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Phone</label>
+  <input id="phoneProfil" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*xxx xxx xx xx " type="tel">
+
+
+
+
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Birth</label>
+  <input id="birthProfil" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;"  type="date">
+
+<label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Gender</label>
+  <select class="jobSelectClass mt-2"  name="" id="genderInput" style="height: 40px;"> 
+    <% if (data.gender == true) { %>
+      <option style="height: 40px; margin-top:-10px;" value="1">Male</option>
+    <% }else if(data.gender == false){ %>
+      <option style="height: 40px; margin-top:-10px;" value="0">Woman</option>
+      <% }else{ %>
+        <option style="height: 40px; margin-top:-10px;" value=""><Select></Select></option>
+      <% } %>
+    <option value="0">Woman</option>
+    <option value="1">Male</option>
+  </select>
+
+  <div id="languageBox">
+
+
+
+</div>
+
+ <div id="dilAddBoxId" class="dilAddBox"><i style="display: block; font-size: 26px; margin-right: 5px;" class="fa-solid fa-plus"></i>Dil Ekle</div>
+ 
+
+ 
+ <div id="sosialMadiaInputBox">
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Facebook</label>
+ <input id="focebookProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Linkedin</label>
+ <input id="linkedinProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Twitter</label>
+ <input id="tiwitterProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Pinteres</label>
+ <input id="pinterestProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Instagram</label>
+ <input id="instagramProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Youtube</label>
+ <input id="youtubeProfile" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+
+</div>
+
+
+
+  <br><br>
+  <div class="closeBox">
+    <button id="saveProfile" style=" width: 100px;
+    display: block;
+    color: white;
+  border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0e76a8;"   class="obutBtn ">Save</button>
+  </div>
+  
+  
+  
+  </div>
+  </div>
+
+  <div id="modalBoxprofile" class="modalBoxprofileClass">
+    <div class="modalboxInfoClass">
+    <h4 style="z-index: 999999999; background-color: white; position: sticky; top: 0px; padding: 15px 10px; border-bottom: 1px solid rgba(202, 202, 202, 0.785);">Edit Introduction<span id="modalBoxprofileClose" style=" cursor: pointer; float: right; margin-right: 13px;"><i style="font-size: 24px; " class="fa-solid fa-xmark"></i></span></h4>
+  
+    <div  class="wrap-img flex2">
+      <div class="img-box relative " style="margin-left: 30px;">
+        <img style="max-width: 120px; max-height: 120px; width: 120px;" class="avatar " id="profileimg" src="/img/dashboard/image-up.jpg" alt="">
+      </div>
+      <div id="upload-profile" style="margin-left: 20px;">
+        <h5 class="fw-6">Upload a new avatar: </h5>
+        <h6>JPG 80x80px</h6>
+        <form >
+        <input class="up-file" id="imageFile" type="file" name="imageFile" required="">
+      </form>
+      </div>
+    </div>
+
+ 
+    <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; margin-top: 10px; ">*Full Name</label>
+    <input id="profileFullName" style="color: black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Hüseyin Yalçın" type="text">
+    
+    <div id="talentBox">
+      <div>
+      <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Talent <span onclick="talentClose(this)" style="cursor: pointer; float: right; margin-right: 10px;"><i  style="font-size: 20px;  " class="fa-solid fa-xmark"></i></span></label>
+      <input style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*example Javascript" type="text">
+    </div>
+  
+    </div>
+   
+
+    <div id="talentAddBoxId" class="dilAddBox"><i style="display: block; font-size: 26px; margin-right: 5px;" class="fa-solid fa-plus"></i>Talent add</div>
+   
+
+    <select class="jobSelectClass mt-2" name="" id="profileStatus">  
+      <option value="1">İş Arıyorum</option>
+      <option value="0">İş Aramıyorum</option>
+    </select>
+    <br><br><br><br>
+    <div class="closeBox">
+      <button id="profileTopBtn" style=" width: 100px;
+      display: block;
+      color: white;
+    border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0e76a8;"   class="obutBtn ">Save</button>
+    </div>
+    
+    
+    
+    </div>
+    </div>
+    
+
+ 
+  
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/hyprofilesetting.js"></script>
+  <script src="/js/hyprofileInfoPush.js"></script>
+  <script src="/js/hyProfilesetting2.js"></script>
+  <script src="/js/hyprofilesetting3.js"></script>
+
+
+  <script src="/js/jquery.cookie.js"></script>
+  <script src="/js/swiper-bundle.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src='/js/wow.min.js'></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="/js/dashboard-menu.min.js"></script>
+  <script src="/js/dashboard-menu.js"></script>
+
+  <script src="/js/inputselect.js"></script>
+  <script src="/js/hydepartmanSelect.js"></script>
+
+
+</body>
+
+
+<!-- Mirrored from themesflat.co/html/jobtex/dashboard/candidates-overview.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:35 GMT -->
+</html>

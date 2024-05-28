@@ -1,0 +1,487 @@
+
+<%- include('../partical/employeradmin.ejs') %>
+
+  <div style="max-width: 1150px; margin: auto;" class="dashboard__content">
+
+<br><br><br><br>
+
+<style>
+  .wrap-profile{
+    border: 3px solid white;  min-height: 190px; border-radius: 20px 20px 0 0; background-size: cover; background-position: center center; background-repeat: no-repeat; background-image: url(<%= data.coverPhoto %>);
+  }
+  .employersPhoto{
+    border: 3px solid white; margin-left: 20px; margin-top: -100px; border-radius: 0%; height: 170px; width: 170px;  background-size: cover; background-position: center center; background-repeat: no-repeat; background-image: url(<%= data.photo %>);
+  }
+  .inputSelectLi{
+    border-bottom: 1px solid rgba(220, 220, 220, 0.845); padding: 4px 2px;
+
+  }
+  .inputSelectLi:hover{
+    background-color: rgb(246, 246, 246);
+  }
+  .inputSelectUL{
+    font-family: 'Plus Jakarta Sans', sans-serif; padding: 7px; border-radius: 10px; position: absolute; top: 50px; left: 30px; background-color: white; width:300px ; height: auto; border: 1px solid rgba(223, 223, 223, 0.879);
+  }
+
+</style>
+
+
+
+<section class="flat-dashboard-profile">
+  <div class="themes-container">
+    <div class="row">
+      <div class="col-lg-12 col-md-12">
+        <div
+          style="border-radius: 20px 20px 0 0; padding-bottom: 20px"
+          class="bg-white"
+        >
+          <div id="employerskpViev" class="wrap-profile flex2 bg-white"></div>
+          <div class="employersPhoto" id="employersİnputppIMGView"></div>
+          <div class="container">
+            <div class="row">
+              <div
+                style="margin-left: 7px"
+                class="col-xl-8 col-lg-8 col-md-8 col-sm-12 col-xs-12"
+              >
+                <span
+                  id="employersOpenBtn"
+                  style="cursor: pointer; float: right; margin-top: -60px"
+                  ><i
+                    style="font-size: 22px"
+                    class="fa-regular fa-pen-to-square"
+                  ></i
+                ></span>
+
+                <h3 id="employersTitle" style="margin-top: 10px; font-weight: 600; font-size: 23px"><%= data.fullName %>
+                </h3>
+                <p id="employersP"><%= data.shortAbout  %>
+                </p>
+                <div style="display: flex; flex-wrap: wrap">
+                  <div
+                    style="margin-right: 20px; margin-top: 5px"
+                    class="map color-4"
+                    id="employersLocation"
+                  ><%= data.location  %>
+                  </div>
+                  <div id="employersTalesBox" class="status-wrap">
+
+                    <% tales.forEach(element => { %>
+                      <div
+                      class="button-status"
+                      style="
+                        padding: 14px;
+                        width: auto;
+                        font-weight: 400;
+                        color: #14a077;
+                        font-size: 14px;
+                      "
+                    ><%= element  %>
+                    </div>
+                    <% }) %>
+
+               
+                 
+                  </div>
+                </div>
+                <h4 id="employersWeb" class="color-3"><%= data.web  %></h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    <section class="flat-dashboard-about">
+      <div class="themes-container">
+        <div class="">
+          <div class="">
+            <div class="row wrap-about flex ">
+
+
+              <div  class="col-xl-4 col-lg-5 col-md-5 col-sm-5 col-xs-5 ">
+                <div class="sidebar-map bg-white">
+                  <div style="height: 20px; display: flex; justify-content: end; align-items: center;" class="title-box flex">
+                    <span
+                    id="employersOpenBtn2"
+                    style="cursor: pointer; float: right; "
+                    ><i
+                      style="font-size: 22px"
+                      class="fa-regular fa-pen-to-square"
+                    ></i
+                  ></span>
+              
+                  </div>
+           
+                  <div class="title-box flex">
+                    <div class="p-16">Industry</div>
+                    <h4 id="industry"><%= data.job  %></h4>
+                  </div>
+                  <div class="title-box flex">
+                    <div class="p-16">Email</div>
+                    <h4><a href="<%= data.email %>"><%= data.email %></a></h4>
+                  </div>
+                
+                  <div class="title-box flex">
+                    <div class="p-16">Company size</div>
+                    <h4 id="companysize"><%= data.size  %></h4>
+                  </div>
+              
+                  <div class="title-box flex">
+                    <div class="p-16">Founded</div>
+                    <h4 id="founded"><%= data.birth2  %></h4>
+                  </div>
+                  <div class="wrap-icon">
+                    <h4>Socials:</h4>
+                    
+                    <div id="employerSocial" class="box-icon flex">
+                      <a id="emp1" data-value="<%= data.facebook %>" href="<%= data.facebook %>" class="icon-facebook"></a>
+                      <a id="emp2" data-value="<%= data.linkedin %>" href="<%= data.linkedin %>" class="icon-linkedin2"></a>
+                      <a id="emp3" data-value="<%= data.twitter %>" href="<%= data.twitter %>" class="icon-twitter"></a>
+                      <a id="emp4" data-value="<%= data.pinteres %>" href="<%= data.pinteres %>" class="icon-pinterest"></a>
+                      <a id="emp5" data-value="<%= data.instagram %>" href="<%= data.instagram %>" class="icon-instagram1"></a>
+                      <a id="emp6" data-value="<%= data.youtube %>" href="<%= data.youtube %>" class="icon-youtube"></a>
+                    </div>
+                  </div>
+                </div>
+             
+              </div>
+
+              <div class="col-xl-8 col-lg-7 col-md-7 col-sm-7 col-xs-5 widget-dash-video bg-white">
+                <br>
+                <h3 class="title-about">About 
+                  <span  id="employerModalBoxOpen3" style="float: right; cursor: pointer; margin-right: 40px;"><i style="font-size: 22px;" class="fa-regular fa-pen-to-square"></i></span>
+                </h3>
+                <p id="aboutView" class="text-1"><%= data.about  %></p>
+               
+                <div class="video-wrap gallery">
+                  <div class="swiper-item gallery-slide">
+                    <div id="extraPhotoTop" class="swiper-wrapper">
+<% exstraPhoto.forEach(element => { %>
+  <div class="swiper-slide swiper-slide-1">
+    <div class="images">
+       <img src="<%= element  %>" alt="">
+    </div>
+  </div>
+<% }) %>
+                      
+
+
+
+                    </div>
+                  </div>
+
+
+                  <div class="swiper-item gallery-thumb">
+                    <div id="extraPhotoBottom" class="swiper-wrapper">
+ <% exstraPhoto.forEach(element => { %>
+  <div class="swiper-slide swiper-slide-1">
+    <div class="icon-image-wrap">
+      <img src="<%= element  %>" alt="">
+    </div>
+  </div>
+<% }) %>
+                     
+
+
+
+                    </div>
+                    <div class="button-custom-slider">
+                      <div class="swiper-button-next3 button-slide-custom-next"><span
+                          class="icon-keyboard_arrow_right"></span></div>
+                      <div class="swiper-button-prev3 button-slide-custom-prev"><span
+                          class="icon-keyboard_arrow_left"></span> </div>
+                    </div>
+                  </div>
+
+
+                </div>
+        
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+ 
+
+    <section class="flat-dashboard-bottom">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <h5 class="center">©2023 Jobtex. All Rights Reserved.</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+
+<style>
+
+</style>
+
+
+
+
+
+<div id="kk" style="display: none;">
+  <% exstraPhoto.forEach(element => { %>
+    <img
+    style="max-width: 120px; max-height: 120px; width: 120px; margin:5px 5px"
+    class="avatar"
+    id="employersAllImg"
+    src="<%= element  %>"
+    alt=""
+  />
+      
+  <% }) %>
+</div>
+
+
+<div id="employerBoxOne" class="modalBoxprofileClass">
+  <div class="modalboxInfoClass">
+    <h4 class="modalTitle">
+      Edit
+      <span class="modalClossBtnClass" id="employerModelCloseID"
+        ><i class="modalCloseIcon fa-solid fa-xmark"></i
+      ></span>
+    </h4>
+
+    <div class="wrap-img flex2">
+      <div class="imgSelectBoxClass img-box relative">
+        <img
+        style="max-width: 120px; max-height: 120px; width: 120px;"
+          class="avatar"
+          id="employersİnputppIMG"
+          src="/img/dashboard/image-up.jpg"
+          alt=""
+        />
+      </div>
+      <div id="upload-profile" style="margin-left: 20px">
+        <h5 class="fw-6">Upload a new avatar:</h5>
+        <h6>JPG 80x80px</h6>
+        <form>
+          <input
+            class="up-file"
+            id="employerppINPUT"
+            type="file"
+            name="imageFile"
+            required=""
+          />
+        </form>
+      </div>
+    </div>
+<br>
+    <div class="wrap-img flex2">
+      <div class="imgSelectBoxClass img-box relative">
+        <img
+        style="max-width: 120px; max-height: 120px; width: 120px;"
+          class="avatar"
+          id="employerskpInputIMG"
+          src="/img/dashboard/image-up.jpg"
+          alt=""
+        />
+      </div>
+      <div id="upload-profile" style="margin-left: 20px">
+        <h5 class="fw-6">Upload a new avatar:</h5>
+        <h6>JPG 80x80px</h6>
+        <form>
+          <input
+            class="up-file"
+            id="employerskpInput"
+            type="file"
+            name="imageFile"
+            required=""
+          />
+        </form>
+      </div>
+    </div>
+
+    <label class="modalLabelClass mt-3" for="">*Full Name</label>
+    <input
+      id="employersTitleInput"
+      style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;"
+      placeholder="*Hüseyin Yalçın"
+      type="text"
+    />
+    <label class="modalLabelClass mt-3" for="">*Short Description</label>
+    <input
+      id="employersPInput"
+      style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;"
+      placeholder="*Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique, exercitationem?
+      "
+      type="text"
+    />
+
+    <label class="modalLabelClass mt-3" for="">*Web Site URL</label>
+    <input
+      id="employersWebInput"
+      style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;"
+      placeholder="*www."
+      type="text"
+    />
+
+    
+  <div style="position: relative;">
+    <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Location</label>
+    <input id="cadidatesLocationKeyWordID" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Turkey istanbul" type="text">
+    <ul id="inputSelectUL" class="inputSelectUL" style="top: 64px;">
+
+    </ul>
+</div>
+
+    <div id="employersTalesBoxInput" style="width: 100%; margin: auto;" >
+ 
+    </div>
+
+    <div id="employertalentAddBoxId" class="dilAddBox">
+      <i class="talenAdd fa-solid fa-plus"></i>Talent add
+    </div>
+
+    <br /><br /><br /><br />
+    <div class="closeBox">
+      <button
+      style="  width: 100px;
+      display: block;
+      color: white;
+      border-radius: 19px;
+      font-family: sans-serif;
+      margin-right: 20px;
+      background: #0e76a8;"
+      id="employerSaveTop" class="obutBtn">Save</button>
+    </div>
+  </div>
+</div>
+
+<div id="modalBoxInfo" class="modalBoxInfoClass">
+  <div class="modalboxInfoClass">
+  <h4 style="z-index: 999999999; background-color: white; position: sticky; top: 0px; padding: 15px 10px; border-bottom: 1px solid rgba(202, 202, 202, 0.785);">Edit<span id="employerModalBoxClose2" style=" cursor: pointer; float: right; margin-right: 13px;"><i style="font-size: 24px; " class="fa-solid fa-xmark"></i></span></h4>
+
+
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Industry</label>
+  <input id="industryInput" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Örn: UL/UX Desinger" type="text">
+  
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Company size</label>
+  <input id="companysizeInput" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*Turkey istanbul" type="text">
+  
+  <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Founded</label>
+  <input id="foundedInput" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;"  type="date">
+
+
+
+
+
+ <div id="sosialMadiaInputBox">
+
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Facebook</label>
+ <input id="employerFacebook" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Linkedin</label>
+ <input  id="employerLinkedin" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Twitter</label>
+ <input id="employerTwitter" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Pinteres</label>
+ <input id="employerPinterest" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Instagram</label>
+ <input id="employerInstagram" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+ 
+ <label for="" style="color: rgb(144, 144, 144); max-width: 90%; margin: auto; display: block; ">*Youtube</label>
+ <input id="employerYoutube" style="color:black; height: 40px; max-width: 90%; margin:  auto; text-align: left; display: block; border: 0.5px solid rgb(136, 136, 136) ; border-radius: 10px; margin-bottom: 10px;" placeholder="*url" type="text">
+
+
+ 
+</div>
+
+
+
+  <br><br>
+  <div class="closeBox">
+    <button id="saveEmployerModal2" style=" width: 100px;
+    display: block;
+    color: white;
+  border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0e76a8;"   class="obutBtn ">Save</button>
+  </div>
+  
+  
+  
+  </div>
+  </div>
+
+
+  <div id="employerModalBox" class="modalBoxTop">
+    <div class="modalbox">
+    <h4 style="z-index: 999999999; background-color: white; position: sticky; top: 0px; padding: 15px 10px; border-bottom: 1px solid rgba(202, 202, 202, 0.785);">About Me <span id="aboutClose" style=" cursor: pointer; float: right; margin-right: 13px;"><i style="font-size: 24px; " class="fa-solid fa-xmark"></i></span></h4>
+    <p style="width: 90%; margin: auto; font-size: 14px; color: rgb(109, 109, 109);">Deneyim süreniz, sektörünüz ve yeteneklerinizden bahsedebilirsiniz. Diğer kişiler ayrıca başarılarına veya önceki iş tecrübelerine de değinir.</p>
+    <textarea name="" id="aboutID" class="aboutMe"></textarea>
+  
+    <br>
+    <div class="wrap-img " style="width: 90%; margin: auto;">
+      <div id="imgAllBox" class="imgAllBox img-box relative" style="display: flex; align-items: center; justify-content: start; flex-wrap: wrap; ">
+        
+
+    
+
+
+        
+      </div>
+      <div id="upload-profile" style="margin-left: 20px">
+        <h5 class="fw-6">Upload a new avatar:</h5>
+        <h6>JPG 80x80px</h6>
+        <form>
+          <input
+            class="up-file"
+            id="employersAllimg"
+            type="file"
+            name="files"
+            required=""
+
+            multiple
+          />
+        </form>
+      </div>
+    </div>
+
+    <br><br>
+    <div class="closeBox">
+      <button  style=" width: 100px;
+      display: block;
+      color: white;
+    border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0e76a8;" id="employerModalSave3"  class="obutBtn ">Save</button>
+    </div>
+    
+    
+    
+    </div>
+    </div>
+
+
+
+  
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.cookie.js"></script>
+  <script src="/js/hyEmployerModalSetting.js"></script>
+
+  <script src="/js/swiper-bundle.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src='/js/wow.min.js'></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/countto.js"></script>
+  <script src="/js/jquery.fancybox.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="/js/dashboard-menu.min.js"></script>
+  <script src="/js/dashboard-menu.js"></script>
+  <script src="/js/inputselect.js"></script>
+
+</body>
+
+<!-- Mirrored from themesflat.co/html/jobtex/dashboard/employer-profile.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:33 GMT -->
+</html>

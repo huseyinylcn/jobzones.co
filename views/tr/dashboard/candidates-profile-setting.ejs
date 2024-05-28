@@ -1,0 +1,291 @@
+<%- include('../partical/admindashboard.ejs') %>
+
+  <div class="dashboard__content">
+    <section class="page-title-dashboard">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div class="title-dashboard">
+              <div class="title-dash flex2">Profile Setting</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="flat-dashboard-setting flat-dashboard-setting2">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div class="profile-setting bg-white">
+              <div class="author-profile flex2 border-bt">
+
+                <div class="wrap-img flex2">
+                  <div class="img-box relative">
+                    <img class="avatar " id="profileimg" src="/img/dashboard/image-up.jpg" alt="">
+                  </div>
+                  <div id="upload-profile">
+                    <h5 class="fw-6">Upload a new avatar: </h5>
+                    <h6>JPG 80x80px</h6>
+                    <input class="up-file" id="profileimgInput" type="file" name="profile" required="">
+                  </div>
+                </div>
+
+                <div class="wrap-img flex2">
+                  <div class="img-box relative">
+                    <img class="avatar " id="profilekapakimg" src="/img/dashboard/image-up.jpg" alt="">
+                  </div>
+                  <div id="upload-profile">
+                    <h5 class="fw-6">Upload a new avatar: </h5>
+                    <h6>JPG 80x80px</h6>
+                    <input class="up-file" id="profilekapakimgInput" type="file" name="profile" required="">
+                  </div>
+                </div>
+
+                <div class="tt-button button-style">
+                  <a href="#" id="saveProfileBtn" class="btn-3">Save Profile</a>
+                </div>
+              </div>
+
+
+              <div class="form-infor-profile">
+                <h3 class="title-info">Information</h3>
+                <div class="form-infor flex flat-form">
+                  <div class="info-box info-wd">
+                    <fieldset>
+                      <label class="title-user fw-7">Full Name</label>
+                      <input id="fullnameInput" type="text" class="input-form" required>
+                    </fieldset>
+                    <fieldset>
+                      <label class="title-user fw-7">Phone Number</label>
+                      <input type="tel" class="input-form" id="phoneInput" required>
+                    </fieldset>
+                    <div id="item_date" class="dropdown titles-dropdown">
+                      <label class="title-user fw-7">Gender</label>
+                      <a id="vvv" class="btn-selector nolink input-form"> Male</a>
+
+                      <ul>
+                        <li><span id="maleInput">Male</span></li>
+                        <li><span id="femaleInput">Female</span></li>
+                      </ul>
+                    </div>
+                    <fieldset>
+                      <label class="title-user fw-7">Offered Salary ($)</label>
+                      <input id="salaryExpectationInput" type="text" class="input-form"  required>
+                    </fieldset>
+             
+                    <fieldset>
+                      <label class="title-user fw-7">Location</label>
+                      <input id="localtionInput" type="text" class="input-form" value="Tokyo, Japan" required>
+                    </fieldset>
+
+                    <fieldset>
+                      <label class="title-user fw-7">Job Title</label>
+                      <input id="jobInput" type="text" class="input-form" value="UI UX Designer" required>
+                    </fieldset>
+                  </div>
+                  <div class="info-box info-wd">
+                    <fieldset>
+                      <label class="title-user fw-7">Date Of Birth</label>
+                      <input type="date" class="input-form"  required>
+                    </fieldset>
+                    <fieldset>
+                      <label class="title-user fw-7">Email</label>
+                      <input type="email" class="input-form" id="emailInput" required>
+                    </fieldset>
+
+                    <div id="item_3" class="dropdown titles-dropdown">
+                      <label class="title-user fw-7">Qualification</label>
+                      <a class="btn-selector nolink input-form">Master Degree</a>
+                      <ul>
+                        <li><span>Master Bachelor</span></li>
+                        <li><span>Master Degree</span></li>
+                      </ul>
+                    </div>
+                    <div id="item_4" class="dropdown titles-dropdown">
+                      <label class="title-user fw-7">Language</label>
+                      <a class="btn-selector nolink input-form">English</a>
+                      <ul>
+                        <li><span>English</span></li>
+                        <li><span>Vietnamese</span></li>
+                        <li><span>French</span></li>
+                        <li><span>Japanese</span></li>
+                      </ul>
+                    </div>
+                    <fieldset>
+                      <label class="title-user fw-7">Categories</label>
+                      <input type="text" class="input-form" value="Design" required>
+                    </fieldset>
+                  </div>
+                </div>
+
+                <div class="tag-wrap border-bt">
+                  <h5 class="title-tag fw-7">Tag Skill </h5>
+                  <div class="tag-area">
+                    <ul>
+                      <li class="tag"></li>
+                      <li><input type="text" class="tag-input" /></li>
+
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="text-editor-wrap border-bt">
+                  <h3>About Company</h3>
+                  <div class="text-editor-main">
+                    <div class="options">
+                      <button class="my-text-btn" data-command="undo"><i class="fas fa-undo"></i></button>
+                      <button class="my-text-btn" data-command="redo"><i class="fas fa-redo"></i></button>
+                      <button class="my-text-btn" data-command="bold"><i class="fas fa-bold"></i></button>
+                      <button class="my-text-btn" data-command="italic"><i class="fas fa-italic"></i></button>
+                      <button class="my-text-btn" data-command="underline"><i class="fas fa-underline"></i></button>
+                      <button class="my-text-btn" data-command="strikeThrough"><i
+                          class="fas fa-strikethrough"></i></button>
+                      <button class="my-text-btn" data-command="formatBlock" data-block="H1">H1</button>
+                      <button class="my-text-btn" data-command="formatBlock" data-block="H2">H2</button>
+                      <button class="my-text-btn" data-command="formatBlock" data-block="H3">H3</button>
+                      <button class="my-text-btn" data-command="justifyLeft"><i class="fas fa-align-left"></i></button>
+                      <button class="my-text-btn" data-command="justifyCenter"><i
+                          class="fas fa-align-center"></i></button>
+                      <button class="my-text-btn" data-command="justifyRight"><i
+                          class="fas fa-align-right"></i></button>
+                      <button class="my-text-btn" data-command="justifyFull"><i
+                          class="fas fa-align-justify"></i></button>
+                      <button class="my-text-btn" data-command="insertImage"><i class="fas fa-images"></i></button>
+                      <button class="my-text-btn" data-command="createLink"><i class="fas fa-link"></i></button>
+                    </div>
+                    <div class="contentOutput" contenteditable="true"></div>
+
+                  </div>
+                </div>
+
+                <div class="social-wrap border-bt">
+                  <h3>Social Network</h3>
+                  <div class="form-social form-wg flex flat-form">
+                    <div class="form-box info-wd wg-box">
+                      <fieldset class="flex2">
+                        <span class="icon-facebook"></span>
+                        <input type="url" class="input-form" value="http://www.facebook.com/avitex">
+                      </fieldset>
+                      <fieldset class="flex2">
+                        <span class="icon-twitter"></span>
+                        <input type="url" class="input-form2" placeholder="URL" required>
+                      </fieldset>
+                      <fieldset class="flex2">
+                        <span class="icon-instagram1"></span>
+                        <input type="url" class="input-form2" placeholder="URL" required>
+                      </fieldset>
+                    </div>
+                    <div class="form-box info-wd wg-box">
+                      <fieldset class="flex2">
+                        <span class="icon-linkedin2"></span>
+                        <input type="url" class="input-form2" placeholder="URL" required>
+                      </fieldset>
+                      <fieldset class="flex2">
+                        <span class="icon-pinterest"></span>
+                        <input type="url" class="input-form2" placeholder="URL" required>
+                      </fieldset>
+                      <fieldset class="flex2">
+                        <span class="icon-youtube"></span>
+                        <input type="url" class="input-form2" placeholder="URL" required>
+                      </fieldset>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="contact-wrap info-wd">
+                  <h3>Contact Information</h3>
+
+                  <fieldset class="address-box">
+                    <label class="title-user fw-7">Address</label>
+                    <input type="text" class="input-form input-style" value="71  St. Takayamio, Tokyo">
+                  </fieldset>
+                  <div class="form-social form-wg flex flat-form">
+                    <div class="form-box  wg-box">
+                      <div id="item_category2" class="dropdown titles-dropdow">
+                        <label class="title-user color-1 fw-7">Location</label>
+                        <a class="btn-selector nolink input-form"> Tokyo </a>
+                        <ul>
+                          <li><span>VietNam</span></li>
+                          <li><span>Tokyo</span></li>
+                          <li><span>USA</span></li>
+                          <li><span>England</span></li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="form-box  wg-box">
+                      <fieldset class="">
+                        <label class="title-user fw-7">Map Location</label>
+                        <input type="text" class="input-form input-style" value="243- 235  St. Takayamio, Tokyo">
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+                <div class="map-content">
+                  <iframe class="map-box"
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d7302.453092836291!2d90.47477022812872!3d23.77494577893369!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1svi!2s!4v1627293157601!5m2!1svi!2s"
+                    allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div class="area-wrap info-wd">
+                  <div class="form-social form-wg flex flat-form">
+                    <div class="form-box  wg-box">
+                      <fieldset class="">
+                        <input type="text" class="input-form " value="40.69499198068389">
+                      </fieldset>
+                    </div>
+                    <div class="form-box  wg-box">
+                      <fieldset class="">
+                        <input type="text" class="input-form " value="-73.9959976171989">
+                      </fieldset>
+                    </div>
+                  </div>
+                </div>
+                <div class="wrap-video">
+                  <fieldset class="info-wd">
+                    <label class="title-url fw-7">Introduction Video</label>
+                    <input type="url" class="input-form input-style"
+                      value="https://www.youtube.com/watch?v=I6ZLgk_bq90">
+                  </fieldset>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="flat-dashboard-bottom">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <h5 class="center">©2023 Jobtex. All Rights Reserved.</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/js/tag-input.js"></script>
+  <script src="../../../../kit.fontawesome.com/275e820b94.js" crossorigin="anonymous"></script>
+  <script src="/js/text-editor.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.cookie.js"></script>
+  <script src="/js/swiper-bundle.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src='/js/wow.min.js'></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/countto.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="/js/dashboard-menu.min.js"></script>
+  <script src="/js/dashboard-menu.js"></script>
+  <script src="/js/hyprofilesetting.js"></script>
+
+
+</body>
+
+
+<!-- Mirrored from themesflat.co/html/jobtex/dashboard/candidates-profile-setting.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:25 GMT -->
+</html>

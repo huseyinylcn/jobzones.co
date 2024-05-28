@@ -1,0 +1,131 @@
+<%- include('../partical/admindashboard.ejs') %>
+
+  <div class="dashboard__content">
+    <section class="page-title-dashboard">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div class="title-dashboard">
+              <div class="title-dash flex2">Resumes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    
+    <section class="flat-dashboard-resumes flat-dashboard-setting">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <div class="profile-setting bg-white">
+              <div class="author-profile border-bt">
+
+                <div class="wd-file-apply style2">
+                  <div class="content">
+                    <h3>CV File</h3>
+                    <form action="https://themesflat.co/html/jobtex/dashboard/get">
+                      <div class="group-seclect-file">
+                        <div class="group-file">
+
+                          <div class="inner left " style="width: 300px;">
+                            <div class="title-box">
+                              
+                              <div class="fs-16 fw-7" style="margin-bottom: 5px;">PDF</div>
+                            </div>
+                            <form>
+                            <input id="cvInputID" style="background-color: transparent;" type="file">
+                          </form>
+                            <i style=" padding-left: 20px;" class="file-icon icon-file-pdf"></i>
+                            
+                          </div>
+
+                          <!-- <div class="inner left ">
+                            <div class="title-box">
+                              <div class="sub-title fs-12 fw-6">Samle_cv_jobitex</div>
+                              <div class="fs-16 fw-7">Doc</div>
+                            </div>
+                            <i class="file-icon icon-file-doc"></i>
+                            <i class="icon-close"></i>
+                          </div> -->
+
+                        </div>
+                      </div>
+                      <div class="row">
+                      <div class="col-md-6 col-sm-12 button-wrap flex2">
+                        <div class="tt-button button-browse">
+                          <a id="cvUploadBtn" href="#">Browse</a>
+                        </div>
+                        <div class="fs-16"><a>Upload file PDF, Doc, Docx</a> </div>
+                      </div>
+                      <% if(data.cv == '' || data.cv == null){ %>
+
+                      <% }else{ %>
+                        <div class="col-md-6 col-sm-12 button-wrap flex2">
+                          <div class="tt-button button-browse">
+                            <a  target="_blank" href="<%=data.cv %>">View</a>
+                          </div>
+                          <div class="fs-16"><a >Mevcut CV Görüntüle</a> </div>
+                        </div>
+                      <% } %>
+
+                   
+                    </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+
+
+              <!-- <iframe style="border: none; max-width: 600px;width: 90%; min-height: 400px; height: auto; margin: auto;" src="<%= data.cv %>" >
+                Bu tarayıcı PDF dosyalarını görüntülemeyi desteklemiyor.
+            </iframe> -->
+
+
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <section class="flat-dashboard-bottom">
+      <div class="themes-container">
+        <div class="row">
+          <div class="col-lg-12 col-md-12 ">
+            <h5 class="center">©2023 Jobtex. All Rights Reserved.</h5>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script src="/js/tag-input.js"></script>
+  <script src="../../../../kit.fontawesome.com/275e820b94.js" crossorigin="anonymous"></script>
+  <script src="/js/text-editor.js"></script>
+  <script src="/js/jquery.min.js"></script>
+  <script src="/js/jquery.cookie.js"></script>
+  <script src="/js/swiper-bundle.min.js"></script>
+  <script src="/js/bootstrap.min.js"></script>
+  <script src='/js/wow.min.js'></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/countto.js"></script>
+  <script src="/js/dropdown.js"></script>
+  <script src="/js/dashboard-menu.min.js"></script>
+  <script src="/js/dashboard-menu.js"></script>
+  <script src="/js/hyresumes.js"></script>
+
+
+</body>
+
+
+<!-- Mirrored from themesflat.co/html/jobtex/dashboard/candidates-resumes.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:25 GMT -->
+</html>

@@ -1,0 +1,165 @@
+<%- include('../partical/header.ejs') %>
+
+
+
+<style>
+  .arakaplanmodal{
+    width: 100%;
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 999999;
+    transition: 0.5s;
+transform: translateX(-500%);
+display: flex;
+justify-content: center;
+align-items: start;
+  }
+  .SignModal{
+    max-width: 400px;
+    width: 80%;
+z-index: 99999;
+margin-top: 90px;
+
+  }
+
+</style>
+<div class="arakaplanmodal" id ="exampleModalCenter">
+<div class="SignModal"  >
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title " style="font-size: 19px;">verify your email</h5>
+      </div>
+      <div class="modal-body">
+        <p id="signmodalwarn" style="text-align: center;">Enter 6-digit verification code</p>
+        <input style=" display: block;
+        margin: auto;
+        width: 200px;
+        height: 60px;
+        font-size: 29px;
+        font-weight: 800;
+        text-align: center;
+        color: black;" type="number" placeholder="000000" id="verifyCode">
+      </div>
+      <div class="modal-footer">
+        <button id="signforcode" type="button" class="btn btn-sm btn-danger light"  data-bs-dismiss="modal">Send Again</button>
+        <button id="signVerifyWrite" type="button" class="btn btn-sm btn-primary" >Verify</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+  <section class="account-section">
+        <div class="tf-container">
+            <div class="row">
+              <div class="wd-form-login tf-tab">
+                    <h4>Create account</h4>
+                    <ul class="menu-tab">
+                        <li id="candidateOpen" class="ct-tab active">Candidate</li>
+                        <li id="employerOpen" class="ct-tab">Employer</li>
+                    </ul>
+                    <div class="nofi-form">
+                      <p id="SigninWarning" style="color: rgb(99, 2, 2); font-size: 15px;"></p>
+                      
+                    </div>
+                    <div class="content-tab">
+                        <div class="inner">
+
+                            <form action="/signin/" method="POST">
+
+                              <div class="ip d-none">
+                                <label >type<span>*</span></label>
+                                <input id="SignTypeID" name="typeID" type="text"  value="0"  placeholder="typpe = 0">
+                            </div>
+
+                            
+                            <div class="ip">
+                              <label >FullName<span>*</span></label>
+                              <input id="SignFullname" type="text" name="fullname"   placeholder="Full Name">
+                          </div>
+
+                              <div class="ip">
+                                <label >Username<span>*</span></label>
+                                <input id="SignUsername" type="text" name="username"   placeholder="Username">
+                            </div>
+
+                                <div class="ip">
+                                    <label >Email address<span>*</span></label>
+                                    <input   id="Signemail" type="email" name="email"  placeholder="Email address">
+                                </div>
+
+                                <div class="ip">
+                                    <label >Password<span>*</span></label>
+                                    <div class="inputs-group auth-pass-inputgroup">
+
+                                        <input type="password"  id="Signpassword" name="password" class="input-form password-input" placeholder="Password" required="">
+
+                                        <a class="icon-eye-off password-addon"></a>
+                                    </div>
+                                </div>
+
+                                <div class="ip">
+                                    <label >Confirm Password<span>*</span></label>
+                                    <div class="inputs-group auth-pass-inputgroup">
+                                        <input type="password" id="Signpassword2" class="input-form password-input" name="password2"  placeholder="Password" required="">
+                                        <a class="icon-eye-off password-addon"></a>
+                                    </div>
+                                </div>
+
+                                <div class="group-ant-choice st">
+                                  <div class="sub-ip">
+                                    <input id="Signtermofuse" type="checkbox"name="termofuse">
+                                    I agree to the <a   href="/termofuse/" target="_blank">Terms of User</a></div>
+                                </div>
+                                
+
+                                <button onclick="InputControl()" type="button">Register</button>
+                                <br><br>
+                                <a id="googleIDaElement" href="/signin/google/?employer=0" class="btn-social"> <img src="/img/review/google.png" alt="/img"> Continue with Google</a>
+
+                                <div class="sign-up">Already have an account?<a href="/login/">Login Here</a></div>
+
+                            </form>
+                        </div>
+
+
+
+                    
+                    </div>
+                   
+              </div>
+            </div>
+        </div>
+  </section>
+
+
+  <%- include('../partical/footer.ejs') %>
+  </div><!-- /.boxed --> 
+
+  <script src="/js/hySignin.js"></script>
+
+<script src="/js/jquery.min.js"></script>
+<script src="/js/swiper-bundle.min.js"></script>
+<script src="/js/bootstrap.min.js"></script>
+<script src="/js/boostrap-select.min.js"></script>
+<script src="/js/jquery.fancybox.js"></script>
+<script src="/js/plugin.min.js"></script>
+<script src='/js/wow.min.js'></script>
+<script src="/js/password-addon.js"></script>
+<script src='/js/swiper.js'></script>
+<script src='/js/jquery.nice-select.min.js'></script>
+<script src="/js/jquery.cookie.js"></script>
+<script src="/js/switcher.js"></script>
+
+<script src="/js/main.js"></script>
+</body>
+
+<!-- Mirrored from themesflat.co/html/jobtex/create-account.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:22 GMT -->
+</html>

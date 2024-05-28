@@ -6,7 +6,7 @@ const path = require("path");
 const passport = require("passport");
 
 
-
+let xx = 10
 const bodyParser = require("body-parser");
 const sql = require("mssql");
 require("dotenv").config();

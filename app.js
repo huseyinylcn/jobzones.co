@@ -1,6 +1,6 @@
 const express = require("express");
 let session = require('express-session')
-let degisiklik= 1
+let degisiklik= 2
 const app = express();
 const path = require("path");
 const passport = require("passport");

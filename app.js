@@ -1,6 +1,6 @@
 const express = require("express");
 let session = require('express-session')
-let oyun = 124682
+
 const app = express();
 const path = require("path");
 const passport = require("passport");

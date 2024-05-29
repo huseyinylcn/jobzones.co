@@ -135,13 +135,13 @@ profileTopBtn.addEventListener("click", () => {
   }
 });
 modalEditOpenBtn.addEventListener("click", () => {
-
-
+try {
+  
   profileimg.src = profileImgview.src
-
 
   talentBox.innerHTML = "";
   profileFullName.value = profileFullnameView.innerHTML;
+
 
   let a = talentBoxView.getElementsByTagName("a");
   for (let i = 0; i < a.length; i++) {
@@ -158,4 +158,8 @@ modalEditOpenBtn.addEventListener("click", () => {
   } else {
     profileStatus.value = 0;
   }
+} catch (error) {
+  
+}
+
 });

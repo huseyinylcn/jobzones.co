@@ -2,7 +2,6 @@
 
 <%- include('../partical/admindashboard.ejs') %>
 
-
 <style>
 
 
@@ -173,7 +172,8 @@
                   </div>
                   <div class="title-box flex">
                     <div class="p-16">Mode</div>
-                    <h4 id="modeProfilView">
+                   
+                    <h4 data-value="<%= mode  %>" id="modeProfilView" style="text-transform: capitalize;">
                     <% mode.forEach(element => { %>
                       <%= element %>,
                     <% }) %>
@@ -189,6 +189,7 @@
                     <div class="p-16">Gender</div>
                     <% if (data.gender == true) { %>
                       <h4 id="grnderView">Male</h4>
+
                     <% } else if(data.gender == false){ %>
                     <h4 id="grnderView">Woman</h4>
                     <% }else{ %>
@@ -373,7 +374,7 @@ border-radius: 19px; font-family: sans-serif; margin-right: 20px; background: #0
     <% }else if(data.gender == false){ %>
       <option style="height: 40px; margin-top:-10px;" value="0">Woman</option>
       <% }else{ %>
-        <option style="height: 40px; margin-top:-10px;" value=""><Select></Select></option>
+        <option style="height: 40px; margin-top:-10px;" value="">Gender</option>
       <% } %>
     <option value="0">Woman</option>
     <option value="1">Male</option>

@@ -32,13 +32,16 @@ let birthProfilView = document.getElementById("birthProfilView");
 
 let departmanView = document.getElementById("departmanView");
 
-
-
-
-
-
 let modePElementView = document.getElementById('modePElementView')
 let modeUl = document.getElementById('modeUl')
+
+
+let modeProfilView = document.getElementById('modeProfilView')
+
+
+
+
+
 modeUl.style.display = 'none'
 
 modePElementView.addEventListener('click',()=>{
@@ -106,23 +109,29 @@ modeUl.style.display = 'none'
 
 
 
-let modeProfilView = document.getElementById('modeProfilView')
+
 
 
 modalBoxInfoBtn.addEventListener("click", () => {
+modePElementView.innerHTML = ''
+
   let liListt =   modeUl.getElementsByTagName('input')
-  let inner = education.replace(/'/g, '"');
-  let modeList = (modeProfilView.innerHTML).split(',');
-console.log(modeList)
+
+
+ let modeSTR = modeProfilView.dataset.value
+ let modeList = modeSTR.split(',');
   modeList.forEach(mode => {
-    console.log(mode);
+
+    for(let i = 0;i < liListt.length;i++){
+      let checked = liListt[i].dataset.value.split(',');
   
-    liListt.forEach(li => {
-      let checked = li.dataset.value.split(',');
-      console.log(checked);
+      if(checked[1] == mode){
+        liListt[i].checked = true
+        modePElementView.innerHTML += `${checked[0]}, `
+      }
+    }
   
-      li.checked = (checked[1] === mode);
-    });
+     
   });
 
 
@@ -253,7 +262,7 @@ saveProfile.addEventListener("click", () => {
     modeArray.push(result[1])
     }
  }
-console.log(modeArray)
+
 
 
 
@@ -305,7 +314,9 @@ console.log(modeArray)
       .then((response) => response.json())
       .then((data) => {
         modalBoxInfoClose.click();
-      });
+      }).catch(err=>{
+        console.log(err)
+      })
   });
 });
 

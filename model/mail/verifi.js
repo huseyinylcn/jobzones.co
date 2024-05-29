@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-let yusuf=22
+
 let verifiFunc = (code, mail) => {
   return new Promise((resolve, reject) => {
     let transporter = nodemailer.createTransport({
@@ -9,6 +9,7 @@ let verifiFunc = (code, mail) => {
             pass:'rfgpvxoeszcrtswc'
         }
     })
+    
     let mailOptions = {
         from:'info@jobzones.co',
         to:`${mail}`,

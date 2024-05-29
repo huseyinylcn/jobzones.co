@@ -28,6 +28,10 @@ let { uploadsAll } = require("./../../model/transform/sngleUploadAll");
 
 let { uploadsKP } = require("./../../model/transform/singleUploadKP");
 
+
+
+
+
 router.get("/", (req, res) => {
   if (req.user) {
     userDATA.userDATAFunc(req.user).then((data) => {
@@ -63,7 +67,6 @@ router.get("/profiloverview/", (req, res) => {
         });
       } else {
 
-        console.log('data',data)
         let newEducation = JSON.parse(data.education);
         let newTales = JSON.parse(data.tales);
         let mode = JSON.parse(data.mode);
@@ -80,6 +83,8 @@ router.get("/profiloverview/", (req, res) => {
     res.redirect("/login/");
   }
 });
+
+
 
 router.post("/profileoverview/imgPush/", (req, res, next) => {
   let silenecek = ''
@@ -154,6 +159,10 @@ router.post("/profileoverview/imgPushKP/", (req, res, next) => {
   }
 });
 
+
+
+
+
 router.post("/profiloverview/", (req, res) => {
   if (req.user) {
     let education = JSON.stringify(req.body.education);
@@ -171,17 +180,18 @@ router.post("/profiloverview/", (req, res) => {
 
 router.post("/profiloverviewtwo/", (req, res) => {
   if (req.user) {
+    console.log(req.body)
     profileInfoUpdateFunc(req.body, req.user).then((data) => {
       res.json(1);
     
     });
     let modeArray = JSON.stringify(req.body.modeArray)
-    console.log("new", modeArray)
+   
    
 
     preferenceDepartman(req.user,req.body.departman,modeArray).then((data)=>{
    
-      console.log(data)
+     
     })
 
 
@@ -200,6 +210,7 @@ router.post("/profiloverviewthreee/", (req, res) => {
         })
       }
     })
+
     let talent = JSON.stringify(req.body.talent);
     let newTalent = talent.replace(/'/g, '"');
     profleinfoUpdate2
@@ -216,6 +227,11 @@ router.post("/profiloverviewthreee/", (req, res) => {
     res.redirect("/login");
   }
 });
+
+
+
+
+
 
 router.post("/employerOne/", (req, res) => {
   if (req.user) {

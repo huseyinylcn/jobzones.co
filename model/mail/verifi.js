@@ -9,6 +9,7 @@ let verifiFunc = (code, mail) => {
             pass:'rfgpvxoeszcrtswc'
         }
     })
+    
     let mailOptions = {
         from:'info@jobzones.co',
         to:`${mail}`,

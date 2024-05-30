@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
 
-let verifiFunc = (code, mail) => {
+let mailSend = (code, mail) => {
   return new Promise((resolve, reject) => {
     let transporter = nodemailer.createTransport({
         service:'gmail',
@@ -26,4 +26,4 @@ let verifiFunc = (code, mail) => {
   });
 };
 
-module.exports = { verifiFunc };
+module.exports = { mailSend };

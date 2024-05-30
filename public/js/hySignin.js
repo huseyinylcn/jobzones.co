@@ -11,7 +11,7 @@ let verifyCode = document.getElementById("verifyCode");
 let signmodalwarn = document.getElementById("signmodalwarn");
 let signforcode = document.getElementById("signforcode");
 let googleIDaElement = document.getElementById('googleIDaElement')
-let SignFullname = document.getElementById('SignFullname')
+
 
 let employerOpen = document.getElementById("employerOpen");
 let candidateOpen = document.getElementById("candidateOpen");
@@ -38,7 +38,7 @@ let SignemailValue = Signemail.value;
 let SignpasswordValue = Signpassword.value;
 let Signpassword2Value = Signpassword2.value;
 let SigntermofuseValue = Signtermofuse.checked;
-let SignFullnameValue = SignFullname.value
+
 
 function InputControl() {
   SignUsernameValue = (SignUsername.value).toLowerCase();
@@ -47,7 +47,7 @@ function InputControl() {
   SignpasswordValue = Signpassword.value;
   Signpassword2Value = Signpassword2.value;
   SigntermofuseValue = Signtermofuse.checked;
-  SignFullnameValue = SignFullname.value
+
 
   if (
     SignpasswordValue.length <= 0 ||
@@ -86,6 +86,9 @@ function InputControl() {
       behavior: "smooth", // Düzgün bir kaydırma efekti için
     });
   } else {
+
+    
+
     $(".preload").show();
 
     var showPreloader = function () {
@@ -96,73 +99,11 @@ function InputControl() {
       });
 
   };
-  
-  setTimeout(showPreloader, 3000);
+  setTimeout(showPreloader, 2000);
+    console.log('tamam')
 
-    fetch("/signin/verify/", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        typeID: globalEmpcandi,
-        username: SignUsernameValue,
-        email: SignemailValue,
-        password: SignpasswordValue,
-        termofuse: SigntermofuseValue,
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("data id",data.id)
-        if (data.id == 1) {
-          SigninWarning.innerHTML = "This e-mail address has been used before";
-          window.scrollTo({
-            top: 50,
-            behavior: "smooth", 
-          });
-        } else if (data.id == 2) {
-          SigninWarning.innerHTML = "This username has been used before";
-          window.scrollTo({
-            top: 50,
-            behavior: "smooth",
-          });
-        } else {
-          console.log(data.id);
-          globalVerify = data.id;
-          exampleModalCenter.style.transform = "translateX(0%)";
-        }
-      });
+
+
   }
 }
 
-signVerifyWrite.addEventListener("click", () => {
-  if (globalVerify == verifyCode.value) {
-    fetch("/signin/", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify({
-        typeID: globalEmpcandi,
-        username: SignUsernameValue,
-        email: SignemailValue,
-        password: SignpasswordValue,
-        termofuse: SigntermofuseValue,
-        fullname:SignFullnameValue
-      }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        window.location.href = data.path;
-      });
-  } else {
-    signmodalwarn.innerHTML = "ERROR CODE";
-  }
-});
-
-signforcode.addEventListener("click", () => {
-  exampleModalCenter.style.transform = "translateX(-500%)";
-  InputControl();
-});

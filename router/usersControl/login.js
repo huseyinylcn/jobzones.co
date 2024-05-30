@@ -1,5 +1,8 @@
 const express = require("express");
 const passport = require("passport");
+ let {login} = require('../../model/user/control')
+
+
 
 
 let router = express.Router();
@@ -16,7 +19,10 @@ router.get("/", (req, res) => {
 
 
 router.post("/", (req, res, next) => {
-console.log(req.body)
+  console.log(req.body)
+login(req.body).then(data=>{
+  res.json(data)
+})
 });
 
 module.exports = router;

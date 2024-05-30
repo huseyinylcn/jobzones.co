@@ -18,4 +18,11 @@ router.get("/home", (req, res) => {
 });
 
 
+router.get("/faqs", (req, res) => {
+
+    res.render("tr/site/accordion-page", { login: 0 });
+ 
+});
+
+
 module.exports = router;

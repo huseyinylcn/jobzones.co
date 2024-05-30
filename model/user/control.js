@@ -24,4 +24,20 @@ let conrolUSER = (username,email)=>{
     })
 }
 
-module.exports = { conrolUSER }
+let login = (email,password)=>{
+    
+return new Promise((resolve,reject)=>{
+
+    sql.query(`SELECT COUNT(*) as count FROM [user] WHERE email = '${email}' AND password = '${password}'`).then(data =>{
+        resolve(data.recordset[0].count)
+    }).catch(err=>{
+        resolve(0)
+        console.group(err)
+    })
+}).catch(err=>{
+    console.log(err)
+    return 0
+})
+}
+
+module.exports = { conrolUSER, login }

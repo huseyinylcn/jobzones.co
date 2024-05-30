@@ -10,22 +10,20 @@ let signVerifyWrite = document.getElementById("signVerifyWrite");
 let verifyCode = document.getElementById("verifyCode");
 let signmodalwarn = document.getElementById("signmodalwarn");
 let signforcode = document.getElementById("signforcode");
-let googleIDaElement = document.getElementById('googleIDaElement')
-
+let googleIDaElement = document.getElementById("googleIDaElement");
 
 let employerOpen = document.getElementById("employerOpen");
 let candidateOpen = document.getElementById("candidateOpen");
 let globalEmpcandi = 0;
 var izinVerilenKarakterlerRegex = /^[a-zA-Z0-9]*$/;
 
-
 employerOpen.addEventListener("click", () => {
-  googleIDaElement.href = '/signin/google/?employer=1'
+  googleIDaElement.href = "/signin/google/?employer=1";
   globalEmpcandi = 1;
 });
 
 candidateOpen.addEventListener("click", () => {
-  googleIDaElement.href = '/signin/google/?employer=0'
+  googleIDaElement.href = "/signin/google/?employer=0";
 
   globalEmpcandi = 0;
 });
@@ -39,15 +37,13 @@ let SignpasswordValue = Signpassword.value;
 let Signpassword2Value = Signpassword2.value;
 let SigntermofuseValue = Signtermofuse.checked;
 
-
 function InputControl() {
-  SignUsernameValue = (SignUsername.value).toLowerCase();
+  SignUsernameValue = SignUsername.value.toLowerCase();
   SignTypeIDValue = SignTypeID.value;
   SignemailValue = Signemail.value;
   SignpasswordValue = Signpassword.value;
   Signpassword2Value = Signpassword2.value;
   SigntermofuseValue = Signtermofuse.checked;
-
 
   if (
     SignpasswordValue.length <= 0 ||
@@ -86,24 +82,56 @@ function InputControl() {
       behavior: "smooth", // Düzgün bir kaydırma efekti için
     });
   } else {
-
-    
-
     $(".preload").show();
 
     var showPreloader = function () {
       $(".preload").fadeOut("slow", function () {
-        setTimeout(function () {
-          
-        }, 1000);
+        setTimeout(function () {}, 1000);
       });
+    };
 
-  };
-  setTimeout(showPreloader, 2000);
-    console.log('tamam')
-
-
-
+    record()
+      .then((data) => {
+        showPreloader();
+        if (data.result == 1) {
+          exampleModalCenter.style.transform = "translateY(0%)";
+        } else {
+          SigninWarning.innerHTML = data.message;
+        window.scrollTo({
+            top: 50,
+            behavior: "smooth", // Düzgün bir kaydırma efekti için
+          });
+        }
+      })
+      .catch((err) => {
+        exampleModalCenter.style.transform = "translateY(-500%)";
+        SigninWarning.innerHTML = "Error Lütfen daha sonra tekrar deneyin";
+        console.log(err);
+      })
+      .finally(() => {
+        window.scrollTo({
+          top: 50,
+          behavior: "smooth", // Düzgün bir kaydırma efekti için
+        });
+      });
   }
 }
 
+signVerifyWrite.addEventListener("click", () => {
+  verify(verifyCode.value).then(data=>{
+    if(data.result == 1){
+      window.location.href = '/home'
+    }else{
+      signmodalwarn.innerHTML = 'Error Code'
+      verifyCode.value = ''
+    }
+  }).catch(err=>{
+    console.log(err)
+    signmodalwarn.innerHTML = 'System Error'
+  })
+});
+
+
+signforcode.addEventListener('click',()=>{
+  InputControl()
+})

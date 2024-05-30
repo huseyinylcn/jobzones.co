@@ -47,22 +47,12 @@ app.set("views", __dirname + "/views/");
 const routerMain = require("./router/main");
 const routerSignin = require("./router/usersControl/signin");
 const routerLogin = require("./router/usersControl/login");
-const routerdashboard = require("./router/dashboard/main");
-const routerresumes = require("./router/dashboard/resumes");
-const routeremployers = require("./router/employers/main");
-const routercandidates = require("./router/candidates/main");
+
 
 
 sql.connect(config).then(() => {
     app.use("/signin", routerSignin);
     app.use("/login", routerLogin);
-    app.use("/candidates", routercandidates);
-    app.use("/dashboard", routerdashboard);
-    app.use("/dashboard/resumes", routerresumes);
-    app.use("/employers", routeremployers);
-    app.use("/candidates", routercandidates);
-
-
     app.use("/", routerMain);
 
 });

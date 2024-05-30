@@ -1,89 +1,31 @@
 const express = require("express");
 const crypto = require("crypto");
 const passport = require("passport");
-
 let router = express.Router();
 
-let mailControl = require("../../model/database/mailControl");
-let addUser = require("../../model/database/addUser");
-let usernameControl = require("../../model/database/usernameControl");
+let { conrolUSER } = require("./../../model/user/control");
+let { mailSend } = require("./../../model/user/mail");
+let { record } = require("./../../model/user/record");
 
-let verifi = require("../../model/mail/verifi");
-const { profile } = require("console");
 
-function generateRandomNumber() {
-  // 100000 ile 999999 arasında rastgele bir tamsayı üret
-  return Math.floor(100000 + Math.random() * 900000);
-}
+
+
+let user = {
+  userID:'',
+  username: "",
+  email: "",
+  password: "",
+  type:'',
+  mailCode: "",
+};
+
 let generateRandomToken = (length) => {
   const token = crypto.randomBytes(length).toString("hex");
   return token;
 };
 
-router.get("/", (req, res) => {
-  if(req.user){
-    res.render("tr/site/create-account",{login:1});
-  }else{
-    res.render("tr/site/create-account",{login:0});
-
-  }
-});
-
-router.post("/verify", (req, res) => {
-  mailControl.mailControlFunc(req.body.email).then((data) => {
-    if (data) {
-      res.json({ id: 1 });
-    } else {
-      usernameControl
-        .usernameControlFunc(req.body.username)
-        .then((userValue) => {
-          if (userValue) {
-            res.json({ id: 2 });
-          } else {
-            let code = generateRandomNumber();
-            console.log(code)
-            verifi.verifiFunc(code, req.body.email).then((datasend) => {
-              if (datasend) {
-                res.json({ id: code });
-              } else {
-              }
-            });
-          }
-        });
-    }
-  });
-});
-
-router.post("/", (req, res, next) => {
-  let token = generateRandomToken(20);
-
-  addUser
-    .addUserFunc(
-      token,
-      req.body.username,
-      req.body.email,
-      req.body.password,
-      req.body.typeID,
-      req.body.fullname
-    )
-    .then((data) => {
-      if (data) {
-        req.login(token, () => {
-if(req.body.typeID){
-  res.json({ path: "/infoplusemployer" });
-}else{
-  res.json({ path: "/infoplus" });
-}
-
-        });
-      } else {
-        res.json({ path: "/signin/" });
-      }
-    });
-});
 
 router.get("/google/", (req, res, next) => {
-  // Log the query parameters
   req.session.query = req.query;
 
   // Continue with Passport authentication
@@ -96,19 +38,122 @@ router.get("/google/", (req, res, next) => {
 });
 
 router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
-
-  if(req.userStatus == 0){
+  if (req.userStatus == 0) {
     res.redirect("/");
-  }else{
-    if(req.employer == 1){
-      res.redirect('/infoplusemployer')
-    }else{
+  } else {
+    if (req.employer == 1) {
+      res.redirect("/infoplusemployer");
+    } else {
       res.redirect("/infoplus");
     }
-    
   }
-
-  
 });
+
+
+router.get("/", (req, res) => {
+  if (req.user) {
+    res.render("tr/site/create-account",{login:0});
+  } else {
+    res.render("tr/site/create-account",{login:0});
+  }
+});
+
+
+router.post("/verify", (req, res, next) => {
+  try {
+    next();
+  } catch (error) {
+    console.log(error);
+    res.json({ result: 404, message: " İstek Hatalı" });
+  }
+});
+
+router.use("/verify", (req, res, next) => {
+  try {
+    if (user.mailCode != req.body.code)
+      res.json({ result: 0, message: "code hatalı" });
+    else next();
+  } catch (error) {
+    console.log(error);
+    res.json({ result: 404, message: " İstek Hatalı" });
+  }
+});
+
+router.use("/verify", (req, res, next) => {
+  try {
+    record(user).then(data=>{
+      if(data == 1) res.json({result:1,message:'Kayıt Başarılı'})
+      else res.json({result:0,message:'Kayıt Başarısız Oldu System Error'})
+    }).catch((err)=>{
+      res.json({result:0,message:`Kayıt Başarısız Oldu System Error ${err}`})
+    })
+
+  } catch (error) {
+    console.log(error);
+    res.json({ result: 404, message: " İstek Hatalı" });
+  }
+});
+
+router.post("/", (req, res, next) => {
+  try {
+    next();
+  } catch (error) {
+    console.log(error);
+    res.json({ result: 404, message: " İstek Hatalı" });
+  }
+});
+
+router.use("/", (req, res, next) => {
+  try {
+    conrolUSER(req.body.username, req.body.email)
+      .then((result) => {
+        if (result == 1) {
+          next();
+        } else if (result == 2) {
+          res.json({ result: 0, message: "mail adresi kullanılmış" });
+        } else if (result == 3) {
+          res.json({ result: 0, message: "username kullanılmış" });
+        } else if (result == 4) {
+          res.json({ result: 0, message: "mail ve username kullanılmış" });
+        } else {
+          res.json({ result: 0, message: "Tanımlanmayan Hata" });
+        }
+      })
+      .catch((err) => {
+        res.json({ result: 0, message: "veri tabanı Hata" });
+      });
+  } catch (error) {
+    console.log(error);
+    res.json({ result: 404, message: " İstek Hatalı" });
+  }
+});
+
+router.use("/", (req, res, next) => {
+  try {
+    let verificationCode = Math.floor(1000 + Math.random() * 9000);
+    console.log(verificationCode);
+    mailSend(verificationCode, req.body.email).then((data) => {
+      if (data == 1) {
+        user.username = req.body.username;
+        user.email = req.body.email;
+        user.password = req.body.password;
+        user.userID = generateRandomToken(30)
+        user.type = req.body.type
+        user.mailCode = verificationCode;
+        res.json({
+          result: 1,
+          message: "Doğrulma Kodunu Post olarak göndermeniz gerekecek",
+        });
+      } else if (data == 0) {
+        res.json({ result: 0, message: "Mail Error" });
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.json({ result: 404, message: " İstek Hatalı" });
+  }
+});
+
+
 
 module.exports = router;

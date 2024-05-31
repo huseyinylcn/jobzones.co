@@ -78,7 +78,7 @@ router.post("/verify", (req, res, next) => {
     res.json({ result: 404, message: " İstek Hatalı" });
   }
 });
-let;
+
 router.post("/verify", (req, res, next) => {
   try {
     record(user).then(data=>{

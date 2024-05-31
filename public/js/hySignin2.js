@@ -1,4 +1,5 @@
 let record = () => {
+  console.log(globalEmpcandi)
   return new Promise((resolve, reject) => {
     fetch("/signin/", {
       method: "POST",
@@ -6,7 +7,7 @@ let record = () => {
         "Content-type": "application/json",
       },
       body: JSON.stringify({
-        typeID: SignTypeID.value,
+        type: globalEmpcandi,
         username: SignUsername.value.toLowerCase(),
         email: Signemail.value,
         password: Signpassword.value,
@@ -14,13 +15,15 @@ let record = () => {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data)
         resolve(data);
       })
       .catch((err) => {
-        resolve({ result: 0, message: `frontend fetch errror ${err}` });
+        console.log(err)
+        resolve({ result: 0, message: `frontend fetch errro1r ${err}` });
       });
   }).catch((err) => {
-    return { result: 0, message: `frontend fetch errror ${err}` };
+    return { result: 0, message: `frontend fetch errror2 ${err}` };
   });
 };
 
@@ -40,9 +43,9 @@ let verify = (code) => {
         resolve(data);
       })
       .catch((err) => {
-        resolve({ result: 0, message: `frontend fetch errror ${err}` });
+        resolve({ result: 0, message: `frontend fetch errror3 ${err}` });
       });
   }).catch((err) => {
-    return { result: 0, message: `frontend fetch errror ${err}` };
+    return { result: 0, message: `frontend fetch errror4 ${err}` };
   });
 };

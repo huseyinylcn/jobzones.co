@@ -96,12 +96,18 @@ router.post("/verify", (req, res, next) => {
 
 router.post('/verify',(req,res,next)=>{
   try {
-    recordCandidatesInfoFUNC(user.userID).then(data=>{
-      if(data == 1) next()
-      else res.json({result:0,message:'info table create error'})
-    }).catch(err=>{
-      res.json({result:0,message:`info tble error ${err}`})
-    })
+  
+    if(user.type == 0){
+      recordCandidatesInfoFUNC(user.userID).then(data=>{
+        if(data == 1) next()
+        else res.json({result:0,message:'info table create error'})
+      }).catch(err=>{
+        res.json({result:0,message:`info tble error ${err}`})
+      })
+    }else{
+      res.json({result:0,message:`employer değil buuu`})
+    }
+  
     
   } catch (error) {
     console.log(error);
@@ -112,12 +118,14 @@ router.post('/verify',(req,res,next)=>{
 router.post('/verify',(req,res,next)=>{
   req.login(user.userID,(err)=>{
     if(err) res.json({ result: 404, message: "Oturum Açılamadı" });
-    else res.json('succes function!!')
+    else res.json({result:1, message:'succes function!!'})
   })
   
 })
 
+
 router.post("/", (req, res, next) => {
+  console.log(1)
   try {
     next();
   } catch (error) {
@@ -127,6 +135,8 @@ router.post("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
+  console.log(2)
+
   try {
     conrolUSER(req.body.username, req.body.email)
       .then((result) => {
@@ -152,6 +162,8 @@ router.post("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
+  
+
   try {
     let verificationCode = Math.floor(1000 + Math.random() * 9000);
     console.log(verificationCode);
@@ -163,15 +175,17 @@ router.post("/", (req, res, next) => {
         user.userID = generateRandomToken(30)
         user.type = req.body.type
         user.mailCode = verificationCode;
+     
         res.json({
           result: 1,
           message: "Doğrulma Kodunu Post olarak göndermeniz gerekecek",
         });
       } else if (data == 0) {
         res.json({ result: 0, message: "Mail Error" });
+      }else{
+        res.json({ result: 0, message: "Mail Error2" });
       }
-    });
-  } catch (error) {
+    })  } catch (error) {
     console.log(error);
     res.json({ result: 404, message: " İstek Hatalı" });
   }

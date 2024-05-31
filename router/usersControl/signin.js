@@ -79,7 +79,11 @@ router.post("/verify", (req, res, next) => {
   }
 });
 
+router.use("/verify", (req, res, next) => {
+
+
 router.post("/verify", (req, res, next) => {
+
   try {
     record(user).then(data=>{
       if(data == 1) next()

@@ -47,12 +47,15 @@ app.set("views", __dirname + "/views/");
 const routerMain = require("./router/main");
 const routerSignin = require("./router/usersControl/signin");
 const routerLogin = require("./router/usersControl/login");
+const update = require("./router/profile/profile");
+
 
 
 
 sql.connect(config).then(() => {
     app.use("/signin", routerSignin);
     app.use("/login", routerLogin);
+    app.use("/profile", update);
     app.use("/", routerMain);
 
 });

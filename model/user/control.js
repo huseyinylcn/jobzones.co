@@ -24,12 +24,14 @@ let conrolUSER = (username,email)=>{
     })
 }
 
-let login = (email,password)=>{
+let login = (data)=>{
     
 return new Promise((resolve,reject)=>{
 
-    sql.query(`SELECT COUNT(*) as count FROM [user] WHERE email = '${email}' AND password = '${password}'`).then(data =>{
-        resolve(data.recordset[0].count)
+    sql.query(`SELECT userID FROM [user] WHERE email = '${data.email}' AND password = '${data.password}'`).then(data =>{
+      if(data.recordset.length >= 1) resolve(data.recordset[0].userID)
+        else resolve(0)
+        
     }).catch(err=>{
         resolve(0)
         console.group(err)

@@ -5,7 +5,7 @@ let router = express.Router();
 
 let { conrolUSER } = require("./../../model/user/control");
 let { mailSend } = require("./../../model/user/mail");
-let { record } = require("./../../model/user/record");
+let { record,recordCandidatesInfoFUNC } = require("./../../model/user/record");
 
 
 
@@ -68,7 +68,7 @@ router.post("/verify", (req, res, next) => {
   }
 });
 
-router.use("/verify", (req, res, next) => {
+router.post("/verify", (req, res, next) => {
   try {
     if (user.mailCode != req.body.code)
       res.json({ result: 0, message: "code hatalı" });
@@ -79,10 +79,10 @@ router.use("/verify", (req, res, next) => {
   }
 });
 
-router.use("/verify", (req, res, next) => {
+router.post("/verify", (req, res, next) => {
   try {
     record(user).then(data=>{
-      if(data == 1) res.json({result:1,message:'Kayıt Başarılı'})
+      if(data == 1) next()
       else res.json({result:0,message:'Kayıt Başarısız Oldu System Error'})
     }).catch((err)=>{
       res.json({result:0,message:`Kayıt Başarısız Oldu System Error ${err}`})
@@ -94,6 +94,29 @@ router.use("/verify", (req, res, next) => {
   }
 });
 
+router.post('/verify',(req,res,next)=>{
+  try {
+    recordCandidatesInfoFUNC(user.userID).then(data=>{
+      if(data == 1) next()
+      else res.json({result:0,message:'info table create error'})
+    }).catch(err=>{
+      res.json({result:0,message:`info tble error ${err}`})
+    })
+    
+  } catch (error) {
+    console.log(error);
+    res.json({ result: 404, message: " İstek Hatalı" });
+  }
+})
+
+router.post('/verify',(req,res,next)=>{
+  req.login(user.userID,(err)=>{
+    if(err) res.json({ result: 404, message: "Oturum Açılamadı" });
+    else res.json('succes function!!')
+  })
+  
+})
+
 router.post("/", (req, res, next) => {
   try {
     next();
@@ -103,7 +126,7 @@ router.post("/", (req, res, next) => {
   }
 });
 
-router.use("/", (req, res, next) => {
+router.post("/", (req, res, next) => {
   try {
     conrolUSER(req.body.username, req.body.email)
       .then((result) => {
@@ -128,7 +151,7 @@ router.use("/", (req, res, next) => {
   }
 });
 
-router.use("/", (req, res, next) => {
+router.post("/", (req, res, next) => {
   try {
     let verificationCode = Math.floor(1000 + Math.random() * 9000);
     console.log(verificationCode);

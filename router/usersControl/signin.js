@@ -5,7 +5,7 @@ let router = express.Router();
 
 let { conrolUSER } = require("./../../model/user/control");
 let { mailSend } = require("./../../model/user/mail");
-let { record } = require("./../../model/user/record");
+let { record,recordCandidatesInfoFUNC } = require("./../../model/user/record");
 
 
 
@@ -68,7 +68,7 @@ router.post("/verify", (req, res, next) => {
   }
 });
 
-router.use("/verify", (req, res, next) => {
+router.post("/verify", (req, res, next) => {
   try {
     if (user.mailCode != req.body.code)
       res.json({ result: 0, message: "code hatalı" });
@@ -78,11 +78,15 @@ router.use("/verify", (req, res, next) => {
     res.json({ result: 404, message: " İstek Hatalı" });
   }
 });
-let;
+
 router.use("/verify", (req, res, next) => {
+
+
+router.post("/verify", (req, res, next) => {
+
   try {
     record(user).then(data=>{
-      if(data == 1) res.json({result:1,message:'Kayıt Başarılı'})
+      if(data == 1) next()
       else res.json({result:0,message:'Kayıt Başarısız Oldu System Error'})
     }).catch((err)=>{
       res.json({result:0,message:`Kayıt Başarısız Oldu System Error ${err}`})
@@ -94,7 +98,38 @@ router.use("/verify", (req, res, next) => {
   }
 });
 
+router.post('/verify',(req,res,next)=>{
+  try {
+  
+    if(user.type == 0){
+      recordCandidatesInfoFUNC(user.userID).then(data=>{
+        if(data == 1) next()
+        else res.json({result:0,message:'info table create error'})
+      }).catch(err=>{
+        res.json({result:0,message:`info tble error ${err}`})
+      })
+    }else{
+      res.json({result:0,message:`employer değil buuu`})
+    }
+  
+    
+  } catch (error) {
+    console.log(error);
+    res.json({ result: 404, message: " İstek Hatalı" });
+  }
+})
+
+router.post('/verify',(req,res,next)=>{
+  req.login(user.userID,(err)=>{
+    if(err) res.json({ result: 404, message: "Oturum Açılamadı" });
+    else res.json({result:1, message:'succes function!!'})
+  })
+  
+})
+
+
 router.post("/", (req, res, next) => {
+  console.log(1)
   try {
     next();
   } catch (error) {
@@ -103,7 +138,9 @@ router.post("/", (req, res, next) => {
   }
 });
 
-router.use("/", (req, res, next) => {
+router.post("/", (req, res, next) => {
+  console.log(2)
+
   try {
     conrolUSER(req.body.username, req.body.email)
       .then((result) => {
@@ -128,7 +165,9 @@ router.use("/", (req, res, next) => {
   }
 });
 
-router.use("/", (req, res, next) => {
+router.post("/", (req, res, next) => {
+  
+
   try {
     let verificationCode = Math.floor(1000 + Math.random() * 9000);
     console.log(verificationCode);
@@ -140,15 +179,17 @@ router.use("/", (req, res, next) => {
         user.userID = generateRandomToken(30)
         user.type = req.body.type
         user.mailCode = verificationCode;
+     
         res.json({
           result: 1,
           message: "Doğrulma Kodunu Post olarak göndermeniz gerekecek",
         });
       } else if (data == 0) {
         res.json({ result: 0, message: "Mail Error" });
+      }else{
+        res.json({ result: 0, message: "Mail Error2" });
       }
-    });
-  } catch (error) {
+    })  } catch (error) {
     console.log(error);
     res.json({ result: 404, message: " İstek Hatalı" });
   }

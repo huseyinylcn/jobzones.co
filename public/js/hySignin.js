@@ -119,6 +119,7 @@ function InputControl() {
 
 signVerifyWrite.addEventListener("click", () => {
   verify(verifyCode.value).then(data=>{
+    console.log(data)
     if(data.result == 1){
       window.location.href = '/home'
     }else{

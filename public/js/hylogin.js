@@ -16,9 +16,9 @@ loginButton.addEventListener('click', () => {
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log(data);
-        if(data==1){
-            window.location.href = "/";
+        console.log(data.result);
+        if(data.result ==1){
+            window.location.href = "/home";
         } else {
             window.scrollTo({
                 top: 50,

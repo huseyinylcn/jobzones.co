@@ -1,21 +1,20 @@
 const express = require("express");
 let router = express.Router();
 
-
-
 router.get("/", (req, res) => {
   res.redirect("/home/");
 });
 
-router.get("/home", (req, res) => {
+router.get("/home", (req, res, next) => {
   if (req.user) {
-    userDATA.userDATAFunc(req.user).then((data) => {
-      res.render("tr/site/Home-02", { login: 1, data: data });
-    });
+    next();
   } else {
     res.render("tr/site/Home-02", { login: 0 });
   }
 });
+router.use("/home", (req, res, next) => {
+    res.render("tr/site/Home-02", { login: 0 });
 
+});
 
 module.exports = router;

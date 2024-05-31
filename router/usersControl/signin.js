@@ -79,8 +79,6 @@ router.post("/verify", (req, res, next) => {
   }
 });
 
-router.use("/verify", (req, res, next) => {
-
 
 router.post("/verify", (req, res, next) => {
 

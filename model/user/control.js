@@ -42,4 +42,20 @@ return new Promise((resolve,reject)=>{
 })
 }
 
-module.exports = { conrolUSER, login }
+
+let conrolUSERNAME = (username)=>{
+    return new Promise((resolve,reject)=>{
+        sql.query(`SELECT COUNT(*) AS count FROM [user] WHERE username = '${username}' `).then(data=>{
+            resolve(data.recordset[0].count)
+        }).catch((err)=>{
+            console.log(err)
+            reject(0)
+        }).finally(()=>{
+            reject(0)
+        })
+    }).catch((err)=>{
+        return 0
+    })
+}
+
+module.exports = { conrolUSER, login, conrolUSERNAME }

@@ -1,28 +1,28 @@
 
-miniPhoto.addEventListener('click', (e) => {
-    e.preventDefault(); // varsayılan davranışı engelliyoruz
+// miniPhoto.addEventListener('click', (e) => {
+//     e.preventDefault(); // varsayılan davranışı engelliyoruz
 
-    // body elementinde sidebar-enable sınıfı var mı diye kontrol ediyoruz
-    if ($("body").hasClass("sidebar-enable")) {
-        $("body").removeClass("sidebar-enable");
-        $.cookie("isButtonActive", "0");
-    } else {
-        $("body").addClass("sidebar-enable");
-        $.cookie("isButtonActive", "1");
-    }
+//     // body elementinde sidebar-enable sınıfı var mı diye kontrol ediyoruz
+//     if ($("body").hasClass("sidebar-enable")) {
+//         $("body").removeClass("sidebar-enable");
+//         $.cookie("isButtonActive", "0");
+//     } else {
+//         $("body").addClass("sidebar-enable");
+//         $.cookie("isButtonActive", "1");
+//     }
 
-    // pencere genişliğine göre sınıfı toggle ediyoruz
-    if ($(window).width() >= 1400) {
-        $("body").toggleClass("show-job");
-    } else {
-        $("body").removeClass("show-job");
-    }
+//     // pencere genişliğine göre sınıfı toggle ediyoruz
+//     if ($(window).width() >= 1400) {
+//         $("body").toggleClass("show-job");
+//     } else {
+//         $("body").removeClass("show-job");
+//     }
 
-    // pencere genişliği 1400'den küçükse çerezi siliyoruz
-    if ($(window).width() < 1400) {
-        $.cookie('isButtonActive', null);
-    }
-});
+//     // pencere genişliği 1400'den küçükse çerezi siliyoruz
+//     if ($(window).width() < 1400) {
+//         $.cookie('isButtonActive', null);
+//     }
+// });
 
 
 !function(t) {

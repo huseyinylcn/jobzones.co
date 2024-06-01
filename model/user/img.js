@@ -52,4 +52,51 @@ const strongeBanner = multer.diskStorage({
   
 
 
-module.exports = { img, imgBanner };
+
+
+  const strongeAll = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, path.join(__dirname, "../../public/ProfilPicture/extstraImg"));
+    },
+    filename: async (req, file, cb) => {
+      const uniqueSuffix = rastgeleTokenUretuzunluk(10);
+      const fileExtension = path.extname(file.originalname);
+      cb(null, uniqueSuffix + fileExtension);
+    },
+  });
+  
+  const fileFilterAll = (req, file, cb) => {
+    cb(null, true);
+  };
+  
+  const imgAll = multer({
+    storage: strongeAll,
+    fileFilter: fileFilterAll,
+  }).array("imgall",20);
+
+
+
+  const strongecv = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null, path.join(__dirname, "../../public/cv"));
+    },
+    filename: async (req, file, cb) => {
+      const uniqueSuffix = rastgeleTokenUretuzunluk(10);
+      const fileExtension = path.extname(file.originalname);
+      cb(null, uniqueSuffix + fileExtension);
+    },
+  });
+  
+  const fileFiltercv = (req, file, cb) => {
+    cb(null, true);
+  };
+  
+  const uploadcv = multer({
+    storage: strongecv,
+    fileFilter: fileFiltercv,
+  }).single("cv");
+
+
+
+
+module.exports = { img, imgBanner, imgAll, uploadcv };

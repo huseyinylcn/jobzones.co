@@ -73,5 +73,40 @@ let updateBannerIMG = (userID,IMGpath)=>{
 
 }
 
+let updateimgAll = (userID,IMGpath)=>{
+     return new Promise((resolve,reject)=>{
+          sql.query(`
+          UPDATE [dbo].[candidates]
+ SET photos = '${IMGpath}'
+ WHERE userID = '${userID}'`).then(data=>{
+     resolve(1)
+ }).catch(err=>{
+     console.log(err)
+     resolve(0)
+ })
+     }).catch(err=>{
+          console.log(err)
+          return 0
+     })
 
-module.exports = { update ,updateProfileIMG, updateBannerIMG }
+}
+
+let updatecv = (userID,IMGpath)=>{
+     return new Promise((resolve,reject)=>{
+          sql.query(`
+          UPDATE [dbo].[candidates]
+ SET cvpath = '${IMGpath}'
+ WHERE userID = '${userID}'`).then(data=>{
+     resolve(1)
+ }).catch(err=>{
+     console.log(err)
+     resolve(0)
+ })
+     }).catch(err=>{
+          console.log(err)
+          return 0
+     })
+
+}
+
+module.exports = { update ,updateProfileIMG, updateBannerIMG, updateimgAll, updatecv }

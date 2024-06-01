@@ -5,6 +5,8 @@ let router = express.Router();
 
 let { conrolUSER } = require("./../../model/user/control");
 let { mailSend } = require("./../../model/user/mail");
+let { userTransformFunc } = require("../../model/user/transform");
+
 let { record,recordCandidatesInfoFUNC } = require("./../../model/user/record");
 
 
@@ -38,15 +40,12 @@ router.get("/google/", (req, res, next) => {
 });
 
 router.get("/google/redirect", passport.authenticate("google"), (req, res) => {
-  if (req.userStatus == 0) {
-    res.redirect("/");
-  } else {
-    if (req.employer == 1) {
-      res.redirect("/infoplusemployer");
-    } else {
-      res.redirect("/infoplus");
-    }
+  if(req.user){
+    res.redirect('/')
+  }else{
+    console.log(req.type)
   }
+
 });
 
 

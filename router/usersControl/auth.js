@@ -5,7 +5,7 @@ const crypto = require("crypto");
 let {conrolUSERNAME, conrolUSER, login} =  require('./../../model/user/control')
 let {userTransformFunc} =  require('./../../model/user/transform')
 
-let {record , recordCandidatesInfoFUNC} =  require('./../../model/user/record')
+let {record , recordCandidatesInfoFUNC, recordEmployerInfoFunc } =  require('./../../model/user/record')
 
 
 let generateRandomToken = (length) => {
@@ -41,13 +41,15 @@ passport.use(
             if(data == 1){
               if((request.session.query).employer == 0){
               recordCandidatesInfoFUNC(userID).then((data)=>{
-                
                 request.type = 0
                 done(null,userID);
               })
             }else{
               request.type = 1
-              // burada employer 
+              recordEmployerInfoFunc(userID).then((data)=>{
+                request.type = 1
+                done(null,userID);
+              })
             }
              
             }else{

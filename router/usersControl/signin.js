@@ -7,7 +7,7 @@ let { conrolUSER } = require("./../../model/user/control");
 let { mailSend } = require("./../../model/user/mail");
 let { userTransformFunc } = require("../../model/user/transform");
 
-let { record,recordCandidatesInfoFUNC } = require("./../../model/user/record");
+let { record,recordCandidatesInfoFUNC, recordEmployerInfoFunc } = require("./../../model/user/record");
 
 
 
@@ -106,7 +106,12 @@ router.post('/verify',(req,res,next)=>{
         res.json({result:0,message:`info tble error ${err}`})
       })
     }else{
-      res.json({result:0,message:`employer değil buuu`})
+     recordEmployerInfoFunc(user.userID).then(data=>{
+      if(data == 1) next()
+        else res.json({result:0,message:'info table create error'})
+     }).catch((err)=>{
+      res.json({result:0,message:`info tble error ${err}`})
+     })
     }
   
     

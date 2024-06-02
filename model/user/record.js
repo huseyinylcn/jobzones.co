@@ -1,27 +1,31 @@
-let sql = require('mssql');
+let sql = require("mssql");
 
 let record = (data) => {
-    return new Promise((resolve, reject) => {
-     
-        const request = new sql.Request();
-        request.input('userID', sql.NVarChar, data.userID)
-               .input('password', sql.NVarChar, data.password)
-               .input('email', sql.NVarChar, data.email)
-               .input('username', sql.NVarChar, data.username)
-               .input('type', sql.Bit, data.type)
-               .query('INSERT INTO [user] (userID, password, email, username, type) VALUES (@userID, @password, @email, @username, @type)')
-               .then(result => {
-                    resolve(1);
-               })
-               .catch(error => {
-                    reject(0);
-               });
-    });
+  return new Promise((resolve, reject) => {
+    const request = new sql.Request();
+    request
+      .input("userID", sql.NVarChar, data.userID)
+      .input("password", sql.NVarChar, data.password)
+      .input("email", sql.NVarChar, data.email)
+      .input("username", sql.NVarChar, data.username)
+      .input("type", sql.Bit, data.type)
+      .query(
+        "INSERT INTO [user] (userID, password, email, username, type) VALUES (@userID, @password, @email, @username, @type)"
+      )
+      .then((result) => {
+        resolve(1);
+      })
+      .catch((error) => {
+        reject(0);
+      });
+  });
 };
 
-let recordCandidatesInfoFUNC = (userID)=>{
-     return new Promise((resolve, reject)=>{
-          sql.query(`
+let recordCandidatesInfoFUNC = (userID) => {
+  return new Promise((resolve, reject) => {
+    sql
+      .query(
+        `
           INSERT INTO [dbo].[candidates]
                      ([fullname]
                      ,[gender]
@@ -48,6 +52,7 @@ let recordCandidatesInfoFUNC = (userID)=>{
                      ,[salary]
                      ,[dayandtimework]
                      ,[userID])
+                     ,[job])
                VALUES
                      (
                       ''
@@ -75,16 +80,74 @@ let recordCandidatesInfoFUNC = (userID)=>{
                      ,'[]'
                      ,'[]'
                      ,'${userID}'
-                    )`).then((data)=>{
-                         resolve(1)
-                    }).catch(err=>{
-                         console.log(err)
-                         resolve(0)
-                    })
-     }).catch((err)=>{
-          console.log(err)
-          return 0
-     })
-}
+                     ,''
+                    )`
+      )
+      .then((data) => {
+        resolve(1);
+      })
+      .catch((err) => {
+        console.log(err);
+        resolve(0);
+      });
+  }).catch((err) => {
+    console.log(err);
+    return 0;
+  });
+};
 
-module.exports = { record,recordCandidatesInfoFUNC };
+let recordEmployerInfoFunc = (userID) => {
+  return new Promise((resolve, reject) => {
+     let query = `
+     INSERT INTO [dbo].[employer]
+     ([fullname]
+     ,[sector]
+     ,[profileIMG]
+     ,[bannerIMG]
+     ,[aboutshort]
+     ,[phone]
+     ,[weburl]
+     ,[history]
+     ,[size]
+     ,[city]
+     ,[photos]
+     ,[videourl]
+     ,[social]
+     ,[coordinate]
+     ,[views]
+     ,[commentpermit]
+     ,[userID])
+     VALUES
+     (''
+     ,''
+     ,'/img/default.jpg'
+     ,'/ed'
+     ,''
+     ,''
+     ,''
+     ,''
+     ,''
+     ,''
+     ,'[]'
+     ,''
+     ,'[]'
+     ,''
+     ,1
+     ,1
+     ,'${userID}')
+   `;
+   console.log(query);  // Log the query string
+   sql.query(query).then((data) => {
+        resolve(1);
+      })
+      .catch((err) => {
+        console.log(err);
+        resolve(0);
+      });
+   
+  }).catch((err)=>{
+     return 0
+  })
+};
+
+module.exports = { record, recordCandidatesInfoFUNC, recordEmployerInfoFunc };

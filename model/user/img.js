@@ -49,11 +49,6 @@ const strongeBanner = multer.diskStorage({
     fileFilter: fileFilterBanner,
   }).single("banner");
   
-  
-
-
-
-
   const strongeAll = multer.diskStorage({
     destination: (req, file, cb) => {
       cb(null, path.join(__dirname, "../../public/ProfilPicture/extstraImg"));

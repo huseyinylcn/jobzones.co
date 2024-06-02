@@ -8,7 +8,7 @@ let {
   updateProfileIMG,
   updateBannerIMG,
   updateimgAll,
-  updatecv
+  updatecv,
 } = require("../../model/user/update");
 let { img, imgBanner, imgAll, uploadcv } = require("../../model/user/img");
 let { userGET } = require("../../model/user/get");
@@ -18,6 +18,7 @@ let info = {
   gender: 1,
   birth: "/js/kk/kk.jpg",
   category: "kategori ver bana",
+  job: "",
   cvpath: "/dasdas/asdas",
   phone: "78484 84ew84 4848",
   adres: "edirne li kamil babab",
@@ -281,7 +282,6 @@ router.post("/imgall", (req, res, next) => {
   }
 });
 
-
 router.post("/cv", (req, res, next) => {
   try {
     if (req.user) {
@@ -374,6 +374,8 @@ router.post("/", (req, res, next) => {
     info.videoURL = req.body.videoURL;
     info.qualdegree = req.body.qualdegree;
     info.careerlevel = req.body.careerlevel;
+    info.careerlevel = req.body.careerlevel;
+    info.job = req.body.job;
 
     next();
   } catch (error) {

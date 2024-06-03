@@ -101,7 +101,7 @@ router.post('/verify',(req,res,next)=>{
     if(user.type == 0){
       recordCandidatesInfoFUNC(user.userID).then(data=>{
         if(data == 1) next()
-        else res.json({result:0,message:'info table create error'})
+        else res.json({result:0,message:'info table create errorrr'})
       }).catch(err=>{
         res.json({result:0,message:`info tble error ${err}`})
       })

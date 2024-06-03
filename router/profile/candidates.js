@@ -9,6 +9,7 @@ let {
   updateBannerIMG,
   updateimgAll,
   updatecv,
+  updateJobDate
 } = require("../../model/user/update");
 let { img, imgBanner, imgAll, uploadcv } = require("../../model/user/img");
 let { userGET } = require("../../model/user/get");
@@ -36,6 +37,9 @@ let info = {
   workmode: ["/wqeqwe", "fdsfsdf", "fdsfsdf"],
   salary: [{ c: 3232, d: 3433 }, {}, {}],
   dayandtimework: [{ a: 3232, b: 3433 }, {}, {}],
+  views: 1,
+  department:''
+
 };
 
 let router = express.Router();
@@ -364,7 +368,7 @@ router.post("/", (req, res, next) => {
     );
 
     info.fullname = req.body.fullname;
-    info.gender = req.body.gender;
+    info.gender = Number(req.body.gender)
     info.birth = req.body.birth;
     info.category = req.body.category;
     info.phone = req.body.phone;
@@ -376,19 +380,41 @@ router.post("/", (req, res, next) => {
     info.careerlevel = req.body.careerlevel;
     info.careerlevel = req.body.careerlevel;
     info.job = req.body.job;
+    info.department = req.body.department;
+    info.views = Number(req.body.views)
+    
+
 
     next();
   } catch (error) {
     res.json({ result: 0, message: `transform Error ${error}` });
   }
 });
+
+router.post("/", (req, res, next) => {
+  try {
+    userGET(req.user).then(data=>{
+      if(data.views != info.views){
+       updateJobDate(req.user).then((veri)=>{
+        if(veri == 1) next()
+          else res.json({result:0,message:"jobdate kayıt edilemedi işlem burada durduruldu"})
+       })
+      }else{
+       next()
+      }
+     })
+  } catch (error) {
+    res.json({ result: 0, message: `update Error ${error}` });
+  }
+});
+
+
 router.post("/", (req, res, next) => {
   try {
     update(req.user, info)
       .then((data) => {
-        console.log(data);
         if (data == 0) res.json({ result: 0, message: `update Error ` });
-        else res.json({ result: 1, message: `Succesfull` });
+        else res.json({ result: 1, message: `Successfull` });
       })
       .catch((err) => {
         res.json({ result: 0, message: `update Error ${err}` });
@@ -397,5 +423,6 @@ router.post("/", (req, res, next) => {
     res.json({ result: 0, message: `update Error ${error}` });
   }
 });
+
 
 module.exports = router;

@@ -49,6 +49,8 @@ const routerSignin = require("./router/usersControl/signin");
 const routerLogin = require("./router/usersControl/login");
 const candidates = require("./router/profile/candidates");
 const employer = require("./router/profile/employer");
+const applicants = require("./router/applicants/applicants");
+
 
 
 
@@ -59,6 +61,8 @@ sql.connect(config).then(() => {
     app.use("/login", routerLogin);
     app.use("/candidates", candidates);
     app.use("/employer", employer);
+    app.use("/applicants",applicants)
+
 
     app.use("/", routerMain);
 

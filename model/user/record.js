@@ -26,62 +26,71 @@ let recordCandidatesInfoFUNC = (userID) => {
     sql
       .query(
         `
-          INSERT INTO [dbo].[candidates]
-                     ([fullname]
-                     ,[gender]
-                     ,[birth]
-                     ,[category]
-                     ,[cvpath]
-                     ,[profileIMG]
-                     ,[bannerIMG]
-                     ,[phone]
-                     ,[adres]
-                     ,[city]
-                     ,[coordinate]
-                     ,[photos]
-                     ,[videoURL]
-                     ,[social]
-                     ,[education]
-                     ,[qualdegree]
-                     ,[careerlevel]
-                     ,[experience]
-                     ,[language]
-                     ,[reference]
-                     ,[hobby]
-                     ,[workmode]
-                     ,[salary]
-                     ,[dayandtimework]
-                     ,[userID])
-                     ,[job])
-               VALUES
-                     (
-                      ''
-                     ,1
-                     ,''
-                     ,''
-                     ,''
-                     ,'/img/default.jpg'
-                     ,''
-                     ,''
-                     ,''
-                     ,''
-                     ,''
-                     ,'[]'
-                     ,''
-                     ,'[]'
-                     ,'[]'
-                     ,''
-                     ,''
-                     ,'[]'
-                     ,'[]'
-                     ,'[]'
-                     ,'[]'
-                     ,'[]'
-                     ,'[]'
-                     ,'[]'
-                     ,'${userID}'
-                     ,''
-                    )`
+INSERT INTO [dbo].[candidates]
+       ([fullname]
+       ,[gender]
+       ,[birth]
+       ,[category]
+       ,[cvpath]
+       ,[profileIMG]
+       ,[bannerIMG]
+       ,[phone]
+       ,[adres]
+       ,[city]
+       ,[coordinate]
+       ,[photos]
+       ,[videoURL]
+       ,[social]
+       ,[education]
+       ,[qualdegree]
+       ,[careerlevel]
+       ,[experience]
+       ,[language]
+       ,[reference]
+       ,[hobby]
+       ,[workmode]
+       ,[salary]
+       ,[dayandtimework]
+       ,[userID]
+       ,[job]
+       ,[views]
+       ,[department])
+VALUES
+       (''
+       ,1
+       ,''
+       ,''
+       ,''
+       ,'/img/default.jpg'
+       ,''
+       ,''
+       ,''
+       ,''
+       ,''
+       ,'[]'
+       ,''
+       ,'[]'
+       ,'[]'
+       ,''
+       ,''
+       ,'[]'
+       ,'[]'
+       ,'[]'
+       ,'[]'
+       ,'[]'
+       ,'[]'
+       ,'[]'
+       ,'${userID}'
+       ,''
+       ,1
+      ,'')
+
+INSERT INTO [dbo].[jobdate]
+       ([userID]
+       ,[date])
+VALUES
+       ('${userID}', GETDATE())
+        `
       )
       .then((data) => {
         resolve(1);
@@ -136,7 +145,6 @@ let recordEmployerInfoFunc = (userID) => {
      ,1
      ,'${userID}')
    `;
-   console.log(query);  // Log the query string
    sql.query(query).then((data) => {
         resolve(1);
       })

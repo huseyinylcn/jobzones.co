@@ -1,7 +1,6 @@
 let sql = require("mssql");
 
 let update = (userID, data) => {
-  console.log(data);
   return new Promise((resolve, reject) => {
     sql
       .query(
@@ -11,6 +10,8 @@ SET fullname = '${data.fullname}',
     gender = '${data.gender}',
     birth = '${data.birth}',
     job = '${data.job}',
+    views = '${data.views}',
+    department = '${data.department}',
     category = '${data.category}',
     cvpath = '${data.cvpath}',
     phone = '${data.phone}',
@@ -130,6 +131,23 @@ let updatecv = (userID, IMGpath) => {
     return 0;
   });
 };
+
+let updateJobDate = (userID) => {
+  return new Promise((resolve, reject) => {
+    sql.query(`
+    UPDATE [dbo].[jobdate]
+   SET [date] = GETDATE()
+ WHERE userID = '${userID}'
+    `).then(data=>{
+      resolve(1)
+    }).catch(err=>{
+      resolve(0)
+    })
+  }).catch(err=>{
+    return 0
+  })
+};
+
 //! Burada employer olanlar var
 let updateEmployer = (userID, data) => {
   return new Promise((resolve, reject) => {
@@ -209,30 +227,27 @@ let updateBannerIMGEmployer = (userID, IMGpath) => {
   });
 };
 
-
 let updateimgAllEmployer = (userID, IMGpath) => {
-     return new Promise((resolve, reject) => {
-       sql
-         .query(
-           `
+  return new Promise((resolve, reject) => {
+    sql
+      .query(
+        `
              UPDATE [dbo].[employer]
     SET photos = '${IMGpath}'
     WHERE userID = '${userID}'`
-         )
-         .then((data) => {
-           resolve(1);
-         })
-         .catch((err) => {
-           console.log(err);
-           resolve(0);
-         });
-     }).catch((err) => {
-       console.log(err);
-       return 0;
-     });
-   };
-
-
+      )
+      .then((data) => {
+        resolve(1);
+      })
+      .catch((err) => {
+        console.log(err);
+        resolve(0);
+      });
+  }).catch((err) => {
+    console.log(err);
+    return 0;
+  });
+};
 
 module.exports = {
   update,
@@ -243,5 +258,6 @@ module.exports = {
   updateEmployer,
   updateProfileIMGEmployer,
   updateBannerIMGEmployer,
-  updateimgAllEmployer
+  updateimgAllEmployer,
+  updateJobDate
 };

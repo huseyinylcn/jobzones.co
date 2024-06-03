@@ -1,7 +1,7 @@
 let express = require("express");
 let router = express.Router();
 
-let { candidatesGET } = require("../../model/filter/candidates");
+let { candidatesGET } = require("../../model/filter/applicants");
 const stringSimilarity = require("string-similarity");
 
 router.post("/", (req, res, next) => {

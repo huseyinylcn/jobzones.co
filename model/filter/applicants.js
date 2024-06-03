@@ -24,7 +24,7 @@ let candidatesGET = (data)=>{
         DECLARE @endDate DATE;
         SET @endDate = '${data.agemax}';  -- Bitiş tarihi buraya girin
         
-        DECLARE @jobDateThreshold DATE;
+            DECLARE @jobDateThreshold DATE;
         SET @jobDateThreshold = '${data.datepost}'; 
         
         SELECT 
@@ -46,15 +46,18 @@ let candidatesGET = (data)=>{
                 (t2.gender = @genderFilter)
             )
         
-            AND EXISTS (
-                SELECT 1
-                FROM OPENJSON(@workmodeFilter) AS filter
-                WHERE EXISTS (
+            AND (
+                @workmodeFilter IS NULL OR @workmodeFilter = '' OR @workmodeFilter = '[]' OR
+                EXISTS (
                     SELECT 1
-                    FROM OPENJSON(t2.workmode) AS wm
-                    WHERE wm.value = filter.value
+                    FROM OPENJSON(@workmodeFilter) AS filter
+                    WHERE EXISTS (
+                        SELECT 1
+                        FROM OPENJSON(t2.workmode) AS wm
+                        WHERE wm.value = filter.value
+                    )
                 )
-            )  
+            )
             AND ( @city IS NULL OR @city = '' OR t2.city = @city )
         
             AND ( @qualiftion IS NULL OR @qualiftion = '' OR t2.qualdegree = @qualiftion )

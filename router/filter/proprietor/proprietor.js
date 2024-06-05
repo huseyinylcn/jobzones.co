@@ -2,7 +2,7 @@ let express = require('express')
 let router = express.Router()
 
 
-let {proprietorGET} = require('../../model/filter/proprietor')
+let {proprietorGET} = require('../../../model/filter/proprietor')
 
 
 router.post("/",(req,res,next)=>{

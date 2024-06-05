@@ -291,10 +291,8 @@ router.post("/cv", (req, res, next) => {
     if (req.user) {
       userGET(req.user)
         .then((data) => {
-          fs.unlink(`public/${data.cvpath}`, (err) => {
-            if (err) console.log("cv silinemedi");
-            next();
-          });
+          req.cv = JSON.parse(data.cvpath)
+          next()
         })
         .catch((err) => {
           res.json({
@@ -317,7 +315,11 @@ router.post("/cv", (req, res, next) => {
   try {
     uploadcv(req, res, (err) => {
       if (err) res.json({ result: 0, message: "cv Error" });
-      else next();
+      else {
+        (req.cv).push(`/cv/${req.file.filename}`)
+        req.cv = JSON.stringify(req.cv).replace(/'/g, '"');
+        next()
+      }
     });
   } catch (error) {
     res.json({
@@ -329,7 +331,7 @@ router.post("/cv", (req, res, next) => {
 
 router.post("/cv", (req, res, next) => {
   try {
-    updatecv(req.user, `/cv/${req.file.filename}`)
+    updatecv(req.user, req.cv)
       .then((data) => {
         res.json({ result: 1, message: "successfull" });
       })
@@ -352,6 +354,7 @@ router.post("/", (req, res, next) => {
     res.json({ result: 0, message: "İstek Hatalı " });
   }
 });
+
 router.post("/", (req, res, next) => {
   try {
     info.social = JSON.stringify(req.body.social).replace(/'/g, '"');

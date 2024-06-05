@@ -26,6 +26,9 @@ let candidatesGET = (data)=>{
         
             DECLARE @jobDateThreshold DATE;
         SET @jobDateThreshold = '${data.datepost}'; 
+
+        DECLARE @exprenceTime NVARCHAR(MAX);
+SET @exprenceTime = '${data.experiencetime}'; 
         
         SELECT 
             t1.username,
@@ -63,6 +66,8 @@ let candidatesGET = (data)=>{
             AND ( @qualiftion IS NULL OR @qualiftion = '' OR t2.qualdegree = @qualiftion )
         
             AND ( @department IS NULL OR @department = '' OR t2.department = @department )
+
+            AND ( @exprenceTime IS NULL OR @exprenceTime = '' OR t2.experienceTime >= @exprenceTime )
              
             AND t2.birth BETWEEN @startDate AND @endDate
         

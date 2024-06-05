@@ -49,8 +49,15 @@ const routerSignin = require("./router/usersControl/signin");
 const routerLogin = require("./router/usersControl/login");
 const candidates = require("./router/profile/candidates");
 const employer = require("./router/profile/employer");
-const applicants = require("./router/applicants/applicants");
-const proprietor = require("./router/proprietor/proprietor");
+const applicants = require("./router/filter/applicants/applicants");
+const proprietor = require("./router/filter/proprietor/proprietor");
+const create = require("./router/job/create");
+const update = require("./router/job/update");
+const jobapplication = require("./router/job/application");
+
+
+
+
 
 
 
@@ -59,12 +66,20 @@ const proprietor = require("./router/proprietor/proprietor");
 
 
 sql.connect(config).then(() => {
+  app.use("/job/create",create)
+  app.use("/job/update",update)
+  app.use("/job/application",jobapplication)
     app.use("/signin", routerSignin);
     app.use("/login", routerLogin);
     app.use("/candidates", candidates);
     app.use("/employer", employer);
     app.use("/applicants",applicants)
     app.use("/proprietor",proprietor)
+   
+
+
+
+
 
 
 

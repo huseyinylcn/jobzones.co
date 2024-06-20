@@ -1,5 +1,5 @@
 const express = require("express");
-let session = require('express-session')
+let session = require("express-session");
 
 const app = express();
 const path = require("path");
@@ -8,9 +8,7 @@ const passport = require("passport");
 const bodyParser = require("body-parser");
 const sql = require("mssql");
 require("dotenv").config();
-require('./router/usersControl/auth')
-
-
+require("./router/usersControl/auth");
 
 const config = {
   user: process.env.DB_USER,
@@ -19,23 +17,22 @@ const config = {
   database: process.env.DB_DATABASE,
   options: {
     encrypt: process.env.DB_OPTIONS_ENCRYPT === "true",
-    enableArithAbort: true
+    enableArithAbort: true,
   },
 };
-app.use(session({
-  secret: '739f6d87048e4b3951d9d59acfaf441dd0a45fa43d6f4df9fb89b4659ea10afb',
-  resave: false,
-  saveUninitialized: true,
-  cookie: { maxAge: null },
-  
-}))
+app.use(
+  session({
+    secret: "739f6d87048e4b3951d9d59acfaf441dd0a45fa43d6f4df9fb89b4659ea10afb",
+    resave: false,
+    saveUninitialized: true,
+    cookie: { maxAge: null },
+  })
+);
 app.use(passport.initialize());
 app.use(passport.session());
 
-
-app.use(bodyParser.urlencoded({extended:false})); 
+app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
 
 app.use(express.static(path.join(__dirname, "public")));
 
@@ -54,39 +51,25 @@ const proprietor = require("./router/filter/proprietor/proprietor");
 const create = require("./router/job/create");
 const update = require("./router/job/update");
 const jobapplication = require("./router/job/application");
-
-
-
-
-
-
-
-
-
+const jobfilter = require("./router/filter/job/job");
+const findjobs = require("./router/job/findjobs");
 
 
 sql.connect(config).then(() => {
-  app.use("/job/create",create)
-  app.use("/job/update",update)
-  app.use("/job/application",jobapplication)
-    app.use("/signin", routerSignin);
-    app.use("/login", routerLogin);
-    app.use("/candidates", candidates);
-    app.use("/employer", employer);
-    app.use("/applicants",applicants)
-    app.use("/proprietor",proprietor)
-   
+  app.use("/job/create", create);
+  app.use("/job/update", update);
+  app.use("/job/application", jobapplication);
+  app.use("/job", jobfilter);
+  app.use("/findJob", findjobs);
+  app.use("/signin", routerSignin);
+  app.use("/login", routerLogin);
+  app.use("/candidates", candidates);
+  app.use("/employer", employer);
+  app.use("/applicants", applicants);
+  app.use("/proprietor", proprietor);
 
-
-
-
-
-
-
-    app.use("/", routerMain);
-
+  app.use("/", routerMain);
 });
-
 
 let port = 3000;
 app.listen(port, () => {

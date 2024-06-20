@@ -1,0 +1,296 @@
+.filterOpenBtn{
+    padding-left: 10px;
+    padding-top: 15px;
+cursor: pointer;
+}
+
+.filterOpenBtn i{
+    color: #14a077; font-size: 20px;
+}
+
+.filterOpenBtn span{
+    color: #191919; font-size: 18px;
+    text-decoration: underline;
+    padding-right: 10px;
+
+}
+.filterBox{
+    width: 300px;
+    height: 100vh;
+    background: #FFFFFF;
+    position: fixed;
+    left: 0px ;
+    top: 0px;
+z-index: 9999;
+overflow-y: scroll;
+overflow-x: hidden;
+display: block;
+}
+.filter-top-box{
+    height: 50px;
+    border-bottom: 1px solid rgb(226, 226, 226);
+    margin-bottom: 10px;
+}
+.filter-title{
+    font-size: 21px;
+    color: #202020;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    line-height: 50px;
+    padding-left: 20px;
+    letter-spacing: 2px;
+
+}
+
+.filter-close-btn{
+    color: #202020;
+    
+    line-height: 50px;
+    text-align: center;
+    font-size: 22px;
+}
+.filter-all-box{
+    margin: 10px 0px;
+    position: relative;
+
+
+}
+
+.filter-all-box label{
+    display: block;
+    width: 90%;
+    margin-left: 20px;
+    font-weight: 600;
+
+
+}
+.filter-all-box input{
+    width: 90%;
+    display: block;
+    margin-left: 10px;
+    height: 40px;
+    border-radius: 10px;
+    color: #191919;
+    text-transform: capitalize;
+}
+.filter-all-box input:focus{
+border: 1px solid #b1b1b1;
+}
+
+.filter-all-box select{
+    width: 90%;
+    display: block;
+    margin-left: 10px;
+    height: 40px;
+    border-radius: 10px;
+    color: #191919;
+    text-transform: capitalize;
+    padding-bottom: 10px;
+    padding-top: 9px;
+}
+
+.filter-all-box span{
+    font-size: 17px;
+    font-weight: 550;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: rgb(0, 172, 0);
+}
+.filter-all-box b{
+    font-size: 14px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    color: rgb(0, 172, 0);
+}
+
+.filter-all-box select:focus{
+    border: 1px solid #b1b1b1;
+    }
+    
+
+.filterClick{
+    display: block;
+    text-align: center;
+    margin: auto;
+    width: 80%;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 26px;
+    padding: 11px 32px;
+    background: #14a077;
+    border-radius: 4px;
+    color: #fff;
+    border: 1px solid #14a077;
+    text-transform: capitalize;
+}
+
+.selectUL{
+    width: 80%;
+    height: auto;
+    background-color: white;
+    border: 1px solid rgb(207, 207, 207);
+    margin: auto;
+    position: absolute;
+    top: 65px;
+    left: 25px;
+    border-radius: 0px 0px 6px 6px;
+    z-index: 999999999;
+    display: none;
+}
+.selectUL li {
+    list-style-type: none;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    width: 100%;
+    height: 25px;
+    background-color: rgb(251, 251, 251);
+    border-bottom: 1px solid rgb(213, 213, 213);
+    font-size: 12px;
+    line-height: 25px;
+    color: black;
+    padding-left: 10px;
+    cursor: pointer;
+    
+}
+.selectUL li:hover{
+
+    background-color: rgb(228, 228, 228);
+   
+}
+
+
+
+
+.categoryUL{
+    width: 80%;
+    height: auto;
+    background-color: white;
+    border: 1px solid rgb(207, 207, 207);
+    margin: auto;
+    position: absolute;
+    top: 65px;
+    left: 25px;
+    border-radius: 0px 0px 6px 6px;
+    z-index: 999999999;
+    display: none;
+}
+.categoryUL li {
+    list-style-type: none;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    width: 100%;
+    height: 25px;
+    background-color: rgb(251, 251, 251);
+    border-bottom: 1px solid rgb(213, 213, 213);
+    font-size: 12px;
+    line-height: 25px;
+    color: black;
+    padding-left: 10px;
+    cursor: pointer;
+    
+}
+.categoryUL li:hover{
+
+    background-color: rgb(228, 228, 228);
+   
+}
+
+.cityUL{
+    width: 80%;
+    height: auto;
+    background-color: white;
+    border: 1px solid rgb(207, 207, 207);
+    margin: auto;
+    position: absolute;
+    top: 65px;
+    left: 25px;
+    border-radius: 0px 0px 6px 6px;
+    z-index: 999999999;
+    display: none;
+}
+.cityUL li {
+    list-style-type: none;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    width: 100%;
+    height: 25px;
+    background-color: rgb(251, 251, 251);
+    border-bottom: 1px solid rgb(213, 213, 213);
+    font-size: 12px;
+    line-height: 25px;
+    color: black;
+    padding-left: 10px;
+    cursor: pointer;
+    
+}
+.cityUL li:hover{
+
+    background-color: rgb(228, 228, 228);
+   
+}
+
+.modeofopereation{
+    width: 90%;
+    display: block;
+    margin-left: 10px;
+    height: 40px;
+    border-radius: 10px;
+    color: #191919;
+    text-transform: capitalize;
+    background-color: white;
+    border: 1px solid rgb(228, 228, 228);
+}
+
+
+.modeofopereationUL{
+    width: 80%;
+    margin-left: 10px;
+    border: 1px solid rgb(228, 228, 228);
+    position: absolute;
+    top: 65px;
+    left: 10px;
+    z-index: 9999999;
+    background-color: white;
+    border-radius: 10px;
+    display: none;
+}
+
+.modeofopereationUL li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 30px;
+    
+border-bottom: 1px solid rgb(218, 218, 218);
+border-radius: 4px;
+padding: 3px 10px;
+}
+
+.modeofopereationUL li input{
+    height: 20px;
+}
+.modeofopereationUL li i{
+    width: 120px;
+}
+
+.locationHome{
+    margin: 0 10px;
+    border-radius: 30px;
+    padding-left: 100px;
+color: black;
+border: none;
+
+
+}
+
+.homelocationUL li{
+    height: 28px;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    padding: 3px 7px;
+
+}
+.homelocationUL li:hover{
+   background-color: rgb(222, 222, 222);
+    
+}
+
+
+@media (max-width: 995px) {
+ .rightHomeJob{
+    display: none;
+ }
+  }

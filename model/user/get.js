@@ -17,6 +17,7 @@ let userGET = (userID)=>{
     })
 }
 
+
 let employerGET = (userID)=>{
     return new Promise((resolve,reject)=>{
         sql.query(`SELECT employer.*, [user].email, [user].username, [user].type

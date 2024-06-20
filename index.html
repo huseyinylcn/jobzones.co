@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Option Example</title>
+</head>
+<body>
+    <select name="" id="careerlevel">
+        <option value="">Select</option>
+        <option data-value="0" value="entrylevel">Entry Level</option>
+        <option data-value="0" value="specialist">Specialist</option>
+        <option  value="management">Management</option>
+        <option value="director">Director</option>
+        <option value="execution">Execution</option>
+    </select>
+
+    <script>
+        document.getElementById('careerlevel').addEventListener('change', function() {
+            // Seçili değeri al
+            const selectedValue = this.value;
+            console.log(`Selected value: ${selectedValue}`);
+            
+            // Tüm seçenekleri alın
+            const options = this.options;
+            console.log('All options:');
+            for (let i = 0; i < options.length; i++) {
+                console.log(options[i].value);
+            }
+        });
+    </script>
+</body>
+</html>

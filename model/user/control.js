@@ -58,4 +58,18 @@ let conrolUSERNAME = (username)=>{
     })
 }
 
-module.exports = { conrolUSER, login, conrolUSERNAME }
+
+let userTypeControl = (userID)=>{
+    return new Promise((resolve,reject)=>{
+        sql.query(`select * from [user] where userID = '${userID}'`).then((data)=>{
+            resolve(data.recordset[0].type)
+        }).catch((err)=>{
+            console.log(err)
+            resolve(404)
+        })
+    }).catch((error)=>{
+        console.log(error)
+        return 404
+    })
+}
+module.exports = { conrolUSER, login, conrolUSERNAME, userTypeControl }

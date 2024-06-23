@@ -5,673 +5,241 @@
 
 
 
-  <section class="form-sticky stc1">
+
+  <section class="tf-slider sl9 ">
     <div class="tf-container">
-      <div class="job-search-form inner-form-map st1">
-        <form method="post">
-          <div class="row-group-search">
-            <div class="form-group-1">
-              <input type="text" class="input-filter-search" placeholder="Job title, key words or company">
-              <span class="icon-search search-job"></span>
-            </div>
-            <div class="form-group-2">
-              <span class="icon-map-pin"></span>
-              <select class="select-location" style="display: none;">
-                <option value="">All Location</option>
-                <option value="">All Location 1</option>
-                <option value="">All Location 2</option>
-                <option value="">All Location 3</option>
-              </select>
-              <div class="nice-select select-location" tabindex="0">
-                <span class="current">All Location</span>
-                <ul class="list">
-                  <li data-value="" class="option selected focus">All Location</li>
-                  <li data-value="" class="option">Singapore</li>
-                  <li data-value="" class="option">Japan</li>
-                  <li data-value="" class="option">Korea</li>
-                  <li data-value="" class="option">Italia</li>
-                  <li data-value="" class="option">Canada</li>
-                </ul>
-              </div>
-            </div>
-            <div class="form-group-3">
-              <span class="icon-filter"></span>
-              <select id="select-location" class="select-location filter-radio" style="display: none;">
-                <option value="">Filter More</option>
-              </select>
-            </div>
-            <div class="wd-filter-radio">
-              <div class="content">
-                <div class="fl-cl lc1">
-                  <h6>On-site/Remote</h6>
-                  <ul>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-1" /><label for="checkbox-1"></label></div>
-                      <label>On-site (1,675)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-2" /><label for="checkbox-2"></label></div>
-                      <label>Remote (5,675)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-3" /><label for="checkbox-3"></label></div>
-                      <label>Hybrid (6,675)</label>
-                    </li>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="content">
+            <div class="form-sl stc">
+              <form method="post">
+                <div class="row-group-search home1 st">
+                  <div class="form-group-1 ">
+                    <span class="icon-search search-job"></span>
+                    <input type="text" class="input-filter-search" id="keywordJobs" placeholder="Job title, key words or company">
+                  </div>
+
+                  <div class="form-group-2">
+                    <span class="icon-map-pin"></span>
+                  <input id="homelocationINPUT" style="padding-left: 37px; color: black; border-radius: 15px; border: none;" class="locationHome" placeholder="Location" type="text">
+                  <ul id="homeLocation" class="homelocationUL" style="display: none; border-radius: 15px; width: 300px; position: absolute; top: 43px; left: 50px; background: white; border: 1px solid rgb(236, 236, 236); ">
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
                   </ul>
+                  </div>
+
+                  <div class="form-group-4">
+                    <button type="button" id="filterJobsHome" class="btn btn-find">Find Jobs</button>
+                  </div>
+
+                  <div id="filterOpenBtn" class="form-group-5 filterOpenBtn">
+                    <i  class="fa-solid fa-filter"></i>
+                    <span>Filter</span>
+                  </div>
+
                 </div>
-                <div class="fl-cl lc2">
-                  <h6>All Job Types</h6>
-                  <ul>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-4" /><label for="checkbox-4"></label></div>
-                      <label>All Job Types (1,675)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-5" /><label for="checkbox-5"></label></div>
-                      <label>Full-time (623)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-6" /><label for="checkbox-6"></label></div>
-                      <label>Part-time (45)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-7" /><label for="checkbox-7"></label></div>
-                      <label>Contract (65)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-8" /><label for="checkbox-8"></label></div>
-                      <label>Internship (9)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-9" /><label for="checkbox-9"></label></div>
-                      <label>Temporary (4)</label>
-                    </li>
-                  </ul>
-                </div>
-                <div class="fl-cl lc3">
-                  <h6>All Salary</h6>
-                  <ul>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-10" /><label for="checkbox-10"></label>
-                      </div><label>All Salaries (6,277)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-11" /><label for="checkbox-11"></label>
-                      </div><label>$50,000+ (2,277)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-12" /><label for="checkbox-12"></label>
-                      </div><label>$70,000+ (1,627)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-13" /><label for="checkbox-13"></label>
-                      </div><label>$90,000+ (7,627)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-14" /><label for="checkbox-14"></label>
-                      </div><label>$110,000+ (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-15" /><label for="checkbox-15"></label>
-                      </div><label>$130,000+ (527)</label>
-                    </li>
-                  </ul>
-                </div>
-                <div class="fl-cl lc4">
-                  <h6>Any Distance</h6>
-                  <ul>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-16" /><label for="checkbox-16"></label>
-                      </div><label>Any Distance (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-17" /><label for="checkbox-17"></label>
-                      </div><label>within 5 miles (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-18" /><label for="checkbox-18"></label>
-                      </div><label>within 10 miles (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-19" /><label for="checkbox-19"></label>
-                      </div><label>within 25 miles (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-20" /><label for="checkbox-20"></label>
-                      </div><label>within 50 miles (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-21" /><label for="checkbox-21"></label>
-                      </div><label>within 100 miles (227)</label>
-                    </li>
-                  </ul>
-                </div>
-                <div class="fl-cl lc5">
-                  <h6>Posted Anytime</h6>
-                  <ul>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-22" /><label for="checkbox-22"></label>
-                      </div><label>Posted Anytime</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-23" /><label for="checkbox-23"></label>
-                      </div><label>Last 1 days (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-24" /><label for="checkbox-24"></label>
-                      </div><label>Last 3 days (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-25" /><label for="checkbox-25"></label>
-                      </div><label>Last 7 days (227)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-26" /><label for="checkbox-26"></label>
-                      </div><label>Last 14 days (227)</label>
-                    </li>
-                  </ul>
-                </div>
-                <div class="fl-cl lc6">
-                  <h6>All Seniority Levels</h6>
-                  <ul>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-27" /><label for="checkbox-27"></label>
-                      </div><label>All Seniority Levels</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-28" /><label for="checkbox-28"></label>
-                      </div><label>Entry Level (24)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-29" /><label for="checkbox-29"></label>
-                      </div><label>Mid Senior Level (34)</label>
-                    </li>
-                    <li>
-                      <div class="round"><input type="checkbox" id="checkbox-30" /><label for="checkbox-30"></label>
-                      </div><label>Executive (12)</label>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="form-group-4">
-              <button class="btn btn-find">Find Jobs</button>
+              </form>
+              <!-- End Job  Search Form-->
             </div>
           </div>
-
-        </form>
-        <!-- End Job  Search Form-->
+        </div>
       </div>
     </div>
   </section>
+
+<div id="filterBox" class="filterBox">
+<div class="row">
+  <div class="filter-top-box col-12 row">
+    <div class="col-9 filter-title">Filter</div>
+    <div id="filterClose" class="col-3 filter-close-btn"> <i class="fa-solid fa-xmark"></i> </div>
+  </div>
+
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">Category</label>
+    <input type="text" placeholder="Category" id="categorySelect">
+
+
+    <ul id="categorySelectUL" class="categoryUL">
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+
+    </ul>
+
+
+
+  </div>
+
+  <div class="col-12 filter-all-box">
+    <label for="">City</label>
+    <input type="text" placeholder="City" id="citySelect">
+    <ul id="citySelectUL" class="cityUL">
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+
+    </ul>
+  </div>
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">Mode Of Operation</label>
+    <p id="modeofopereation" class="modeofopereation"><i id="modeofNumberView" style="line-height: 40px; font-size: 15px; color: rgb(23, 115, 168); padding-left: 20px;  font-weight: 500;">Select</i>  <i style="float: right; line-height: 40px; padding-right: 14px;" class="fa-solid fa-chevron-down"></i></p>
+    <ul id="modeofopereationUL" class="modeofopereationUL" >
+      <li data-value="remote"><i>Remote</i> <input value="remote" type="checkbox" ></li>
+      <li data-value="hybrid"><i>Hybrid</i> <input value="hybrid" type="checkbox" ></li>
+      <li data-value="fulltime"><i>Full Time</i> <input value="fulltime" type="checkbox" ></li>
+      <li data-value="intern"><i>Intern</i> <input value="intern" type="checkbox" ></li>
+      <li data-value="voluntary"><i>Voluntary</i> <input value="voluntary" type="checkbox" ></li>
+      <li data-value="temporary"><i>Temporary</i> <input value="temporary" type="checkbox" ></li>
+      <li data-value="free"><i>Free</i> <input value="free" type="checkbox" ></li>
+      <li data-value="parttime"><i>Part time</i> <input value="parttime" type="checkbox" ></li>
+
+     
+    </ul>
+
+  </div>
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">Salary</label>
+    <div class="row">
+      <div class="col-5"> 
+        <input id="salarymin" style=" font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Min:">
+      </div>
+      <div class="col-5">
+        <input id="salarymax" style="margin-left: -10px; font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Max">
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">Qualification</label>
+   <select name="" id="qualdegree">
+    <option data-value="" value="">Sdelect</option>
+    <option data-value="0" value="highschool">High school</option>
+    <option data-value="1" value="vocationalschool">Vocational school</option>
+    <option data-value="2" value="certified">Certified</option>
+    <option data-value="3" value="bachelordegree">Bachelor degree</option>
+    <option data-value="4" value="mastersdegree">Master's degree</option>
+    <option data-value="5" value="associatedegree">Associate Degree</option>
+    <option data-value="6" value="doctoralDegree">Doctoral Degree</option>
+
+
+   </select>
+  </div>
+
+  <div class="col-12 filter-all-box">
+    <label for="">Kariyrt level</label>
+   <select name="" id="careerlevel">
+    <option value="">Select</option>
+    <option data-value="0" value="entrylevel">Entry Level</option>
+    <option data-value="1" value="specialist">Specialist</option>
+    <option data-value="2" value="management">Management</option>
+    <option data-value="3" value="director">Director</option>
+    <option data-value="4" value="execution">Execution</option>
+   </select>
+  </div>
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">Staj</label>
+    <input id="staj" type="number" placeholder="Number">
+  </div>
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">Date Posted</label>
+    
+    <div class="row">
+      <div class="col-5"> 
+        <input value="" id="datemin" style=" font-size: 13px; text-transform: lowercase; padding-left: 3px; padding-right: 0px;" type="date">
+      </div>
+      <div class="col-5">
+        <input value="" id="datemax" style="margin-left: -10px; font-size: 13px; text-transform: lowercase; padding-left: 3px; padding-right: 0px;" type="date" >
+      </div>
+
+    </div>
+  </div>
+
+  <div class="col-12 filter-all-box">
+    <label for="">Location</label>
+   <select name="" id="locationMAp">
+    <option value="1">Mevvcut Konumu Kullan</option>
+    <option value="0">Kayıtlı Olan Konumumu Kullan</option>
+
+
+   </select>
+  </div>
+
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">Radius <span id="radiusKM">250</span> <b> KM</b></label>
+
+    <div style="width: 90%; display: flex; margin: auto; align-items: center; position: relative;">
+      <div id="rx" style="padding: 13px 4px;">
+  <div  style="width: 250px; height: 7px; border-radius: 14px; background-color: rgb(212, 212, 212);"></div>
+  </div>
+  <div id="rTop" style=" border-radius: 50%; width: 14px; height: 14px; background-color: white; border: 2px solid green; position: absolute; left: 250px;"></div>
+     </div>
+  
+  </div>
+
+      
+
+
+
+<button id="filterClick" type="button" class="filterClick">Find Jobs</button>
+<br><br><br><br><br><br>
+</div>
+</div>
+
+
+
+
+
+
+
 
   <section class="inner-jobs-section">
     <div class="tf-container">
       <div class="row">
         <div class="col-lg-12 tf-tab">
           
-          <div class="wd-meta-select-job">
-
-            <div class="wd-findjob-filer">
-              <div class="group-select-display">
-                <a class="button-filter st2"> <i class="icon-filter"></i> Filters</a>
-                <div class="inner menu-tab">
-                  <a class="btn-display active"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16"
-                      viewBox="0 0 17 16" fill="none">
-                      <path
-                        d="M4.5 0H0.500478C0.5 0.380952 0.5 0.596931 0.5 1.33333V14.6667C0.5 15.4031 0.500478 16 0.500478 16H4.5C4.5 16 4.5 15.4031 4.5 14.6667V1.33333C4.5 0.596931 4.5 0.380952 4.5 0Z"
-                        fill="white" />
-                      <path
-                        d="M10.5 0H6.50048C6.5 0.380952 6.5 0.596931 6.5 1.33333V14.6667C6.5 15.4031 6.50048 16 6.50048 16H10.5C10.5 16 10.5 15.4031 10.5 14.6667V1.33333C10.5 0.596931 10.5 0.380952 10.5 0Z"
-                        fill="white" />
-                      <path
-                        d="M16.5 0H12.5005C12.5 0.380952 12.5 0.596931 12.5 1.33333V14.6667C12.5 15.4031 12.5005 16 12.5005 16H16.5C16.5 16 16.5 15.4031 16.5 14.6667V1.33333C16.5 0.596931 16.5 0.380952 16.5 0Z"
-                        fill="white" />
-                    </svg></a>
-                  <a class="btn-display"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="16"
-                      viewBox="0 0 17 16" fill="none">
-                      <path
-                        d="M0.5 12.001L0.5 16.0005C0.880952 16.001 1.09693 16.001 1.83333 16.001L15.1667 16.001C15.9031 16.001 16.5 16.0005 16.5 16.0005L16.5 12.001C16.5 12.001 15.9031 12.001 15.1667 12.001L1.83333 12.001C1.09693 12.001 0.880952 12.001 0.5 12.001Z"
-                        fill="#A0A0A0" />
-                      <path
-                        d="M0.5 6.00098L0.5 10.0005C0.880952 10.001 1.09693 10.001 1.83333 10.001L15.1667 10.001C15.9031 10.001 16.5 10.0005 16.5 10.0005L16.5 6.00098C16.5 6.00098 15.9031 6.00098 15.1667 6.00098L1.83333 6.00098C1.09693 6.00098 0.880952 6.00098 0.5 6.00098Z"
-                        fill="#A0A0A0" />
-                      <path
-                        d="M0.5 0.000976562L0.5 4.0005C0.880952 4.00098 1.09693 4.00098 1.83333 4.00098L15.1667 4.00098C15.9031 4.00098 16.5 4.0005 16.5 4.0005L16.5 0.000975863C16.5 0.000975863 15.9031 0.000975889 15.1667 0.000975921L1.83333 0.000976504C1.09693 0.000976536 0.880952 0.000976546 0.5 0.000976562Z"
-                        fill="#A0A0A0" />
-                    </svg></a>
-
-                </div>
-                <p class="nofi-job"> <span>1249</span> jobs recommended for you</p>
-              </div>
-              <div class="group-select">
-                <select>
-                  <option>12 Per Page</option>
-                  <option>1 Per Page</option>
-                  <option>10 Per Page</option>
-                </select>
-                <select>
-                  <option>Sort by (Defaut)</option>
-                  <option>New</option>
-                  <option>Last</option>
-                </select>
-              </div>
-            </div>
-          </div>
+       
 
           <div class="content-tab">
 
 
             <div class="inner">
-              <div class="group-col-2">
-                <div class="features-job cl2">
-                  <div class="job-archive-header">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="/img/logo-company/cty1.png" alt="/img/logo-company/cty1.png">
-                      </div>
-                      <div class="box-content">
-                        <h4>
-                          <a href="jobs-single.html">Rockstar Games New York</a>
-                        </h4>
-                        <h3>
-                          <a href="/job/detail/">Senior UI/UX Designer</a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <ul>
-                          <li>
-                            <span class="icon-map-pin"></span>
-                            Las Vegas, NV 89107, USA
-                          </li>
-                          <li>
-                            <span class="icon-calendar"></span>
-                            2 days ago
-                          </li>
-                        </ul>
-                        <span class="icon-heart"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="job-archive-footer">
-                    <div class="job-footer-left">
-                      <ul class="job-tag">
-                        <li><a href="#">Full-time</a></li>
-                        <li><a href="#">Remote</a></li>
-                      </ul>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                    <div class="job-footer-right">
-                      <div class="price">
-                        <span class="icon-dolar1"></span>
-                        <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                      </div>
-                      <p class="days">22 days left to apply</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="features-job cl2">
-                  <div class="job-archive-header">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="/img/logo-company/cty11.png" alt="/img/logo-company/cty11.png">
-                      </div>
-                      <div class="box-content">
-                        <h4>
-                          <a href="jobs-single.html">Rockstar Games New York</a>
-                        </h4>
-                        <h3>
-                          <a href="jobs-single.html">Social Media Marketing</a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <ul>
-                          <li>
-                            <span class="icon-map-pin"></span>
-                            Las Vegas, NV 89107, USA
-                          </li>
-                          <li>
-                            <span class="icon-calendar"></span>
-                            2 days ago
-                          </li>
-                        </ul>
-                        <span class="icon-heart"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="job-archive-footer">
-                    <div class="job-footer-left">
-                      <ul class="job-tag">
-                        <li><a href="#">Freelancer</a></li>
-                        <li><a href="#">Remote</a></li>
-                      </ul>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                    <div class="job-footer-right">
-                      <div class="price">
-                        <span class="icon-dolar1"></span>
-                        <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                      </div>
-                      <p class="days">22 days left to apply</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="features-job cl2">
-                  <div class="job-archive-header">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="/img/logo-company/cty8.png" alt="/img/logo-company/cty8.png">
-                      </div>
-                      <div class="box-content">
-                        <h4>
-                          <a href="jobs-single.html">Rockstar Games New York</a>
-                        </h4>
-                        <h3>
-                          <a href="jobs-single.html">HR Administration</a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <ul>
-                          <li>
-                            <span class="icon-map-pin"></span>
-                            Las Vegas, NV 89107, USA
-                          </li>
-                          <li>
-                            <span class="icon-calendar"></span>
-                            2 days ago
-                          </li>
-                        </ul>
-                        <span class="icon-heart"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="job-archive-footer">
-                    <div class="job-footer-left">
-                      <ul class="job-tag">
-                        <li><a href="#">Temporary</a></li>
-                        <li><a href="#">On-site</a></li>
-                      </ul>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                    <div class="job-footer-right">
-                      <div class="price">
-                        <span class="icon-dolar1"></span>
-                        <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                      </div>
-                      <p class="days">22 days left to apply</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="features-job cl2">
-                  <div class="job-archive-header">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="/img/logo-company/cty10.png" alt="/img/logo-company/cty10.png">
-                      </div>
-                      <div class="box-content">
-                        <h4>
-                          <a href="jobs-single.html">Rockstar Games New York</a>
-                        </h4>
-                        <h3>
-                          <a href="jobs-single.html">Full Stack Development</a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <ul>
-                          <li>
-                            <span class="icon-map-pin"></span>
-                            Las Vegas, NV 89107, USA
-                          </li>
-                          <li>
-                            <span class="icon-calendar"></span>
-                            2 days ago
-                          </li>
-                        </ul>
-                        <span class="icon-heart"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="job-archive-footer">
-                    <div class="job-footer-left">
-                      <ul class="job-tag">
-                        <li><a href="#">Part-time</a></li>
-                        <li><a href="#">Remote</a></li>
-                      </ul>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                    <div class="job-footer-right">
-                      <div class="price">
-                        <span class="icon-dolar1"></span>
-                        <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                      </div>
-                      <p class="days">22 days left to apply</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="features-job cl2">
-                  <div class="job-archive-header">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="/img/logo-company/cty4.png" alt="/img/logo-company/cty4.png">
-                      </div>
-                      <div class="box-content">
-                        <h4>
-                          <a href="jobs-single.html">Rockstar Games New York</a>
-                        </h4>
-                        <h3>
-                          <a href="jobs-single.html">Project manager</a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <ul>
-                          <li>
-                            <span class="icon-map-pin"></span>
-                            Las Vegas, NV 89107, USA
-                          </li>
-                          <li>
-                            <span class="icon-calendar"></span>
-                            2 days ago
-                          </li>
-                        </ul>
-                        <span class="icon-heart"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="job-archive-footer">
-                    <div class="job-footer-left">
-                      <ul class="job-tag">
-                        <li><a href="#">Freelancer</a></li>
-                        <li><a href="#">Remote</a></li>
-                      </ul>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                    <div class="job-footer-right">
-                      <div class="price">
-                        <span class="icon-dolar1"></span>
-                        <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                      </div>
-                      <p class="days">22 days left to apply</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="features-job cl2">
-                  <div class="job-archive-header">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="/img/logo-company/cty7.png" alt="/img/logo-company/cty7.png">
-                      </div>
-                      <div class="box-content">
-                        <h4>
-                          <a href="jobs-single.html">Rockstar Games New York</a>
-                        </h4>
-                        <h3>
-                          <a href="jobs-single.html">Senior DevOps Engineer</a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <ul>
-                          <li>
-                            <span class="icon-map-pin"></span>
-                            Las Vegas, NV 89107, USA
-                          </li>
-                          <li>
-                            <span class="icon-calendar"></span>
-                            2 days ago
-                          </li>
-                        </ul>
-                        <span class="icon-heart"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="job-archive-footer">
-                    <div class="job-footer-left">
-                      <ul class="job-tag">
-                        <li><a href="#">Contract</a></li>
-                        <li><a href="#">On-site</a></li>
-                      </ul>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                    <div class="job-footer-right">
-                      <div class="price">
-                        <span class="icon-dolar1"></span>
-                        <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                      </div>
-                      <p class="days">22 days left to apply</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="features-job cl2">
-                  <div class="job-archive-header">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="/img/logo-company/cty9.png" alt="/img/logo-company/cty9.png">
-                      </div>
-                      <div class="box-content">
-                        <h4>
-                          <a href="jobs-single.html">Rockstar Games New York</a>
-                        </h4>
-                        <h3>
-                          <a href="jobs-single.html">Project manager</a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <ul>
-                          <li>
-                            <span class="icon-map-pin"></span>
-                            Las Vegas, NV 89107, USA
-                          </li>
-                          <li>
-                            <span class="icon-calendar"></span>
-                            2 days ago
-                          </li>
-                        </ul>
-                        <span class="icon-heart"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="job-archive-footer">
-                    <div class="job-footer-left">
-                      <ul class="job-tag">
-                        <li><a href="#">Full-time</a></li>
-                        <li><a href="#">Remote</a></li>
-                      </ul>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                    <div class="job-footer-right">
-                      <div class="price">
-                        <span class="icon-dolar1"></span>
-                        <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                      </div>
-                      <p class="days">22 days left to apply</p>
-                    </div>
-                  </div>
-                </div>
-                <div class="features-job cl2">
-                  <div class="job-archive-header">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="/img/logo-company/cty10.png" alt="/img/logo-company/cty10.png">
-                      </div>
-                      <div class="box-content">
-                        <h4>
-                          <a href="jobs-single.html">Rockstar Games New York</a>
-                        </h4>
-                        <h3>
-                          <a href="jobs-single.html">Social Media Marketing </a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <ul>
-                          <li>
-                            <span class="icon-map-pin"></span>
-                            Las Vegas, NV 89107, USA
-                          </li>
-                          <li>
-                            <span class="icon-calendar"></span>
-                            2 days ago
-                          </li>
-                        </ul>
-                        <span class="icon-heart"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="job-archive-footer">
-                    <div class="job-footer-left">
-                      <ul class="job-tag">
-                        <li><a href="#">Freelancer</a></li>
-                        <li><a href="#">Remote</a></li>
-                      </ul>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                    <div class="job-footer-right">
-                      <div class="price">
-                        <span class="icon-dolar1"></span>
-                        <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                      </div>
-                      <p class="days">22 days left to apply</p>
-                    </div>
-                  </div>
-                </div>
+              <div id="jobBox" class="group-col-2">
+              
+
 
               </div>
 
@@ -683,431 +251,6 @@
                 <li><a href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
               </ul>
             </div>
-            <!-- <div class="inner">
-              <div class="features-job style-3">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty8.png" alt="/img/logo-company/cty8.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">Senior UI/UX Designer</a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-              <div class="features-job style-3">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty11.png" alt="/img/logo-company/cty11.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">Project manager</a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-              <div class="features-job style-3">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty7.png" alt="/img/logo-company/cty7.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">Senior UI/UX Designer</a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-              <div class="features-job style-3">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty4.png" alt="/img/logo-company/cty4.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">Full Stack Development</a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-              <div class="features-job style-3">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty3.png" alt="/img/logo-company/cty9.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">Full Stack Development</a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-              <div class="features-job style-3">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty7.png" alt="/img/logo-company/cty2.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">Social Media Marketing </a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-              <div class="features-job style-3">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty9.png" alt="/img/logo-company/cty2.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">Senior UI/UX Designer </a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-              <div class="features-job style-3">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty7.png" alt="/img/logo-company/cty2.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">Senior DevOps Engineer</a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-              <div class="features-job style-3 mb1">
-                <div class="inner-box">
-                  <div class="company">
-                    <div class="logo-company">
-                      <img src="/img/logo-company/cty2.png" alt="/img/logo-company/cty2.png">
-                    </div>
-                    <div class="box-content">
-                      <h4>
-                        <a href="jobs-single.html">Rockstar Games New York</a>
-                      </h4>
-                      <h3>
-                        <a href="jobs-single.html">HR Administration </a>
-                        <span class="icon-bolt"></span>
-                      </h3>
-                      <div class="star">
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                        <span class="icon-star-full"></span>
-                      </div>
-                    </div>
-                  </div>
-                  <ul class="info">
-                    <li>
-                      <span class="icon-map-pin"></span>
-                      Las Vegas, NV 89107, USA
-                    </li>
-                    <li>22 days left to apply</li>
-                  </ul>
-                  <div class="category">
-                    <ul class="job-tag">
-                      <li><a href="#"> Full-time</a></li>
-                      <li><a href="#"> Hybrid</a></li>
-                    </ul>
-                  </div>
-                  <div class="salary">
-                    <span class="icon-dolar1"></span>
-                    <p>$83,000 - $110,000 <span class="year">/year</span></p>
-                  </div>
-                  <div class="group-btn">
-                    <span class="icon-heart"></span>
-                    <button>Apply</button>
-                  </div>
-                </div>
-              </div>
-
-              <ul class="pagination-job padding">
-                <li><a href="#"><i class="icon-keyboard_arrow_left"></i></a></li>
-                <li><a href="#">1</a></li>
-                <li class="current"><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
-              </ul>
-            </div> -->
-
 
             
           </div>
@@ -1132,6 +275,13 @@
   <script src="/js/main.js"></script>
   <script src="/js/jquery.cookie.js"></script>
   <script src="/js/switcher.js"></script>
+  
+  <script src="/js/hymain.js"></script>
+  <script type="module" src="/js/hyhome.js"></script>
+  <script src="/js/hyclickfindjob.js"></script>
+
+
+
 
   <script src="/js/jquery-ui.min.js"></script>
 

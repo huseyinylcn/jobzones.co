@@ -53,6 +53,8 @@ const update = require("./router/job/update");
 const jobapplication = require("./router/job/application");
 const jobfilter = require("./router/filter/job/job");
 const findjobs = require("./router/job/findjobs");
+const findemployer  = require('./router/find/employer')
+
 
 
 sql.connect(config).then(() => {
@@ -67,9 +69,13 @@ sql.connect(config).then(() => {
   app.use("/employer", employer);
   app.use("/applicants", applicants);
   app.use("/proprietor", proprietor);
+  app.use("/findemployer", findemployer);
+
 
   app.use("/", routerMain);
-});
+}).catch(err=>{
+  console.log("sql bağlanamadı",err)
+})
 
 let port = 3000;
 app.listen(port, () => {

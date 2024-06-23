@@ -3,6 +3,7 @@ let router = express.Router()
 
 
 let {proprietorGET} = require('../../../model/filter/proprietor')
+const stringSimilarity = require("string-similarity");
 
 
 router.post("/",(req,res,next)=>{
@@ -36,7 +37,7 @@ router.post("/",(req,res,next)=>{
 
           next()
     } catch (error) {
-        res.json({result:0,message:"system error2"})
+        res.json({result:0,message:`system error 2 ${error}`})
         
     }
 })

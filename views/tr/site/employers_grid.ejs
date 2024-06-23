@@ -3,95 +3,260 @@
   <%- include('../partical/header.ejs') %>
   <!-- END HEADER -->
 
-<br><br><br>
-  <section class="form-sticky stc2">
+
+
+
+
+  <section class="tf-slider sl9 ">
     <div class="tf-container">
-      <div class="job-search-form st1 employers-form">
-        <form method="post">
-          <div class="row-group-search inner-form">
-            <div class="form-group-1 form-style-1">
-              <input type="text" class="input-filter-search" placeholder="key words">
-              <span class="icon-search search-job"></span>
-            </div>
-            <div class="form-group-2 form-style-1">
-              <span class="icon-map-pin"></span>
-              <select class="select-location" style="display: none;">
-                <option value="">All Location</option>
-                <option value="">Japan</option>
-                <option value="">Canada</option>
-                <option value="">England</option>
-                <option value="">Mexico</option>
-              </select>
-              <div class="nice-select select-location" tabindex="0">
-                <span class="current">All Location</span>
-                <ul class="list">
-                  <li data-value="" class="option selected focus">All Location</li>
-                  <li data-value="" class="option">Singapore</li>
-                  <li data-value="" class="option">Japan</li>
-                  <li data-value="" class="option">Korea</li>
-                  <li data-value="" class="option">Italia</li>
-                  <li data-value="" class="option">Canada</li> 
-                </ul>
-              </div>
-            </div>
-            <div class="form-group-3 form-style-1">
-              <select class="select-location" style="display: none;">
-                <option value="">Job Title</option>
-                <option value="">Job Title 1</option>
-                <option value="">Job Title 2</option>
-                <option value="">Job Title 3</option>
-              </select>
-              <div class="nice-select select-location" tabindex="0"><span class="current">Job Title</span>
-                <ul class="list">
-                  <li data-value="" class="option selected focus">Job Title</li>
-                  <li data-value="" class="option">Design & Creative </li>
-                  <li data-value="" class="option">Design</li>
-                  <li data-value="" class="option">Ux/Ui</li>
-                </ul>
-              </div>
-            </div>
-            <div class="form-group-4 form-style-1">
-              <select class="select-location" style="display: none;">
-                <option value="">Any Distance</option>
-                <option value="">Any Distance 1</option>
-                <option value="">Any Distance 2</option>
-                <option value="">Any Distance 3</option>
-              </select>
-              <div class="nice-select select-location" tabindex="0"><span class="current">Any Distance</span>
-                <ul class="list">
-                  <li data-value="" class="option selected focus">Any Distance</li>
-                  <li data-value="" class="option">Any Distance 1</li>
-                  <li data-value="" class="option">Any Distance 2</li>
-                  <li data-value="" class="option">Any Distance 3</li>
-                </ul>
-              </div>
-            </div>
-            <div class="form-group-5 form-style-1">
-              <select class="select-location" style="display: none;">
-                <option value="">Company Size</option>
-                <option value="">Company Size 1</option>
-                <option value="">Company Size 2</option>
-                <option value="">Company Size 3</option>
-              </select>
-              <div class="nice-select select-location" tabindex="0"><span class="current">Company Size</span>
-                <ul class="list">
-                  <li data-value="" class="option selected focus">Company Size</li>
-                  <li data-value="" class="option">Company Size 1</li>
-                  <li data-value="" class="option">Company Size 2</li>
-                  <li data-value="" class="option">Company Size 3</li>
-                </ul>
-              </div>
-            </div>
-            <div class="form-group-6">
-              <button class="btn btn-find">Find Employers</button>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="content">
+            <div class="form-sl stc">
+              <form method="post">
+                <div class="row-group-search home1 st">
+                  <div class="form-group-1 ">
+                    <span class="icon-search search-job"></span>
+                    <input type="text" class="input-filter-search" id="keywordJobs" placeholder="Job title, key words or company">
+                  </div>
+
+                  <div class="form-group-2">
+                    <span class="icon-map-pin"></span>
+                  <input id="homelocationINPUT" style="padding-left: 37px; color: black; border-radius: 15px; border: none;" class="locationHome" placeholder="Location" type="text">
+                  <ul id="homeLocation" class="homelocationUL" style="display: none; border-radius: 15px; width: 300px; position: absolute; top: 43px; left: 50px; background: white; border: 1px solid rgb(236, 236, 236); ">
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                    <li>Lorem, ipsum dolor.</li>
+                  </ul>
+                  </div>
+
+                  <div class="form-group-4">
+                    <button type="button" id="filterJobsHome" class="btn btn-find">Find Jobs</button>
+                  </div>
+
+                  <div id="filterOpenBtn" class="form-group-5 filterOpenBtn">
+                    <i  class="fa-solid fa-filter"></i>
+                    <span>Filter</span>
+                  </div>
+
+                </div>
+              </form>
+              <!-- End Job  Search Form-->
             </div>
           </div>
-
-        </form>
-        <!-- End Job  Search Form-->
+        </div>
       </div>
     </div>
   </section>
+
+<div id="filterBox" class="filterBox">
+<div class="row">
+  <div class="filter-top-box col-12 row">
+    <div class="col-9 filter-title">Filter</div>
+    <div id="filterClose" class="col-3 filter-close-btn"> <i class="fa-solid fa-xmark"></i> </div>
+  </div>
+
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">Sector</label>
+    <input type="text" placeholder="Category" id="sectorSelect">
+
+
+    <ul id="sectorSelectUL" class="categoryUL">
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+
+    </ul>
+
+
+
+  </div>
+
+  
+
+
+
+  <div class="col-12 filter-all-box">
+    <label for="">City</label>
+    <input type="text" placeholder="City" id="citySelect">
+    <ul id="citySelectUL" class="cityUL">
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+      <li>Lorem, ipsum dolor.</li>
+
+    </ul>
+  </div>
+
+
+   <div class="col-12 filter-all-box">
+    <label for="">Company Size</label>
+<select id="sizeID">
+  <option value="">Select</option>
+  <option value="1-10">1-10</option>
+  <option value="11-50">11-50</option>
+  <option value="51-250">51-250</option>
+  <option value="250">250++</option>
+
+</select>
+  </div>
+
+
+  <div style="display: none;" class="col-12 filter-all-box">
+    <label for="">Mode Of Operation</label>
+    <p id="modeofopereation" class="modeofopereation"><i id="modeofNumberView" style="line-height: 40px; font-size: 15px; color: rgb(23, 115, 168); padding-left: 20px;  font-weight: 500;">Select</i>  <i style="float: right; line-height: 40px; padding-right: 14px;" class="fa-solid fa-chevron-down"></i></p>
+    <ul id="modeofopereationUL" class="modeofopereationUL" >
+      <li data-value="remote"><i>Remote</i> <input value="remote" type="checkbox" ></li>
+      <li data-value="hybrid"><i>Hybrid</i> <input value="hybrid" type="checkbox" ></li>
+      <li data-value="fulltime"><i>Full Time</i> <input value="fulltime" type="checkbox" ></li>
+      <li data-value="intern"><i>Intern</i> <input value="intern" type="checkbox" ></li>
+      <li data-value="voluntary"><i>Voluntary</i> <input value="voluntary" type="checkbox" ></li>
+      <li data-value="temporary"><i>Temporary</i> <input value="temporary" type="checkbox" ></li>
+      <li data-value="free"><i>Free</i> <input value="free" type="checkbox" ></li>
+      <li data-value="parttime"><i>Part time</i> <input value="parttime" type="checkbox" ></li>
+
+     
+    </ul>
+
+  </div>
+
+
+  <div style="display: none;" class="col-12 filter-all-box">
+    <label for="">Salary</label>
+    <div class="row">
+      <div class="col-5"> 
+        <input id="salarymin" style=" font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Min:">
+      </div>
+      <div class="col-5">
+        <input id="salarymax" style="margin-left: -10px; font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Max">
+      </div>
+
+    </div>
+  </div>
+
+
+  <div  style="display: none;" class="col-12 filter-all-box">
+    <label for="">Qualification</label>
+   <select name="" id="qualdegree">
+    <option data-value="" value="">Sdelect</option>
+    <option data-value="0" value="highschool">High school</option>
+    <option data-value="1" value="vocationalschool">Vocational school</option>
+    <option data-value="2" value="certified">Certified</option>
+    <option data-value="3" value="bachelordegree">Bachelor degree</option>
+    <option data-value="4" value="mastersdegree">Master's degree</option>
+    <option data-value="5" value="associatedegree">Associate Degree</option>
+    <option data-value="6" value="doctoralDegree">Doctoral Degree</option>
+
+
+   </select>
+  </div>
+
+  <div  style="display: none;" class="col-12 filter-all-box">
+    <label for="">Kariyrt level</label>
+   <select name="" id="careerlevel">
+    <option value="">Select</option>
+    <option data-value="0" value="entrylevel">Entry Level</option>
+    <option data-value="1" value="specialist">Specialist</option>
+    <option data-value="2" value="management">Management</option>
+    <option data-value="3" value="director">Director</option>
+    <option data-value="4" value="execution">Execution</option>
+   </select>
+  </div>
+
+
+  <div  style="display: none;" class="col-12 filter-all-box">
+    <label for="">Staj</label>
+    <input id="staj" type="number" placeholder="Number">
+  </div>
+
+
+  <div style="display: none;" class="col-12 filter-all-box">
+    <label for="">Date Posted</label>
+    
+    <div class="row">
+      <div class="col-5"> 
+        <input value="" id="datemin" style=" font-size: 13px; text-transform: lowercase; padding-left: 3px; padding-right: 0px;" type="date">
+      </div>
+      <div class="col-5">
+        <input value="" id="datemax" style="margin-left: -10px; font-size: 13px; text-transform: lowercase; padding-left: 3px; padding-right: 0px;" type="date" >
+      </div>
+
+    </div>
+  </div>
+
+  <div  style="display: none;" class="col-12 filter-all-box">
+    <label for="">Location</label>
+   <select name="" id="locationMAp">
+    <option value="1">Mevvcut Konumu Kullan</option>
+    <option value="0">Kayıtlı Olan Konumumu Kullan</option>
+
+
+   </select>
+  </div>
+
+
+
+  <div  style="display: none;" class="col-12 filter-all-box">
+    <label for="">Radius <span id="radiusKM">250</span> <b> KM</b></label>
+
+    <div style="width: 90%; display: flex; margin: auto; align-items: center; position: relative;">
+      <div id="rx" style="padding: 13px 4px;">
+  <div  style="width: 250px; height: 7px; border-radius: 14px; background-color: rgb(212, 212, 212);"></div>
+  </div>
+  <div id="rTop" style=" border-radius: 50%; width: 14px; height: 14px; background-color: white; border: 2px solid green; position: absolute; left: 250px;"></div>
+     </div>
+  
+  </div>
+
+      
+
+
+
+<button id="filterClick" type="button" class="filterClick">Find Jobs</button>
+<br><br><br><br><br><br>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <section class="inner-employer-section">
     <div class="tf-container">
@@ -101,44 +266,17 @@
           <div class="content-tab">
          
             <div class="inner">
-              <div class="group-col-2">
-                <% result.forEach(element => { %>
-                  <div class="employer-block style-2 cl2">
-                    <div class="inner-box">
-                      <div class="logo-company">
-                        <img src="<%= element.photo  %>"
-                          alt="/img/logo-company/cty17.png" />
-                      </div>
-                      <div class="box-content">
-                        <div class="star">
-                          <span class="icon-star-full"></span>
-                          <span class="icon-star-full"></span>
-                          <span class="icon-star-full"></span>
-                          <span class="icon-star-full"></span>
-                          <span class="icon-star-full"></span>
-                        </div>
-                        <h3>
-                          <a href="/<%= element.username  %>"><%= element.fullName  %></a>
-                          <span class="icon-bolt"></span>
-                        </h3>
-                        <p class="info">
-                          <span class="icon-map-pin"></span>
-                         <%= element.location  %>
-                        </p>
-                      </div>
-                      <div class="button-readmore">
-                        <span class="icon-heart"></span>
-                        <button class="btn-employer">
-                          0 job openings
-                        </button>
-                      </div>
-                      
-                    </div>
-                  </div>
-                <% }) %>
+              <div id="jobBox" class="group-col-2">
+                
+
                 
               
               </div>
+
+
+
+
+            
 
               <ul class="pagination-job p-top">
                 <li><a href="#"><i class="icon-keyboard_arrow_left"></i></a></li>
@@ -148,6 +286,10 @@
                 <li><a href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
               </ul>
             </div>
+            
+
+
+
           </div>
         </div>
       </div>
@@ -164,13 +306,18 @@
   <script src="/js/jquery.fancybox.js"></script>
   <script src="/js/plugin.min.js"></script>
   <script src='/js/wow.min.js'></script>
-  <script src="/js/range-side.html"></script>
+  <!-- <script src="/js/range-side.html"></script> -->
   <script src='/js/swiper.js'></script>
   <script src='/js/jquery.nice-select.min.js'></script>
   <script src="/js/jquery.cookie.js"></script>
   <script src="/js/switcher.js"></script>
 
   <script src="/js/main.js"></script>
+
+  <script src="/js/hymain.js"></script>
+  <script type="module" src="/js/hyemployer.js"></script>
+  <script src="/js/hyclickemployer.js"></script>
+
 </body>
 
 

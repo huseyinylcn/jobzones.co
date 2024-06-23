@@ -233,7 +233,7 @@ let firstJobView = (veri) => {
 
     let photos = JSON.parse(veri.photos)
 
-    for(let i = 0;i<3;i++){
+    for(let i = 0;i<photos.length;i++){
       photosHTML += `<li class="ct-tab2"> <a class="lightbox-gallery" href="${photos[i]}"><img
                         src="${photos[i]}" alt="/img"></a> </li>`
     }
@@ -252,10 +252,10 @@ let firstJobView = (veri) => {
                     </div>
                     <div class="box-content">
                       <h4>
-                        <a href="jobs-single.html">${veri.city}</a>
+                        <a >${veri.city}</a>
                       </h4>
                       <h3>
-                        <a href="/job/detail/">${veri.title}</a>
+                        <a >${veri.title}</a>
                         <span class="icon-bolt"></span>
                       </h3>
                       <ul>
@@ -296,7 +296,7 @@ let firstJobView = (veri) => {
                       <span class="icon-dollar"></span>
                       <p>$${salary[0].min} - $${
       salary[0].max
-    } <span class="year">/</span></p>
+    } <span class="year"></span></p>
                     </div>
                     <p class="days"> ${Math.floor(
                       differenceInDays1
@@ -398,10 +398,10 @@ let viewJob = (veri) => {
                   </div>
                   <div class="box-content">
                     <h4>
-                      <a href="jobs-single.html">${element.city}</a>
+                      <a >${element.city}</a>
                     </h4>
                     <h3>
-                      <a href="jobs-single.html">${element.title}</a>
+                      <a >${element.title}</a>
                       <span class="icon-bolt"></span>
                     </h3>
                     <ul>
@@ -439,7 +439,7 @@ let viewJob = (veri) => {
         salary[0].max
       } <span class="year">/</span></p>
                   </div>
-                  <p class="days">$ ${Math.floor(
+                  <p class="days"> ${Math.floor(
                     differenceInDays2
                   )}  days left to apply</p>
                 </div>

@@ -4,10 +4,10 @@ let proprietorGET = (data)=>{
     return new Promise((resolve,reject)=>{
         sql.query(`
         DECLARE @city NVARCHAR(100);
-        SET @city = '${data.location}';
+        SET @city = N'${data.location}';
          
          DECLARE @sector NVARCHAR(100);
-        SET @sector = '${data.sector}';
+        SET @sector = N'${data.sector}';
         
          DECLARE @size NVARCHAR(100);
         SET @size = '${data.size}';

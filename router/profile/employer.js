@@ -323,4 +323,25 @@ router.post("/banner", (req, res, next) => {
   });
 
 
+  router.get("/:username",(req,res,next)=>{
+    try {
+      
+      if(req.user) next();
+      else res.render("tr/site/employers-single",{login:0})
+      
+    } catch (error) {
+      res.json({result:0,message:"system error one"})
+      
+    }
+  })
+
+  router.get('/:username',(req,res,next)=>{
+    try {
+      
+    } catch (error) {
+      res.json({result:0,message:`system error two ${error}`})
+    }
+  })
+
+
 module.exports = router

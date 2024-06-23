@@ -69,9 +69,14 @@ SET @exprenceTime = '${data.experiencetime}';
 
             AND ( @exprenceTime IS NULL OR @exprenceTime = '' OR t2.experienceTime >= @exprenceTime )
              
-            AND t2.birth BETWEEN @startDate AND @endDate
+         AND (t2.birth BETWEEN @startDate AND @endDate 
+     OR @startDate = '' 
+     OR @startDate IS NULL 
+     OR @endDate = '' 
+     OR @endDate IS NULL)
         
-             AND j.date > @jobDateThreshold;
+             AND j.date > @jobDateThreshold  OR @jobDateThreshold = '' 
+     OR @jobDateThreshold IS NULL ;
         `).then(data=>{
             resolve(data.recordset)
         }).catch(err=>{

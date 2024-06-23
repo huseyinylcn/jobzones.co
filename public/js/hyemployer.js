@@ -9,123 +9,61 @@ import departmen from '/veri/departmen.json' with {type:'json'}
 
 
 
+let sectorSelectUL = document.getElementById('sectorSelectUL')
+let sectorSelect = document.getElementById('sectorSelect')
 
-
-
-
-// let departmanSelectUL = document.getElementById('departmanSelectUL')
-// let departmanSelect = document.getElementById('departmanSelect')
-
-// let NewArray = []
-// departmanSelectUL.style.display = 'none'
-
-// document.addEventListener("click", function(event) {
-//     var clickedElement = event.target;
-//     if (clickedElement === departmanSelectUL || departmanSelect == clickedElement) {
-//     } else {
-//     departmanSelectUL.style.display = 'none'
-//     }
-// });
-
-// let liClick = (event)=>{
-//     departmanSelect.value = event.target.innerHTML
-//     console.log(event.target.innerHTML)
-    
-// }
-
-// let inputSelectFunc = (items ,currentValue)=>{
-//     NewArray = []
-//             const filteredItems = items.filter(item => item.toLowerCase().includes(currentValue.toLowerCase()));
-            
-//             NewArray = filteredItems.slice(0,10)
-//             NewArray.forEach(item => {
-//                 const listItem = document.createElement("li");
-//                 listItem.className = 'inputSelectLi'
-//                 listItem.textContent = item;
-//                 listItem.onclick = function(event){
-//                     liClick(event)
-//                 }
-//             departmanSelectUL.appendChild(listItem);
-               
-//             });
-        
-// }
-
-// departmanSelect.addEventListener('input',()=>{
-//     let currentValue = departmanSelect.value
-//     departmanSelectUL.style.display = 'block'
-    
-//     departmanSelectUL.innerHTML = "";
-//     inputSelectFunc(departmen, currentValue)
-// })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-let categorySelectUL = document.getElementById('categorySelectUL')
-let categorySelect = document.getElementById('categorySelect')
-
-let NewArray2 = []
-categorySelectUL.style.display = 'none'
+let NewArray4 = []
+sectorSelectUL.style.display = 'none'
 
 document.addEventListener("click", function(event) {
     var clickedElement = event.target;
-    if (clickedElement === categorySelectUL || categorySelect == clickedElement) {
+    if (clickedElement === sectorSelectUL || sectorSelect == clickedElement) {
     } else {
-        categorySelectUL.style.display = 'none'
+        sectorSelectUL.style.display = 'none'
     }
 });
 
-let liClick2 = (event)=>{
-    categorySelect.value = event.target.innerHTML
+let liClick4 = (event)=>{
+    sectorSelect.value = event.target.innerHTML
     console.log(event.target.innerHTML)
     
 }
 
-let inputSelectFunc2 = (items ,currentValue)=>{
-    NewArray2 = []
+let inputSelectFunc4 = (items ,currentValue)=>{
+    NewArray4 = []
             const filteredItems = items.filter(item => item.toLowerCase().includes(currentValue.toLowerCase()));
             
-            NewArray2 = filteredItems.slice(0,10)
-            NewArray2.forEach(item => {
+            NewArray4 = filteredItems.slice(0,10)
+            NewArray4.forEach(item => {
                 const listItem = document.createElement("li");
                 listItem.className = 'inputSelectLi'
                 listItem.textContent = item;
                 listItem.onclick = function(event){
-                    liClick2(event)
+                    liClick4(event)
                 }
-            categorySelectUL.appendChild(listItem);
+            sectorSelectUL.appendChild(listItem);
                
             });
         
 }
 
 
-categorySelect.addEventListener('input',()=>{
-    let currentValue = categorySelect.value
-    categorySelectUL.style.display = 'block'
+sectorSelect.addEventListener('input',()=>{
+    let currentValue = sectorSelect.value
+    sectorSelectUL.style.display = 'block'
     
-    categorySelectUL.innerHTML = "";
-    inputSelectFunc2(category, currentValue)
+    sectorSelectUL.innerHTML = "";
+    inputSelectFunc4(sector, currentValue)
 })
+
+
+
+
+
+
+
+
+
 
 
 

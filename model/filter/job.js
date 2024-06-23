@@ -27,7 +27,7 @@ let jobFilter = (info)=>{
         SET @city = N'${info.city}';
         
         DECLARE @category NVARCHAR(MAX);
-        SET @category = '${info.category}';
+        SET @category = N'${info.category}';
         
         DECLARE @dates date;
         SET @dates = '${info.date}';
@@ -94,7 +94,7 @@ let jobFilter = (info)=>{
         
        AND 
 
-        ( @category IS NULL OR @category = '' OR t1.category > @category OR t1.category =  @category )
+        ( @category IS NULL OR @category = '' OR  t1.category =  @category )
         and 
 
 ( @dates IS NULL OR @dates= '' OR @dates < t1.[date] OR t1.[date] =  @dates )
@@ -124,7 +124,7 @@ and
 let jobFilterDetay = (jobID)=>{
     return new Promise((resolve,reject)=>{
         sql.query(`
-select t1.*, t2.profileIMG,2.social, t2.photos, t2.videourl 
+select t1.*, t2.profileIMG, t2.social, t2.photos, t2.videourl , t2.weburl, t2.sector, t2.size
 from job t1
 join employer t2 on t1.userID = t2.userID  
 where t1.jobID = '${jobID}'`)

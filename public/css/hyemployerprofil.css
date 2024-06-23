@@ -1,0 +1,28 @@
+.bannerCSS {
+  max-height: 300px;
+}
+.profileIMGCSS {
+  margin-top: -250px;
+  width: 160px;
+  height: 160px;
+  border: 3px solid rgb(251, 251, 251);
+  background-size: cover;
+  background-position: center;
+  background-image: url(/ProfilPicture/profileImg/d1c15b05eed0a432904a.jpeg);
+}
+.profileBoxEmployerDetayCSS {
+  min-width: 100%;
+  min-height: 120px;
+  position: relative;
+}
+
+@media (max-width: 550px) {
+  .profileIMGCSS {
+    margin-top: -150px;
+    width: 150px;
+    height: 150px;
+  }
+  .profileBoxEmployerDetayCSS{
+    margin-left: -60px;
+  }
+}

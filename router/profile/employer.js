@@ -1,8 +1,9 @@
 let express = require('express')
 let router = express.Router()
 let { updateEmployer, updateProfileIMGEmployer, updateBannerIMGEmployer, updateimgAllEmployer } = require('../../model/user/update')
-let { employerGET } = require('../../model/user/get')
+let { employerGET, userGET, usernamewithGET } = require('../../model/user/get')
 let { img,imgAll,imgBanner } = require('../../model/user/img')
+let {userTypeControl} = require("../../model/user/control")
 let path = require('path')
 let fs = require('fs')
 
@@ -322,6 +323,32 @@ router.post("/banner", (req, res, next) => {
     }
   });
 
+  router.post("/:username",(req,res,next)=>{
+    try {
+      usernamewithGET(req.params.username).then(userID =>{
+        req.userID = userID;
+        next();
+      }).catch(err=>{
+        res.json({result:0,message:"usernamewithGET zoort oldu"})
+      })
+    } catch (error) {
+      res.json({result:0,message:"system error one"})
+      
+    }
+  })
+
+  router.post("/:username",(req,res,next)=>{
+    try {
+     employerGET(req.userID.userID).then(data=>{
+      res.json(data)
+     }).catch(err=>{
+      res.json({result:0,message:"employer gelirken hata verdi"})
+     })
+    } catch (error) {
+      res.json({result:0,message:`system error two ${error}`})
+      
+    }
+  })
 
   router.get("/:username",(req,res,next)=>{
     try {
@@ -337,9 +364,35 @@ router.post("/banner", (req, res, next) => {
 
   router.get('/:username',(req,res,next)=>{
     try {
-      
+      userTypeControl(req.user).then(data=>{
+        req.type = data;
+        next()
+      }).catch(err=>{
+        res.render({result:0,message:"user type gelmedi :( error "})
+      })
     } catch (error) {
       res.json({result:0,message:`system error two ${error}`})
+    }
+  })
+
+  router.get('/:username',(req,res,next)=>{
+    try {
+    if(req.type == true || req.type == 'true'){
+      employerGET(req.user).then(data=>{
+        res.render("tr/site/employers-single",{login:1, userData:data})
+      }).catch(err=>{
+        res.json({result:0,message:"employer gelmedi zaten sevmem ben iş verenleri :)"})
+      })
+    }else{
+      userGET(req.user).then(data=>{
+        res.render("tr/site/employers-single",{login:1, userData:data})
+      }).catch(err=>{
+        res.json({result:0,message:"candidate get error :( "})
+      })
+    }
+
+    } catch (error) {
+      res.json({result:0,message:`system error three ${error}`})
     }
   })
 

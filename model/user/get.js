@@ -34,4 +34,21 @@ let employerGET = (userID)=>{
     })
 }
 
-module.exports = { userGET,employerGET }
+let usernamewithGET = (username)=>{
+return new Promise((resolve,reject)=>{
+    sql.query(`select userID from [user] where username = '${username}'  `).then(data=>{
+        resolve(data.recordset[0])
+    }).catch(err=>{
+        console.log(err)
+        resolve(0)
+    })
+}).catch(error=>{
+    console.log(err)
+    return 0
+})
+
+
+}
+
+
+module.exports = { userGET,employerGET, usernamewithGET }

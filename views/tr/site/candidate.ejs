@@ -1,219 +1,224 @@
+<%- include("./../partical/header.ejs") %>
 
-  <!-- HEADER -->
-  <%- include('../partical/header.ejs') %>
-  <!-- END HEADER -->
-<style>
-  .currentAelement{
-    background-color: #14a077;
-  }
-  @media (max-width: 551px) {
-    #kaybol{
-      display: none;
-          }
-          #kaybol2{
-            display: block;
-                }
-}
-
-@media (min-width: 551px) {
-
-        #kaybol2{
-          display: none;
-              }
-}
-
-@media (max-width: 1024px) {
-  #filterBtn2{
-    display: none;
-        }
-        
-}
-
-@media (min-width: 1024px) {
-
-      #filterBtn{
-        display: none;
-            }
-}
-  
-  .inputSelectLi{
-    border-bottom: 1px solid rgba(220, 220, 220, 0.845); padding: 4px 2px;
-    height: 30px;
-    line-height: 30px;
-    overflow: hidden;
-
-
-  }
-  .inputSelectLi:hover{
-    background-color: rgb(246, 246, 246);
-  }
-  .inputSelectUL{
-   z-index: 9999999; font-family: 'Plus Jakarta Sans', sans-serif; padding: 7px; border-radius: 10px; position: absolute; top: 50px; left: 20px; background-color: white; width:300px ; height: auto; border: 1px solid rgba(223, 223, 223, 0.879);
-  }
-  #cadidatesLocationKeyWordID{
-    font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; color: #191919; margin-right: 10px; margin-left: 20px; border-radius: 10px;  border: 1px solid rgba(243, 243, 243, 0.851);
-  }
-</style>
-<br>
-  <section class="tf-slider sl9 ">
-    <div class="tf-container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="content" >
-            <div class="form-sl stc">
-              <form method="post" style="position: relative;">
-                <div id="filterBtn" style="cursor: pointer; position: absolute; right: 10px; top: -52px; font-size: 19px;  font-family:'Plus Jakarta Sans', sans-serif; width: 120px; margin: auto 5px; text-align: center; text-decoration: underline; height: 51px; border-radius: 5px; line-height: 51px; ">
-                  Filter <i style="color: #14a077; font-size: 19px;" class="fa-solid fa-filter"></i>
+<section class="tf-slider sl9 ">
+  <div class="tf-container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="content">
+          <div class="form-sl stc">
+            <form method="post">
+              <div class="row-group-search home1 st">
+                <div class="form-group-1 ">
+                  <span class="icon-search search-job"></span>
+                  <input type="text" class="input-filter-search" id="keywordJobs" placeholder="Job title, key words or company">
                 </div>
-                <div class="row-group-search home1 st">
-                  <div class="form-group-1 ">
-                    <span class="icon-search search-job"></span>
-                    <input id="candidateJobKeyWordID" type="text" class="input-filter-search" placeholder="Job title, key words or company">
-                  </div>
-                  <div class="form-group-2" style="position: relative;">
-                    <span class="icon-map-pin"></span>
-                    <input placeholder="Location"   id="cadidatesLocationKeyWordID" type="text">
-                      <ul class="inputSelectUL" id="inputSelectUL">
-                         
-                      </ul>
-                  </div>
-              
-                  <div class="form-group-4">
-                    <button id="keyWordUpdateBtnID" type="button" class="btn btn-find">Find Jobs</button>
-                  </div>
-                  <div id="filterBtn2"  style="cursor: pointer; font-size: 19px;  font-family:'Plus Jakarta Sans', sans-serif; width: 120px; margin: auto 5px; text-align: center; text-decoration: underline; height: 51px; border-radius: 5px; line-height: 51px; ">
-                    Filter <i style=" color: #14a077; font-size: 19px;" class="fa-solid fa-filter"></i>
-                  </div>
 
+                <div class="form-group-2">
+                  <span class="icon-map-pin"></span>
+                <input id="homelocationINPUT" style="padding-left: 37px; color: black; border-radius: 15px; border: none;" class="locationHome" placeholder="Location" type="text">
+                <ul id="homeLocation" class="homelocationUL" style="display: none; border-radius: 15px; width: 300px; position: absolute; top: 43px; left: 50px; background: white; border: 1px solid rgb(236, 236, 236); ">
+                  <li>Lorem, ipsum dolor.</li>
+                  <li>Lorem, ipsum dolor.</li>
+                  <li>Lorem, ipsum dolor.</li>
+                  <li>Lorem, ipsum dolor.</li>
+                  <li>Lorem, ipsum dolor.</li>
+                  <li>Lorem, ipsum dolor.</li>
+                  <li>Lorem, ipsum dolor.</li>
+                  <li>Lorem, ipsum dolor.</li>
+                </ul>
                 </div>
-              </form>
-              <!-- End Job  Search Form-->
 
-             
-            </div>
-           
-            
+                <div class="form-group-4">
+                  <button type="button" id="filterJobsHome" class="btn btn-find">Find Jobs</button>
+                </div>
+
+                <div id="filterOpenBtn" class="form-group-5 filterOpenBtn">
+                  <i  class="fa-solid fa-filter"></i>
+                  <span>Filter</span>
+                </div>
+
+              </div>
+            </form>
+            <!-- End Job  Search Form-->
           </div>
-          
         </div>
       </div>
-    </div>
-  </section>
-
-
-
-
-<div id="filterBox" style="overflow: scroll; overflow-x: hidden; border-right: 1px solid rgba(212, 212, 212, 0.846); position: fixed; top: 0px; transform: translateX(-100%); z-index: 99999; width: 300px; height: 100vh; background-color: white; border-radius: 0 5px 5px 0;" class="form-sticky stc2">
-
-  <div id="closefilter" style="padding-left: 30px; line-height: 60px; font-size: 20px; font-family:'Plus Jakarta Sans', sans-serif;   height: 60px; border-bottom: 1px solid rgba(227, 227, 227, 0.738) ;border-top: 1px solid rgba(212, 212, 212, 0.846) ;">
-   Filter
-  <i id="closeFilterID" style="float: right; font-size: 22px; padding: 20px;" class="fa-solid fa-xmark"></i>
-
-
-
-  <div style="width: 300px; background-color: white; position: absolute; left: 0px;" class="">
-    <div style="background-color: white;" class="content-left style2 po-sticky">
-      <div style="background-color: white;" class="inner st-filter">
-        <div style="background-color: white;" class="widget-filter style-scroll">
-          <form action="https://themesflat.co/html/jobtex/GET">
-   
-
-            <div  style="width: 100%;" class="group-form">
-              <label class="title">Departman</label>
-              <div style="width: 100%; margin-top: -20px;" class="group-input">
-          
-
-                <input type="text" id="depatmanSelectİnput" style="width: 100%; height: 40px;">
-              <ul id="depatmanSelect" class="inputSelectUL" style="width: 250px; left: 0px; font-size: 14px;">
-           
-
-              </ul>
-
-
-              </div>
-            </div>
-            <div  style="width: 100%;" class="group-form">
-              <label class="title">Mode of operation</label>
-              <div  style="width: 100%; margin-top: -20px;" class="group-input">
-                <select id="mode" style="border-radius: 10px; color: #191919;">
-                  <option value="">Select</option>
-                  <option value="remote">Remote</option>
-                  <option value="hybrid">Hybrid </option>
-                  <option value="fullTime">Full Time </option>
-                </select>
-              </div>
-            </div>
-           
-            <div  style="width: 100%;" class="group-form">
-              <label class="title">Gender</label>
-              <div  style="width: 100%; margin-top: -20px;" class="group-input">
-                <select id="gender" style="border-radius: 10px; color: #191919;">
-                  <option value="">Select</option>
-                  <option value="true">Male</option>
-                  <option value="false">Woman </option>
-                
-                </select>
-              </div>
-            </div>
-
-            <div  style="width: 100%;" class="group-form">
-              <label class="title">Age</label>
-              <div  style="width: 100%; margin-top: -10px; display: flex; " class="group-input">
-               
-                <input value="0" style="width: 70px; margin-right: 20px;" placeholder="Min:" type="text" name="" id="agemin">
-                <input value="100" style="width: 70px;" placeholder="Max:" type="text" name="" id="agemax">
-
-                
-            
-              </div>
-            </div>
-
-            <div  style="width: 100%;" class="group-form">
-              <label class="title">Date Posted</label>
-              <div  style="width: 100%; margin-top: -10px; display: flex; " class="group-input">
-               
-                <input style="width: 100px; margin-right: 10px;" type="date" name="" id="datepostedMax">
-                <input  style="width: 100px;"  type="date" name="" id="datepostedMin">
-
-                
-            
-              </div>
-            </div>
-
-            <div  style="width: 100%;" class="group-form">
-              <label class="title">Qualification</label>
-              <div  style="width: 100%; margin-top: -20px;" class="group-input">
-                <select id="qualification" style="border-radius: 10px; color: #191919;">
-                  <option value="">Select</option>
-                  <option value="master">Master</option>
-                  <option value="master 2">Master 2 </option>
-                
-                </select>
-              </div>
-            </div>
-
-
-            <div  style="width: 100%;" class="group-form">
-              <label class="title">Experience Time</label>
-              <div  style="width: 100%; margin-top: -20px;" class="group-input">
-        <input id="experencTime" placeholder="Experience Year" type="number">
-              </div>
-            </div>
-
-<br>
-        
-            <button id="filterSearchBtn" type="button">Find Jobs</button>
-          </form>
-        </div>
-      </div>
-
     </div>
   </div>
+</section>
+
+<div id="filterBox" class="filterBox">
+<div class="row">
+<div class="filter-top-box col-12 row">
+  <div class="col-9 filter-title">Filter</div>
+  <div id="filterClose" class="col-3 filter-close-btn"> <i class="fa-solid fa-xmark"></i> </div>
 </div>
 
 
 
-</div> 
+<div class="col-12 filter-all-box">
+  <label for="">Category</label>
+  <input type="text" placeholder="Category" id="categorySelect">
+
+
+  <ul id="categorySelectUL" class="categoryUL">
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+
+  </ul>
+
+
+
+</div>
+
+<div class="col-12 filter-all-box">
+  <label for="">City</label>
+  <input type="text" placeholder="City" id="citySelect">
+  <ul id="citySelectUL" class="cityUL">
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+    <li>Lorem, ipsum dolor.</li>
+
+  </ul>
+</div>
+
+
+<div class="col-12 filter-all-box">
+  <label for="">Mode Of Operation</label>
+  <p id="modeofopereation" class="modeofopereation"><i id="modeofNumberView" style="line-height: 40px; font-size: 15px; color: rgb(23, 115, 168); padding-left: 20px;  font-weight: 500;">Select</i>  <i style="float: right; line-height: 40px; padding-right: 14px;" class="fa-solid fa-chevron-down"></i></p>
+  <ul id="modeofopereationUL" class="modeofopereationUL" >
+    <li data-value="remote"><i>Remote</i> <input value="remote" type="checkbox" ></li>
+    <li data-value="hybrid"><i>Hybrid</i> <input value="hybrid" type="checkbox" ></li>
+    <li data-value="fulltime"><i>Full Time</i> <input value="fulltime" type="checkbox" ></li>
+    <li data-value="intern"><i>Intern</i> <input value="intern" type="checkbox" ></li>
+    <li data-value="voluntary"><i>Voluntary</i> <input value="voluntary" type="checkbox" ></li>
+    <li data-value="temporary"><i>Temporary</i> <input value="temporary" type="checkbox" ></li>
+    <li data-value="free"><i>Free</i> <input value="free" type="checkbox" ></li>
+    <li data-value="parttime"><i>Part time</i> <input value="parttime" type="checkbox" ></li>
+
+   
+  </ul>
+
+</div>
+
+
+<div class="col-12 filter-all-box">
+  <label for="">Salary</label>
+  <div class="row">
+    <div class="col-5"> 
+      <input id="salarymin" style=" font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Min:">
+    </div>
+    <div class="col-5">
+      <input id="salarymax" style="margin-left: -10px; font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Max">
+    </div>
+
+  </div>
+</div>
+
+
+<div class="col-12 filter-all-box">
+  <label for="">Qualification</label>
+ <select name="" id="qualdegree">
+  <option data-value="" value="">Sdelect</option>
+  <option data-value="0" value="highschool">High school</option>
+  <option data-value="1" value="vocationalschool">Vocational school</option>
+  <option data-value="2" value="certified">Certified</option>
+  <option data-value="3" value="bachelordegree">Bachelor degree</option>
+  <option data-value="4" value="mastersdegree">Master's degree</option>
+  <option data-value="5" value="associatedegree">Associate Degree</option>
+  <option data-value="6" value="doctoralDegree">Doctoral Degree</option>
+
+
+ </select>
+</div>
+
+<div class="col-12 filter-all-box">
+  <label for="">Kariyrt level</label>
+ <select name="" id="careerlevel">
+  <option value="">Select</option>
+  <option data-value="0" value="entrylevel">Entry Level</option>
+  <option data-value="1" value="specialist">Specialist</option>
+  <option data-value="2" value="management">Management</option>
+  <option data-value="3" value="director">Director</option>
+  <option data-value="4" value="execution">Execution</option>
+ </select>
+</div>
+
+
+<div class="col-12 filter-all-box">
+  <label for="">Staj</label>
+  <input id="staj" type="number" placeholder="Number">
+</div>
+
+
+<div class="col-12 filter-all-box">
+  <label for="">Date Posted</label>
+  
+  <div class="row">
+    <div class="col-5"> 
+      <input value="" id="datemin" style=" font-size: 13px; text-transform: lowercase; padding-left: 3px; padding-right: 0px;" type="date">
+    </div>
+    <div class="col-5">
+      <input value="" id="datemax" style="margin-left: -10px; font-size: 13px; text-transform: lowercase; padding-left: 3px; padding-right: 0px;" type="date" >
+    </div>
+
+  </div>
+</div>
+
+<div class="col-12 filter-all-box">
+  <label for="">Location</label>
+ <select name="" id="locationMAp">
+  <option value="1">Mevvcut Konumu Kullan</option>
+  <option value="0">Kayıtlı Olan Konumumu Kullan</option>
+
+
+ </select>
+</div>
+
+
+
+<div class="col-12 filter-all-box">
+  <label for="">Radius <span id="radiusKM">250</span> <b> KM</b></label>
+
+  <div style="width: 90%; display: flex; margin: auto; align-items: center; position: relative;">
+    <div id="rx" style="padding: 13px 4px;">
+<div  style="width: 250px; height: 7px; border-radius: 14px; background-color: rgb(212, 212, 212);"></div>
+</div>
+<div id="rTop" style=" border-radius: 50%; width: 14px; height: 14px; background-color: white; border: 2px solid green; position: absolute; left: 250px;"></div>
+   </div>
+
+</div>
+
+    
+
+
+
+<button id="filterClick" type="button" class="filterClick">Find Jobs</button>
+<br><br><br><br><br><br>
+</div>
+</div>
+
+
+
+
+
+
+
 
 
 
@@ -223,36 +228,619 @@
         <div class="tf-container">
             <div class="row">
                 <div class="col-lg-12 tf-tab">
-                  
+                
                         <div class="content-tab">
                           <div class="inner">
-                            <div id="candidatexBox" class="group-col-2">
+                            <div class="group-col-2">
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/user/avatar/avt-thumb-01.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Entry Level Network Administrator</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Marvin McKinney</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              New York
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
 
-                       
-                          
-                     
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$8000/month</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can1.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Computational Wizard</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Arlene McCoy</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                        <a href="candidate-single.html" class="tf-btn">View Profile</a>
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$40/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can2.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Computer Support Specialist</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Floyd Miles</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$300/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can3.png" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Computer Support Specialist</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Annette Black</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$500/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can4.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Digital Overlord</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Maverick Nguyen</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$5000/month</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can5.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Computer Hardware Engineer</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Kathryn Murphy</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$400/day</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can6.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">C3PO – Chief Power Plugs & Patches Officer</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Guy Hawkins</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$300/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can7.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Database Administrator</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Courtney Henry</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$400/day</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can8.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Sales Engineer</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Brooklyn Simmons</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>$430/hour</p>
+                                      </div>
+                                    </div>
+                                </div>
+                                <div class="features-job wd-thum-career cl2">
+                                    <div class="job-archive-header">
+                                      <div class="career-header-left">
+                                        <img src="/img/review/can9.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
+                                        <div class="career-left-inner">
+                                          <h4>
+                                            <a href="candidate-single.html">Chief Geek</a>
+                                          </h4>
+                                          <h3>
+                                            <a href="candidate-single.html">Cameron Williamson</a>
+                                            <span class="icon-bolt"></span>
+                                          </h3>
+                                          <ul class="career-info">
+                                            <li>
+                                              Available now
+                                            </li>
+                                            <li>
+                                              <span class="icon-map-pin"></span>
+                                              Tokyo, Japan
+                                            </li>
+                                          </ul>
+                        
+                                        </div>
+                                      </div>
+                                      <div class="career-header-right">
+                                        <span class="icon-heart"></span>
+                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+
+                                      </div>
+                                    </div>
+                                    <div class="job-archive-footer">
+                                      <div class="career-footer-left">
+                                        <ul class="career-tag">
+                                          <li><a href="#">Blender</a></li>
+                                          <li><a href="#">Sketch</a></li>
+                                          <li><a href="#">Adobe XD</a></li>
+                                          <li><a href="#">Figma</a></li>
+                                        </ul>
+                                      </div>
+                                      <div class="carrer-footer-right">
+                        
+                                        <span class="icon-dolar1"></span>
+                                        <p>200$/day</p>
+                                      </div>
+                                    </div>
+                                </div>
 
                             </div>
 
                             <ul class="pagination-job p-top-st1">
                                 <li><a href="#"><i class="icon-keyboard_arrow_left"></i></a></li>
-                                <div id="pageBox" style="display: flex;">
-                                  <!-- <li><a href="#">1</a></li>-->
-                                 
-                               
-                                </div>
-                                <li><a  href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
+                                <li><a href="#">1</a></li>
+                                <li class="current"><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#"><i class="icon-keyboard_arrow_right"></i></a></li>
                               </ul>
                         </div>
-                   
-                        </div>
                         
+                        </div>
                 </div>
             </div>
         </div>
   </section>
 
-  <%- include('../partical/footer.ejs') %>
+  <footer class="footer">
+    <div class="top-footer">
+        <div class="tf-container">
+            <div class="row">
+                <div class="col-lg-2 col-md-4">
+                    <div class="footer-logo">
+                        <img src="/img/logo.png" alt="/img">
+                    </div>
+                </div>
+                <div class="col-lg-10 col-md-8">
+                    <div class="wd-social d-flex aln-center">
+                        <span>Follow Us:</span>
+                        <ul class="list-social d-flex aln-center">
+                            <li><a href="#"><i class="icon-facebook"></i></a></li>
+                            <li><a href="#"><i class="icon-linkedin2"></i></a></li>
+                            <li><a href="#"><i class="icon-twitter"></i></a></li>
+                            <li><a href="#"><i class="icon-pinterest"></i></a></li>
+                            <li><a href="#"><i class="icon-instagram1"></i></a></li>
+                            <li><a href="#"><i class="icon-youtube"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="inner-footer">
+        <div class="tf-container">
+            <div class="row">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-cl-1">
+                        <div class="icon-infor d-flex aln-center">
+                            <div class="icon">
+                                <span class="icon-call-calling"><span class="path1"></span><span class="path2"></span><span class="path3"></span><span class="path4"></span></span>
+                            </div>
+                            <div class="content">
+                                <p>Need help? 24/7</p>
+                                <h6><a href="tel:0123456678">001-1234-88888</a></h6>
+                            </div>
+                        </div>
+                        <p>Job Searching Just Got Easy. Use Jobtex to run a hiring site and earn money in the process!</p>
+                        <div class="ft-icon"> <i class="icon-map-pin"></i> 101 E 129th St, East Chicago, IN 46312, US</div>
+                        <form action="#" id="subscribe-form">
+                            <input type="email" placeholder="Your email address" required="" id="subscribe-email">
+                            <button class="tf-button" type="submit" id="subscribe-button"><i class="icon-paper-plane-o"></i></button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 col-6">
+                    <div class="footer-cl-2">
+                        <h6 class="ft-title">
+                            Quick Links
+                        </h6>
+                        <ul class="navigation-menu-footer">
+                            <li> <a href="find-jobs-list.html">Job Packages</a> </li>
+                            <li> <a href="find-jobs-list.html">Post New Job</a> </li>
+                            <li> <a href="find-jobs-list.html">Jobs Listing</a> </li>
+                            <li> <a href="find-jobs-list.html">Jobs Style Grid</a> </li>
+                            <li> <a href="employers-list.html">Employer Listing</a> </li>
+                            <li> <a href="employers-grid-fullwidth.html">Employers Grid</a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-cl-3">
+                        <h6 class="ft-title">
+                            For Candidates
+                        </h6>
+                        <ul class="navigation-menu-footer">
+                            <li> <a href="dashboard.html">User Dashboard</a> </li>
+                            <li> <a href="sample-cv.html">CV Packages</a> </li>
+                            <li> <a href="candidate-list-sidebar.html">Candidate Listing</a> </li>
+                            <li> <a href="candidate-grid.html">Candidates Grid</a> </li>
+                            <li> <a href="about-us.html">About us</a> </li>
+                            <li> <a href="contact-us.html">Contact us </a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-cl-4">
+                        <h6 class="ft-title">
+                            For Employers
+                        </h6>
+                        <ul class="navigation-menu-footer">
+                            <li> <a href="find-jobs-list.html">Post New Job</a> </li>
+                            <li> <a href="employers-list.html">Employer Listing</a> </li>
+                            <li> <a href="employers-grid-sidebar.html">Employers Grid</a> </li>
+                            <li> <a href="find-jobs-list.html">Job Packages</a> </li>
+                            <li> <a href="find-jobs-list.html">Jobs Listing</a> </li>
+                            <li> <a href="find-jobs-grid.html">Jobs Style Grid</a> </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4 col-6">
+                    <div class="footer-cl-5">
+                        <h6 class="ft-title">
+                            Download App
+                        </h6>
+                        <ul class="ft-download">
+                            <li> <a href="#"><img src="/img/review/btn3.png" alt="/img"></a></li>
+                            <li> <a href="#"><img src="/img/review/btn4.png" alt="/img"></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bottom">
+        <div class="tf-container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="bt-left">
+                        <div class="copyright">©2023 Themesflat. All Rights Reserved.</div>
+                        <span class="select-language">
+                          <select class="image-select">
+                            <option data-thumbnail="/img/review/flag.png">English</option>
+                            <option data-thumbnail="/img/review/flag3.png">USA</option>
+                            <option data-thumbnail="/img/review/flag2.png">VN</option>
+                          </select>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <ul class="menu-bottom d-flex aln-center">
+                        <li><a href="term-of-use.html">Terms Of Services</a> </li>
+                        <li><a href="pricing.html">Privacy Policy</a> </li>
+                        <li><a href="contact-us.html">Cookie Policy</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+  </footer>
   </div><!-- /.boxed --> 
 
 
@@ -267,17 +855,10 @@
 <script src='/js/jquery.nice-select.min.js'></script>
 <script src="/js/jquery.cookie.js"></script>
 <script src="/js/switcher.js"></script>
-<script src="/js/hycandidate.js"></script>
-<script src="/js/inputselect.js"></script>
-<script src="/js/hydepartmanSelect.js"></script>
-
-
+<script src="/js/hymain.js"></script>
+<script type="module" src="/js/hycandidates.js"></script>
+<script src="/js/hyclickcandidates.js"></script>
 <script src="/js/main.js"></script>
-
-
-<script src="javascript/main.js"></script>
-<script src="javascript/jquery-ui.min.js"></script>
-
 </body>
 
 <!-- Mirrored from themesflat.co/html/jobtex/candidate.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 08 May 2024 18:45:00 GMT -->

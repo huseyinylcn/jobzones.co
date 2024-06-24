@@ -54,6 +54,8 @@ const jobapplication = require("./router/job/application");
 const jobfilter = require("./router/filter/job/job");
 const findjobs = require("./router/job/findjobs");
 const findemployer  = require('./router/find/employer')
+const findcandidates  = require('./router/find/cadidates')
+
 
 
 
@@ -70,6 +72,9 @@ sql.connect(config).then(() => {
   app.use("/applicants", applicants);
   app.use("/proprietor", proprietor);
   app.use("/findemployer", findemployer);
+  app.use("/findcandidates", findcandidates);
+
+  
 
 
   app.use("/", routerMain);

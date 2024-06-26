@@ -56,8 +56,6 @@ router.get("/home", (req, res, next) => {
   }
 });
 
-router.get("/faqs", (req, res) => {
-  res.render("tr/site/accordion-page", { login: 0 });
-});
+
 
 module.exports = router;

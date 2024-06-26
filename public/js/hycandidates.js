@@ -118,13 +118,13 @@ let inputSelectFunc2 = (items ,currentValue)=>{
         
 }
 
-
+// bu normalde category için yazdım diğer sosyalarda öyle zaten lakin burada parametreyi departman yaptım candidates sayfasında kullandım isimler ileride kafa karışıklığına sebeb olabilir
 categorySelect.addEventListener('input',()=>{
     let currentValue = categorySelect.value
     categorySelectUL.style.display = 'block'
     
     categorySelectUL.innerHTML = "";
-    inputSelectFunc2(category, currentValue)
+    inputSelectFunc2(departmen, currentValue)
 })
 
 

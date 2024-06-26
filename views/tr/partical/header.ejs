@@ -124,7 +124,7 @@
                     <a href="/employers/" class="iteam-menu">Employers</a>
                   </li>
                   <li class="menu-item ">
-                    <a href="/candidates/" class="iteam-menu">Candidates</a>
+                    <a href="/findcandidates/" class="iteam-menu">Candidates</a>
                 
                   </li>
                   <li class="menu-item ">
@@ -628,7 +628,7 @@
                       <a href="/findemployer/">Employers</a>
                     </li>
                     <li class="menu-item menu-item-has-children">
-                      <a href="/candidates/">Candidates</a>
+                      <a href="/findcandidates/">Candidates</a>
                     </li>
                     <li class="menu-item menu-item-has-children">
                       <a href="/blog/">Blog</a>
@@ -726,8 +726,24 @@
                 </div>
               </div>
               <div class="header-customize-item account">
+                <style>
+                  .HYuserIMG {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    border: 4px solid rgb(216, 216, 216);
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                 
+                    background-image: url( <%= userData.profileIMG %> );
+                    
+                  }
+                </style>
+                                <div class="HYuserIMG" ></div>
+   
 
-                <img src=" <%= userData.profileIMG %>" alt="X" />
+            
                 
                 <div class="name">
                   Employers<span class="icon-keyboard_arrow_down"></span>

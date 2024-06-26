@@ -7,10 +7,12 @@ const stringSimilarity = require("string-similarity");
 router.post("/", (req, res, next) => {
   try {
     req.body.mode = JSON.stringify(req.body.mode).replace(/'/g, '"');
+    req.body.qualification = JSON.stringify(req.body.qualification).replace(/'/g, '"');
+
     candidatesGET(req.body)
       .then((data) => {
         req.candidatesArray = data;
-        next();
+        next()
       })
       .catch((err) => {
         res.json({

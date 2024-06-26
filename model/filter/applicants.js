@@ -7,25 +7,28 @@ let candidatesGET = (data)=>{
         SET @genderFilter = ${Number(data.gender)};
         
         DECLARE @workmodeFilter NVARCHAR(MAX);
-        SET @workmodeFilter = '${data.mode}';
+        SET @workmodeFilter = N'${data.mode}';
         
         DECLARE @city NVARCHAR(100);
-        SET @city = '${data.location}';
+        SET @city = N'${data.location}';
         
-        DECLARE @qualiftion NVARCHAR(100);
-        SET @qualiftion = '${data.qualification}';
+        DECLARE @qualiftion NVARCHAR(MAX);
+        SET @qualiftion = N'${data.qualification}';
 
         DECLARE @department NVARCHAR(100);
-        SET @department = '${data.department}';
+        SET @department = N'${data.department}';
         
-        DECLARE @startDate DATE;
-        SET @startDate = '${data.agemin}';  -- Başlangıç tarihi buraya girin
+        DECLARE @startDate INT;
+        SET @startDate = ${Number(data.agemin)};  -- Başlangıç tarihi buraya girin
         
-        DECLARE @endDate DATE;
-        SET @endDate = '${data.agemax}';  -- Bitiş tarihi buraya girin
+        DECLARE @endDate INT;
+        SET @endDate = ${Number(data.agemax)};  -- Bitiş tarihi buraya girin
         
-            DECLARE @jobDateThreshold DATE;
-        SET @jobDateThreshold = '${data.datepost}'; 
+            DECLARE @date DATE;
+        SET @date = '${data.date}'; 
+
+              DECLARE @date2 DATE;
+        SET @date2 = '${data.date2}'; 
 
         DECLARE @exprenceTime NVARCHAR(MAX);
 SET @exprenceTime = '${data.experiencetime}'; 
@@ -63,20 +66,47 @@ SET @exprenceTime = '${data.experiencetime}';
             )
             AND ( @city IS NULL OR @city = '' OR t2.city = @city )
         
-            AND ( @qualiftion IS NULL OR @qualiftion = '' OR t2.qualdegree = @qualiftion )
+
+            and 
+            (
+                @qualiftion IS NULL OR @qualiftion = '' OR @qualiftion = '[]' OR
+                EXISTS (
+                    SELECT 1
+                    FROM OPENJSON(@qualiftion) AS filters
+                    WHERE EXISTS (
+                        SELECT 1
+                        FROM job as wm
+                        WHERE t2.qualdegree = filters.value
+                    )
+                )
+            )
         
             AND ( @department IS NULL OR @department = '' OR t2.department = @department )
 
             AND ( @exprenceTime IS NULL OR @exprenceTime = '' OR t2.experienceTime >= @exprenceTime )
              
-         AND (t2.birth BETWEEN @startDate AND @endDate 
-     OR @startDate = '' 
-     OR @startDate IS NULL 
-     OR @endDate = '' 
-     OR @endDate IS NULL)
         
-             AND j.date > @jobDateThreshold  OR @jobDateThreshold = '' 
-     OR @jobDateThreshold IS NULL ;
+ AND (
+        DATEDIFF(YEAR, t2.birth, GETDATE()) BETWEEN @startDate AND @endDate
+        OR @startDate = '' 
+        OR @startDate IS NULL 
+        OR @endDate = '' 
+        OR @endDate IS NULL
+    )
+
+      AND (
+      (j.date BETWEEN @date AND @date2 )
+      OR
+      (@date = '' OR @date2 = '')
+      OR
+      (@date IS NULL OR @date2 IS NULL)
+      
+      
+      );
+
+
+
+     
         `).then(data=>{
             resolve(data.recordset)
         }).catch(err=>{

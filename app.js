@@ -55,6 +55,14 @@ const jobfilter = require("./router/filter/job/job");
 const findjobs = require("./router/job/findjobs");
 const findemployer  = require('./router/find/employer')
 const findcandidates  = require('./router/find/cadidates')
+const about  = require('./router/statik/about')
+const faqs  = require('./router/statik/faqs')
+const termofuse  = require('./router/statik/termofuse')
+const contact  = require('./router/statik/contact')
+
+
+
+
 
 
 
@@ -73,10 +81,16 @@ sql.connect(config).then(() => {
   app.use("/proprietor", proprietor);
   app.use("/findemployer", findemployer);
   app.use("/findcandidates", findcandidates);
+  app.use("/about", about);
+  app.use("/faqs", faqs);
+  app.use("/termofuse", termofuse);
+  app.use("/contact", contact);
+
+
+
+
 
   
-
-
   app.use("/", routerMain);
 }).catch(err=>{
   console.log("sql bağlanamadı",err)

@@ -57,7 +57,7 @@
 
 
 <div class="col-12 filter-all-box">
-  <label for="">Category</label>
+  <label for="">Departmen</label>
   <input type="text" placeholder="Category" id="categorySelect">
 
 
@@ -115,20 +115,34 @@
   </ul>
 
 </div>
-
-
 <div class="col-12 filter-all-box">
-  <label for="">Salary</label>
+  <label for="">Age</label>
   <div class="row">
     <div class="col-5"> 
-      <input id="salarymin" style=" font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Min:">
+      <input id="agemin" style=" font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Min:">
     </div>
     <div class="col-5">
-      <input id="salarymax" style="margin-left: -10px; font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Max">
+      <input id="agemax" style="margin-left: -10px; font-size: 13px; text-transform: lowercase; padding-left: 10px; padding-right: 0px;" type="number" placeholder="Max">
     </div>
 
   </div>
 </div>
+
+<div class="col-12 filter-all-box">
+  <label for="">Gender</label>
+ <select name="" id="genderCandidatesID">
+  <option value="2">Select</option>
+  <option value="1">Mane</option>
+  <option value="0">Woman</option>
+ </select>
+</div>
+
+
+<div class="col-12 filter-all-box">
+  <label for="">Exprence Time</label>
+  <input id="exprencetime" type="number" placeholder="Number">
+</div>
+
 
 
 <div class="col-12 filter-all-box">
@@ -147,23 +161,7 @@
  </select>
 </div>
 
-<div class="col-12 filter-all-box">
-  <label for="">Kariyrt level</label>
- <select name="" id="careerlevel">
-  <option value="">Select</option>
-  <option data-value="0" value="entrylevel">Entry Level</option>
-  <option data-value="1" value="specialist">Specialist</option>
-  <option data-value="2" value="management">Management</option>
-  <option data-value="3" value="director">Director</option>
-  <option data-value="4" value="execution">Execution</option>
- </select>
-</div>
 
-
-<div class="col-12 filter-all-box">
-  <label for="">Staj</label>
-  <input id="staj" type="number" placeholder="Number">
-</div>
 
 
 <div class="col-12 filter-all-box">
@@ -180,31 +178,6 @@
   </div>
 </div>
 
-<div class="col-12 filter-all-box">
-  <label for="">Location</label>
- <select name="" id="locationMAp">
-  <option value="1">Mevvcut Konumu Kullan</option>
-  <option value="0">Kayıtlı Olan Konumumu Kullan</option>
-
-
- </select>
-</div>
-
-
-
-<div class="col-12 filter-all-box">
-  <label for="">Radius <span id="radiusKM">250</span> <b> KM</b></label>
-
-  <div style="width: 90%; display: flex; margin: auto; align-items: center; position: relative;">
-    <div id="rx" style="padding: 13px 4px;">
-<div  style="width: 250px; height: 7px; border-radius: 14px; background-color: rgb(212, 212, 212);"></div>
-</div>
-<div id="rTop" style=" border-radius: 50%; width: 14px; height: 14px; background-color: white; border: 2px solid green; position: absolute; left: 250px;"></div>
-   </div>
-
-</div>
-
-    
 
 
 
@@ -231,466 +204,9 @@
                 
                         <div class="content-tab">
                           <div class="inner">
-                            <div class="group-col-2">
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/user/avatar/avt-thumb-01.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Entry Level Network Administrator</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Marvin McKinney</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              New York
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
+                            <div class="group-col-2" id="jobBox">
 
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$8000/month</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can1.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Computational Wizard</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Arlene McCoy</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                        <a href="candidate-single.html" class="tf-btn">View Profile</a>
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$40/hour</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can2.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Computer Support Specialist</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Floyd Miles</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
-
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$300/hour</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can3.png" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Computer Support Specialist</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Annette Black</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
-
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$500/hour</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can4.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Digital Overlord</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Maverick Nguyen</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
-
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$5000/month</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can5.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Computer Hardware Engineer</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Kathryn Murphy</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
-
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$400/day</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can6.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">C3PO – Chief Power Plugs & Patches Officer</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Guy Hawkins</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
-
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$300/hour</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can7.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Database Administrator</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Courtney Henry</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
-
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$400/day</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can8.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Sales Engineer</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Brooklyn Simmons</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
-
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>$430/hour</p>
-                                      </div>
-                                    </div>
-                                </div>
-                                <div class="features-job wd-thum-career cl2">
-                                    <div class="job-archive-header">
-                                      <div class="career-header-left">
-                                        <img src="/img/review/can9.jpg" alt="/img/user/avatar/avt-thumb-01.jpg" class="thumb">
-                                        <div class="career-left-inner">
-                                          <h4>
-                                            <a href="candidate-single.html">Chief Geek</a>
-                                          </h4>
-                                          <h3>
-                                            <a href="candidate-single.html">Cameron Williamson</a>
-                                            <span class="icon-bolt"></span>
-                                          </h3>
-                                          <ul class="career-info">
-                                            <li>
-                                              Available now
-                                            </li>
-                                            <li>
-                                              <span class="icon-map-pin"></span>
-                                              Tokyo, Japan
-                                            </li>
-                                          </ul>
-                        
-                                        </div>
-                                      </div>
-                                      <div class="career-header-right">
-                                        <span class="icon-heart"></span>
-                                         <a href="candidate-single.html" class="tf-btn">View Profile</a>
-
-                                      </div>
-                                    </div>
-                                    <div class="job-archive-footer">
-                                      <div class="career-footer-left">
-                                        <ul class="career-tag">
-                                          <li><a href="#">Blender</a></li>
-                                          <li><a href="#">Sketch</a></li>
-                                          <li><a href="#">Adobe XD</a></li>
-                                          <li><a href="#">Figma</a></li>
-                                        </ul>
-                                      </div>
-                                      <div class="carrer-footer-right">
-                        
-                                        <span class="icon-dolar1"></span>
-                                        <p>200$/day</p>
-                                      </div>
-                                    </div>
-                                </div>
+                     
 
                             </div>
 

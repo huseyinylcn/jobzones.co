@@ -9,10 +9,11 @@ let {
   updateBannerIMG,
   updateimgAll,
   updatecv,
-  updateJobDate
+  updateJobDate,
 } = require("../../model/user/update");
 let { img, imgBanner, imgAll, uploadcv } = require("../../model/user/img");
-let { userGET } = require("../../model/user/get");
+let { userGET, employerGET, usernamewithGET } = require("../../model/user/get");
+const { userTypeControl } = require("../../model/user/control");
 
 let info = {
   fullname: "hüseyin yalçın",
@@ -38,8 +39,7 @@ let info = {
   salary: [{ c: 3232, d: 3433 }, {}, {}],
   dayandtimework: [{ a: 3232, b: 3433 }, {}, {}],
   views: 1,
-  department:''
-
+  department: "",
 };
 
 let router = express.Router();
@@ -291,8 +291,8 @@ router.post("/cv", (req, res, next) => {
     if (req.user) {
       userGET(req.user)
         .then((data) => {
-          req.cv = JSON.parse(data.cvpath)
-          next()
+          req.cv = JSON.parse(data.cvpath);
+          next();
         })
         .catch((err) => {
           res.json({
@@ -316,9 +316,9 @@ router.post("/cv", (req, res, next) => {
     uploadcv(req, res, (err) => {
       if (err) res.json({ result: 0, message: "cv Error" });
       else {
-        (req.cv).push(`/cv/${req.file.filename}`)
+        req.cv.push(`/cv/${req.file.filename}`);
         req.cv = JSON.stringify(req.cv).replace(/'/g, '"');
-        next()
+        next();
       }
     });
   } catch (error) {
@@ -371,7 +371,7 @@ router.post("/", (req, res, next) => {
     );
 
     info.fullname = req.body.fullname;
-    info.gender = Number(req.body.gender)
+    info.gender = Number(req.body.gender);
     info.birth = req.body.birth;
     info.category = req.body.category;
     info.phone = req.body.phone;
@@ -384,9 +384,7 @@ router.post("/", (req, res, next) => {
     info.careerlevel = req.body.careerlevel;
     info.job = req.body.job;
     info.department = req.body.department;
-    info.views = Number(req.body.views)
-    
-
+    info.views = Number(req.body.views);
 
     next();
   } catch (error) {
@@ -396,21 +394,24 @@ router.post("/", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
   try {
-    userGET(req.user).then(data=>{
-      if(data.views != info.views){
-       updateJobDate(req.user).then((veri)=>{
-        if(veri == 1) next()
-          else res.json({result:0,message:"jobdate kayıt edilemedi işlem burada durduruldu"})
-       })
-      }else{
-       next()
+    userGET(req.user).then((data) => {
+      if (data.views != info.views) {
+        updateJobDate(req.user).then((veri) => {
+          if (veri == 1) next();
+          else
+            res.json({
+              result: 0,
+              message: "jobdate kayıt edilemedi işlem burada durduruldu",
+            });
+        });
+      } else {
+        next();
       }
-     })
+    });
   } catch (error) {
     res.json({ result: 0, message: `update Error ${error}` });
   }
 });
-
 
 router.post("/", (req, res, next) => {
   try {
@@ -426,6 +427,77 @@ router.post("/", (req, res, next) => {
     res.json({ result: 0, message: `update Error ${error}` });
   }
 });
+
+router.get("/:username", (req, res, next) => {
+  try {
+    if (req.user) next();
+    else res.render("tr/site/candidate-single", { login: 0 });
+  } catch (error) {
+    res.json({ result: 0, message: "system error first" });
+  }
+});
+
+router.get("/:username", (req, res, next) => {
+  try {
+    userTypeControl(req.user).then((data) => {
+      req.type = data;
+      next();
+    }).catch(err=>{
+      res.json({result:0,message:"type control error :("})
+    })
+  } catch (error) {
+    res.json({ result: 0, message: "system error two" });
+  }
+});
+
+
+router.get("/:username", (req, res, next) => {
+  try {
+    if(req.type == true || req.type == 'true' || req.type == 1){
+      employerGET(req.user).then(data=>{
+        res.render("tr/site/candidate-single", { login: 1,userData:data });
+      }).catch(err=>{
+        res.json({result:0,message:"employer Get error :("})
+      })
+    }else{
+      userGET(req.user).then(data=>{
+        res.render("tr/site/candidate-single", { login: 1,userData:data });
+      }).catch(err=>{
+        res.json({result:0,message:"Candidates Get error :("})
+      })
+    }
+  } catch (error) {
+    res.json({ result: 0, message: "system error three" });
+  }
+});
+
+
+router.post("/:username",(req,res,next)=>{
+  try {
+    usernamewithGET(req.params.username).then(data=>{
+      req.userID = data.userID
+      next()
+    }).catch(err=>{
+      res.json({result:0,message:"usernamewithget error candidates :("})
+    })
+  } catch (error) {
+    res.json({result:0,message:"system error first"})
+  }
+})
+
+
+
+router.post("/:username",(req,res,next)=>{
+  try {
+    userGET(req.userID).then(data=>{
+      res.json(data)
+    }).catch(err=>{
+      res.json({result:0,message:"candidates get errororo :("})
+    })
+  } catch (error) {
+    res.json({result:0,message:"system error two"})
+  }
+})
 
 
 module.exports = router;

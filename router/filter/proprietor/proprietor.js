@@ -59,7 +59,8 @@ router.post("/", (req, res, next) => {
 
   router.post("/", (req, res, next) => {
     try {
-     res.json(req.proprietorArrayend[req.body.page])
+      console.log(req.proprietorArrayend.length)
+     res.json({employers:req.proprietorArrayend[req.body.page],pageArrayNumber:req.proprietorArrayend.length})
     } catch (error) {
       res.json({ reesult: 0, message: "end gelirken hata verdi" });
     }

@@ -31,8 +31,10 @@ router.post("/mail",(req,res,next)=>{
 
 router.post("/mail",(req,res,next)=>{
     try {
+      console.log('asas')
        
         res.json(req.jobINFO)
+ 
         
     } catch (error) {
         res.json({result:0,message:"system error 1"})
@@ -117,16 +119,19 @@ router.post("/", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
   try {
-
+    
+    let taking = JSON.parse(req.jobINFO[0].taking)
+    console.log("system",taking)
     let veri = {
-      mail: req.jobINFO[0].email,
+
+      mail: taking[0].value,
       title:`${req.jobINFO[0].title} İş başvurusu`,
       message: ` 
           <html >
 <div style="text-align: center; font-family: sans-serif; width: 100%; max-width: 400px; min-height: 400px; border: 1px solid black; margin: auto; margin-top: 20px;">
     <h3>Yeni bir başvurunuz var</h3>
     <img width="200px"  src="http://admin.tarihiyazilar.com/img/MezarFotograf/53b80d39a75cbe1cb06ffbfd830916078acff06452007a79da91bc4bb87e6156.jpeg" alt="gelmedi http://localhost:3000${req.userInfo.profileIMG}">
-    <p >${req.userInfo.fullname} iş başvurusunda bulundu <a href="http://localhost:3000/${req.userInfo.username}">Linke</a> tıklayarak inceleyebilirsiniz</p>
+    <p >${req.userInfo.fullname} iş başvurusunda bulundu <a href="http://localhost:3000/candidates/${req.userInfo.username}">Linke</a> tıklayarak inceleyebilirsiniz</p>
 </div>
 </html>`,
     };

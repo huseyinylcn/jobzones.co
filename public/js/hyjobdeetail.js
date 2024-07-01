@@ -6,8 +6,13 @@ let socialUl = document.getElementById("socialUl");
 let photosDetail = document.getElementById('photosDetail')
 let videoURL = document.getElementById('videoURL')
 
+
+
+let jobID = ''
+let basvuruClick = ''
 let detailView = (veri) => {
   return new Promise((resolve, reject) => {
+  
     const today = new Date();
     const specifiedDate0 = new Date(veri.date);
     const differenceInDays0 = Math.abs(
@@ -80,7 +85,7 @@ let detailView = (veri) => {
         socialHTML += `<li><a href="${url}"><i class="icon-pinterest"></i></a></li>`;
       }
     });
-
+ 
     socialUl.innerHTML = `${socialHTML}`;
 
 
@@ -92,7 +97,7 @@ let detailView = (veri) => {
       photosHTML += `<li class="ct-tab2"> <a class="lightbox-gallery" href="${photos[i]}"><img
                         src="${photos[i]}" alt="/img"></a> </li>`
     }
-
+    [{"mode":""}]
 
 
 photosDetail.innerHTML = `${photosHTML}`
@@ -100,7 +105,8 @@ photosDetail.innerHTML = `${photosHTML}`
 videoURL.href = veri.videourl
 
 
-
+let taking = JSON.parse(veri.taking)
+taking = JSON.stringify(taking)
 
     detailTop.innerHTML = `
          <div class="wd-job-author2">
@@ -130,7 +136,7 @@ videoURL.href = veri.videourl
               <div class="top">
                 <a href="#" class="share"><i class="icon-share2"></i></a>
                 <a href="#" class="wishlist"><i class="icon-heart"></i></a>
-                <a class="btn btn-popup"><i class="icon-send"></i>Apply Now</a>
+                <a id="basvuruClick" data-value='${taking}' class="btn btn-popup"><i class="icon-send"></i>Apply Now</a>
               </div>
               <div class="bottom">
 
@@ -165,8 +171,20 @@ videoURL.href = veri.videourl
               <li><div class="category">Headquarters</div><div class="detail">${veri.city}</div></li>
 
 `;
+resolve(1)
   });
 };
+
+
+
+
+
+
+
+
+
+
+
 
 let jobFilterFETCH = (() => {
   fetch(`${window.location.href}`, {
@@ -178,6 +196,17 @@ let jobFilterFETCH = (() => {
   })
     .then((response) => response.json())
     .then((res) => {
-      detailView(res);
+     jobID = res.jobID
+      detailView(res).then(data=>{
+        basvuruClick = document.getElementById('basvuruClick')
+        basvuruClick.addEventListener('click',()=>{
+        let taking = JSON.parse(basvuruClick.dataset.value)
+        basvuruFunc(taking[0])
+        })
+
+      })
     });
 })();
+
+
+

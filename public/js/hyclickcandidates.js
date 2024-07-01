@@ -12,6 +12,7 @@ let datemin = document.getElementById("datemin");
 let datemax = document.getElementById("datemax");
 let locationMAp = document.getElementById("locationMAp");
 let keywordJobs = document.getElementById("keywordJobs");
+let pageBox = document.getElementById('pageBox')
 
 let rTop2 = document.getElementById("rTop2");
 
@@ -22,7 +23,7 @@ let filterJobsHome = document.getElementById("filterJobsHome");
 filterJobsHome.addEventListener("click", () => {
   filterClick.click();
 });
-
+let pageNumber = 0
 filterClick.addEventListener("click", () => {
   let qualdegreeArray = [];
 
@@ -80,7 +81,7 @@ filterClick.addEventListener("click", () => {
     keyword: keywordJobs.value,
     gender: genderCandidatesID.value,
     experiencetime: exprencetime.value,
-    page: 0,
+    page: pageNumber,
   };
 
   jobFilterFETCH(x);
@@ -151,6 +152,35 @@ let viewJob = (veri) => {
     return 0;
   });
 };
+let pageViewFunc = (pageNumbers)=>{
+  pageBox.innerHTML = '<li><a id="pageMinus" ><i class="icon-keyboard_arrow_left"></i></a></li>'
+  for(let i = 0;i< pageNumbers;i++){
+  pageBox.innerHTML += `<li   ><a onclick="pageClick(event)" >${i+1}</a></li>`
+  }
+  pageBox.innerHTML += ' <li><a id="pagePluss" ><i class="icon-keyboard_arrow_right"></i></a></li>'
+  let pagePluss = document.getElementById('pagePluss')
+let pageMinus = document.getElementById('pageMinus')
+
+  pagePluss.addEventListener('click',()=>{
+    if(pageNumbers <= pageNumber +1) return;
+    pageNumber = pageNumber +1
+    filterClick.click()
+  
+  })
+  pageMinus.addEventListener('click',()=>{
+    if(pageNumber <= 0) return;
+    pageNumber = pageNumber  - 1
+    filterClick.click()
+    
+  })
+
+}
+
+function pageClick(event){
+  pageNumber = Number(event.target.innerHTML) -1
+  filterClick.click()
+  }
+  
 
 let jobFilterFETCH = (veri) => {
   
@@ -165,8 +195,8 @@ let jobFilterFETCH = (veri) => {
     .then((res) => {
       const veriString = encodeURIComponent(JSON.stringify(veri));
       history.pushState(null, "", `/findcandidates/?veri=${veriString}`);
-
-      viewJob(res).then((result) => {});
+pageViewFunc(res.pagenumberArray)
+      viewJob(res.candidates).then((result) => {});
 
     }).catch(err=>{
       const veriString = encodeURIComponent(JSON.stringify(veri));
@@ -177,8 +207,6 @@ let jobFilterFETCH = (veri) => {
 };
 
 let doldurma = (veris) => {
-
-console.log(veris)
   keywordJobs.value = veris.keyword
   citySelect.value = veris.location
   homelocationINPUT.value = veris.location

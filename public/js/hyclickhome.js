@@ -16,6 +16,18 @@ let jobBox = document.getElementById("jobBox");
 
 let filterJobsHome = document.getElementById("filterJobsHome");
 
+let pageBox = document.getElementById('pageBox')
+
+
+let jobID = ''
+let basvuruClick = ''
+
+
+
+
+
+
+
 filterJobsHome.addEventListener("click", () => {
   filterClick.click();
 });
@@ -54,7 +66,7 @@ function konumAl() {
   });
 }
 
-
+let pageNumber = 0
 filterClick.addEventListener("click", () => {
   let careerlevelArray = [];
 
@@ -139,7 +151,7 @@ filterClick.addEventListener("click", () => {
     coordinate: "",
     r: Number(radiusKM.innerHTML),
     keyword: keywordJobs.value,
-    page: 0,
+    page: pageNumber,
   };
 
   if (locationMAp.value == 1) {
@@ -270,7 +282,7 @@ let firstJobView = (veri) => {
                       </ul>
                       <div class="button-readmore st1">
                         <span class="icon-heart"></span>
-                        <a href="/job/${veri.jobID}" class="btn-apply btn-popup">
+                        <a id="basvuruClick" class="btn-apply btn-popup">
                           <span class="icon-send"></span>
                           Apply Now
                         </a>
@@ -466,6 +478,37 @@ let viewJob = (veri) => {
   });
 };
 
+
+
+let pageViewFunc = (pageNumbers)=>{
+  pageBox.innerHTML = '<li><a id="pageMinus" ><i class="icon-keyboard_arrow_left"></i></a></li>'
+  for(let i = 0;i< pageNumbers;i++){
+  pageBox.innerHTML += `<li   ><a onclick="pageClick(event)" >${i+1}</a></li>`
+  }
+  pageBox.innerHTML += ' <li><a id="pagePluss" ><i class="icon-keyboard_arrow_right"></i></a></li>'
+  let pagePluss = document.getElementById('pagePluss')
+let pageMinus = document.getElementById('pageMinus')
+
+  pagePluss.addEventListener('click',()=>{
+    if(pageNumbers <= pageNumber +1) return;
+    pageNumber = pageNumber +1
+    filterClick.click()
+  
+  })
+  pageMinus.addEventListener('click',()=>{
+    if(pageNumber <= 0) return;
+    pageNumber = pageNumber  - 1
+    filterClick.click()
+    
+  })
+
+}
+
+function pageClick(event){
+  pageNumber = Number(event.target.innerHTML) -1
+  filterClick.click()
+  }
+
 let jobFilterFETCH = (veri) => {
   fetch("/job", {
     method: "POST", // HTTP metodu
@@ -476,9 +519,10 @@ let jobFilterFETCH = (veri) => {
   })
     .then((response) => response.json())
     .then((res) => {
+      pageViewFunc(res.pageNumberArray)
       const veriString = encodeURIComponent(JSON.stringify(veri));
       history.pushState(null, "", `/home/?veri=${veriString}`);
-      viewJob(res).then((result) => {
+      viewJob(res.jobs).then((result) => {
         
       });
     });
@@ -539,7 +583,20 @@ if (veriString) {
 
 function jobBoxClick(event, element){
 
+if(window.innerWidth >= 995){
   firstJobView(element).then(data=>{
-    console.log(data)
+    jobID = element.jobID
+    basvuruClick = document.getElementById('basvuruClick')
+    basvuruClick.addEventListener('click',()=>{
+      let taking  = JSON.parse(element.taking)
+    basvuruFunc(taking[0])
   })
+    
+  })
+}else{
+  window.location.href = `/job/${element.jobID}`
+}
+
+
+
 }

@@ -96,7 +96,7 @@ router.post("/", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
   try {
-    res.json(req.jobfilterArray[req.body.page]);
+    res.json({jobs:req.jobfilterArray[req.body.page] , pageNumberArray:req.jobfilterArray.length} );
   } catch (error) {
     res.json({ reesult: 0, message: "end gelirken hata verdi" });
   }

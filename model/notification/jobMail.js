@@ -19,6 +19,7 @@ let mailSend = (info) => {
     }
     transporter.sendMail(mailOptions,(err,data)=>{
         if(err){
+            console.log(err)
             reject(0)
         }else{
             resolve(1)

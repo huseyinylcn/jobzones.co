@@ -1,0 +1,129 @@
+
+
+<style>
+    .detailpp{
+     
+      max-height: 100px;
+      width: auto;
+     
+    }
+    #cvBox {
+  
+      margin-bottom: 10px;
+        }
+    #cvBox li{
+  height: 40px;
+  line-height: 20px;
+  padding: 4px 7px;
+  border: 1px solid rgb(216, 216, 216);
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  background-color: rgba(216, 255, 218, 0.337);
+    }
+  </style>
+
+<div id="succesfullModalID" class="wd-popup-job-apply ">
+    <div class="modal-menu__backdrop"></div>
+    <div class="content">
+
+      <i style="text-align: center; color: rgb(144, 226, 21); font-size: 60px; display: block; margin: auto; padding: 20px 0px;" class="fa-solid fa-circle-check"></i>
+           
+            <p style="text-align: center; font-family:  'Plus Jakarta Sans', sans-serif; text-align: center; padding: 13px 8px; background-color: rgba(206, 254, 218, 0.38); border-radius: 10px;"> Başvuru Yapıldı</p>
+            <br>
+          
+    </div>
+</div>
+<div id="errorModalID" class="wd-popup-job-apply ">
+  <div class="modal-menu__backdrop"></div>
+  <div class="content">
+
+    <i style="text-align: center; color: rgb(202, 13, 13); font-size: 60px; display: block; margin: auto; padding: 20px 0px;" class="fa-solid fa-circle-xmark"></i>
+         
+          <p style="text-align: center; font-family:  'Plus Jakarta Sans', sans-serif; text-align: center; padding: 13px 8px; background-color: rgba(206, 254, 218, 0.38); border-radius: 10px;"> Başvuru Yapılamadı</p>
+          <br>
+        
+  </div>
+</div>
+
+  <div id="jobDetailID" class="wd-popup-job-apply">
+    <div class="modal-menu__backdrop"></div>
+    <div class="content">
+        <h6>Apply For This Job</h6>
+        
+            <label class="label-text">Phone<span>*</span></label>
+            <p style="font-family:  'Plus Jakarta Sans', sans-serif; text-align: left; padding: 13px 8px; background-color: rgba(206, 254, 218, 0.38); border-radius: 10px;"><b id="basvuruTelID">0541 728 15 88</b> Numarasını Arayarak Başvurabilirsiniz</p>
+            <br>
+          
+    </div>
+</div>
+
+<div  id="jobCVAddID" class="wd-popup-job-apply" style="z-index: 9999999999999;">
+  <div class="modal-menu__backdrop"></div>
+  <div class="content">
+      <h6>CV SELECT</h6>
+      
+          <label class="label-text"><span>*</span></label>
+          <ul id="cvBox">
+
+
+          </ul>
+          
+          <button id="cvAddBTNID">CV ADD</button>
+          <input type="file" id="fileInputcvadd" accept="application/pdf" style="display: none;">
+        
+  </div>
+</div>
+
+
+<div id="jobDetailModalSystemID" class="wd-popup-job-apply style2 ">
+<div class="modal-menu__backdrop"></div>
+<div class="content">
+    <h6>Apply For This Job</h6>
+    <p>Select A Your CV</p>
+   
+        <div class="group-seclect-file">
+            <div class="group-file">
+            
+                <div class="inner right">
+                    <button id="cvSelect" style="all: unset; height: 30px; padding: 5px 10px;">CV Select</button>
+                    <i class="icon-file-doc"></i>
+                </div>
+            </div>
+        </div>
+        <textarea id="basvurumesaji" placeholder="Message"></textarea>
+        <div class="group-radio">
+          <input type="radio"><label>You accept our <a href="#">Terms</a>  and <a href="#">Conditions</a>  and <a href="#">Privacy Policy</a> </label>
+        </div>
+        <button id="basvuruYapButonu"> Apply Job</button>
+      
+</div>
+</div>
+
+
+<div id="jobDetailModalMailID" class="wd-popup-job-apply style2 ">
+<div class="modal-menu__backdrop"></div>
+<div class="content">
+    <h6>Apply For This Job</h6>
+    <p>Select A Your CV</p>
+   
+        <div class="group-seclect-file">
+            <div class="group-file">
+            
+                <div class="inner left">
+                  <input class="custom-file" type="file" id="applicationMailInputID" name="profile" required="">
+                  <i class="icon-file-pdf"></i>
+                </div>
+            </div>
+        </div>
+        <label class="label-text">Name<span>*</span></label>
+        <input id="applicauntMailFullNameID" style="background: #f5f5f5;" type="text" placeholder="Name" required="">
+        <br><br>
+        <textarea id="applicauntMailMessageID" placeholder="Message"></textarea>
+        <div class="group-radio">
+          <input type="radio"><label>You accept our <a href="#">Terms</a>  and <a href="#">Conditions</a>  and <a href="#">Privacy Policy</a> </label>
+        </div>
+        <button id="aplicationMailClickID"> Apply Job</button>
+      
+</div>
+</div>

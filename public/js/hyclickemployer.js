@@ -9,6 +9,7 @@ let datemin = document.getElementById("datemin");
 let datemax = document.getElementById("datemax");
 let locationMAp = document.getElementById("locationMAp");
 let keywordJobs = document.getElementById("keywordJobs");
+let pageBox = document.getElementById('pageBox')
 
 let sizeID = document.getElementById('sizeID')
 
@@ -18,22 +19,26 @@ let jobBox = document.getElementById("jobBox");
 
 let filterJobsHome = document.getElementById("filterJobsHome");
 
+
+
+
+
 filterJobsHome.addEventListener("click", () => {
   filterClick.click();
 });
 
 
 
-
+let pageNumber = 0
 filterClick.addEventListener("click", () => {
 
-
+console.log(pageNumber)
   let x = {
     location:citySelect.value,
     size:sizeID.value,
     sector:sectorSelect.value,
     keyword: keywordJobs.value ,
-    page:0
+    page:pageNumber
   };
 
     jobFilterFETCH(x);
@@ -95,6 +100,35 @@ let viewJob = (veri) => {
     return 0;
   });
 };
+let pageViewFunc = (pageNumbers)=>{
+  pageBox.innerHTML = '<li><a id="pageMinus" ><i class="icon-keyboard_arrow_left"></i></a></li>'
+  for(let i = 0;i< pageNumbers;i++){
+  pageBox.innerHTML += `<li   ><a onclick="pageClick(event)" >${i+1}</a></li>`
+  }
+  pageBox.innerHTML += ' <li><a id="pagePluss" ><i class="icon-keyboard_arrow_right"></i></a></li>'
+  let pagePluss = document.getElementById('pagePluss')
+let pageMinus = document.getElementById('pageMinus')
+
+  pagePluss.addEventListener('click',()=>{
+    if(pageNumbers <= pageNumber +1) return;
+    pageNumber = pageNumber +1
+    filterClick.click()
+  
+  })
+  pageMinus.addEventListener('click',()=>{
+    if(pageNumber <= 0) return;
+    pageNumber = pageNumber  - 1
+    filterClick.click()
+    
+  })
+
+}
+
+function pageClick(event){
+pageNumber = Number(event.target.innerHTML) -1
+filterClick.click()
+}
+
 
 let jobFilterFETCH = (veri) => {
   fetch("/proprietor", {
@@ -106,10 +140,12 @@ let jobFilterFETCH = (veri) => {
   })
     .then((response) => response.json())
     .then((res) => {
+     pageViewFunc(res.pageArrayNumber)
+
       const veriString = encodeURIComponent(JSON.stringify(veri));
       history.pushState(null, "", `/findemployer/?veri=${veriString}`);
-      console.log(res)
-      viewJob(res).then((result) => {
+      
+      viewJob(res.employers).then((result) => {
 
         
       });

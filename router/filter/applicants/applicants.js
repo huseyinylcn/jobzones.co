@@ -47,8 +47,8 @@ router.post("/", (req, res, next) => {
 router.post("/", (req, res, next) => {
   try {
     var sonuclar = [];
-    for (var i = 0; i < req.candidatesArray.length; i += 100) {
-      sonuclar.push(req.candidatesArray.slice(i, i + 100));
+    for (var i = 0; i < req.candidatesArray.length; i += 1) {
+      sonuclar.push(req.candidatesArray.slice(i, i + 1));
     }
     req.candidatessonuc = sonuclar;
     next();
@@ -59,7 +59,7 @@ router.post("/", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
     try {
-     res.json(req.candidatessonuc[req.body.page])
+     res.json({candidates:req.candidatessonuc[req.body.page],pagenumberArray:req.candidatessonuc.length})
     } catch (error) {
       res.json({ reesult: 0, message: "end gelirken hata verdi" });
     }

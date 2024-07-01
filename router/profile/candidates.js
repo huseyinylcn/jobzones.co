@@ -346,6 +346,24 @@ router.post("/cv", (req, res, next) => {
   }
 });
 
+router.post("/cvlogout", (req, res, next) => {
+  try {
+    uploadcv(req, res, (err) => {
+      if (err) res.json({ result: 0, message: "cv Error" });
+      else {
+        res.json({cvpath:`/cv/${req.file.filename}`});
+       
+      }
+    });
+  } catch (error) {
+    res.json({
+      result: 0,
+      message: `cv write error ${error}`,
+    });
+  }
+});
+
+
 router.post("/", (req, res, next) => {
   try {
     if (req.user) next();

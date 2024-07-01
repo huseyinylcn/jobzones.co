@@ -662,9 +662,17 @@
                 </nav>
               </div>
             </div>
+            <script>
+              let userDatas;
+            </script>
             <div class="header-ct-right st-1">
-             
+             <script>
+              
+             </script>
               <% if (!login) { %>
+                <script>
+                  userDatas = JSON.stringify(<%- login  %>)
+                </script>
                 <div class="header-customize-item help">
                   <a href="/termofuse/"><span class="icon-help-circle"></span></a>
                 </div>
@@ -672,7 +680,9 @@
                   <a href="/login/">Login</a>
                 </div>
             <% } else { %>
-                
+              <script>
+                 userDatas =  <%- JSON.stringify(userData) %>;
+              </script>
               <div class="header-customize-item bell">
                 <span class="icon-bell"></span>
                 <div class="sub-notification">

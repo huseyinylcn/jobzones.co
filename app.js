@@ -59,6 +59,10 @@ const about  = require('./router/statik/about')
 const faqs  = require('./router/statik/faqs')
 const termofuse  = require('./router/statik/termofuse')
 const contact  = require('./router/statik/contact')
+const jobapplicationmail  = require('./router/job/applicationmail')
+
+
+
 
 
 
@@ -71,6 +75,8 @@ sql.connect(config).then(() => {
   app.use("/job/create", create);
   app.use("/job/update", update);
   app.use("/job/application", jobapplication);
+  app.use("/job/mail", jobapplicationmail);
+
   app.use("/job", jobfilter);
   app.use("/findJob", findjobs);
   app.use("/signin", routerSignin);

@@ -35,6 +35,8 @@ let candidatesDetailSkilRightID = document.getElementById(
   "candidatesDetailSkilRightID"
 );
 
+
+
 let educationEdit = (education) => {
   return new Promise((resolve, reject) => {
     candidatesDetailEducationBoxID.innerHTML = "";
@@ -130,7 +132,7 @@ let socialEdit = (social) => {
 
 let skilEdit = (skil) => {
   return new Promise((resolve, reject) => {
-    console.log(skil)
+  
     candidatesDetailSkilLeftID.innerHTML = "";
     candidatesDetailSkilRightID.innerHTML = "";
     for (let i = 0; i < skil.length; i++) {
@@ -235,6 +237,8 @@ cvDownloadBottom.addEventListener("click", () => {
   cvDownload.click();
 });
 
+let userInfo;
+
 let candidatesDetailGet = (() => {
   fetch(window.location.href, {
     method: "POST", // HTTP metodu
@@ -245,7 +249,15 @@ let candidatesDetailGet = (() => {
   })
     .then((response) => response.json())
     .then((data) => {
-      viewEdit(data);
+      userInfo = data
+    
+     design(data.userID).then(cevsp=>{
+  
+      console.log(cevsp)
+     })
+      viewEdit
+      
+      (data);
     })
     .catch((err) => {
       console.log("hataa", err);

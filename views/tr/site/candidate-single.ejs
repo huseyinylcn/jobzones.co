@@ -1,11 +1,39 @@
 <%- include("../partical/header.ejs") %>
+<%- include("../partical/modal.ejs") %>
+<style>
+  #candidatesDetailIMG{
+    position: absolute; top: 0; z-index: 9999
+  }
+#candidatesDetailIMG:hover{
+  z-index: 0;
+}
+.imgClickCLASS{
+position: absolute; background-color: rgba(148, 143, 143, 0.673); z-index: 9998; 
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.imgClickCLASS:hover{
+  z-index: 99999; 
+  }
+
+</style>
+
 
 
   <section class="wrapper-author-page-title style2 stc form-sticky fixed-space">
       <div class="tf-container">
         <div class="wd-author-page-title">
           <div class="author-archive-header">
-            <img id="candidatesDetailIMG" src="" alt=""class="logo-company">
+            <div class="logo-company" style="position: relative; margin-top: 0px;">
+              
+              <img src="" alt=""class="logo-company" id="candidatesDetailIMG">
+              <div id="candidatesDetailIMDUpdateID"  class="logo-company imgClickCLASS" >
+                <i style="font-size: 25px; color: white;" class="fa-solid fa-pen-to-square"></i>
+                <input type="file" style="display: none;" id="candidatesIMGInputID">
+              </div>
+            </div>
+            
             <div class="content">
               
               <h4><a id="candidatesDetailJob"></a></h4>
@@ -15,6 +43,11 @@
                 <li class="map" id="candidatesDetailCityID" style="margin-left: -4px;"></li>
                 <li id="candidatesDetailPriceID" class="price" style="margin-left: -4px;"></li>
               </ul>
+           
+
+            </div>
+            <div style="margin-left: 10px;" class="mt-2">
+              <i id="edit1BTNID" style="font-size: 23px; color: #242424ec; cursor: pointer;" class="fa-solid fa-pen-to-square candidatesEditBTN"></i>
             </div>
           </div>
           <div class="author-archive-footer">
@@ -260,6 +293,9 @@
 <script src="/js/jquery.cookie.js"></script>
 <script src="/js/switcher.js"></script>
 <script src="/js/hycandidatesDetail.js"></script>
+<script src="/js/hycandidateprofile.js"></script>
+<script type="module" src="/js/hycandidatesSelectDetail.js"></script>
+
 
 
 <script src="/js/main.js"></script>

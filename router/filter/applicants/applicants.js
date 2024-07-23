@@ -47,8 +47,8 @@ router.post("/", (req, res, next) => {
 router.post("/", (req, res, next) => {
   try {
     var sonuclar = [];
-    for (var i = 0; i < req.candidatesArray.length; i += 1) {
-      sonuclar.push(req.candidatesArray.slice(i, i + 1));
+    for (var i = 0; i < req.candidatesArray.length; i += 100) {
+      sonuclar.push(req.candidatesArray.slice(i, i + 100));
     }
     req.candidatessonuc = sonuclar;
     next();

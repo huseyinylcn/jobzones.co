@@ -1,0 +1,132 @@
+{
+	"info": {
+		"_postman_id": "c32b91d1-3dd6-48d9-a4fd-98dfb25de666",
+		"name": "employer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26695562"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/employer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\":\"Aselsan Teknolaj,\",\r\n    \"sector\":\"savunma sanayi\",\r\n    \"aboutshort\":\"lorem 34 sadasd \",\r\n    \"phone\":\"0541 728 1588\",\r\n    \"weburl\":\"http:local:300\",\r\n    \"history\":\"şirket geçmişi\",\r\n    \"size\":\"11-50\",\r\n    \"city\":\"Azerbeycan Zərdab\",\r\n    \"videourl\":\"http:14\",\r\n    \"social\":[],\r\n    \"coordinate\":\"0,0\",\r\n    \"views\":1,\r\n    \"commentpermit\":1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/employer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/employer/img",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profile",
+							"type": "file",
+							"src": "postman-cloud:///1ef30d8c-9754-4630-8689-cd51b46d924f"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/employer/img",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employer",
+						"img"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/employer/banner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "banner",
+							"type": "file",
+							"src": "postman-cloud:///1ef32157-3db7-4940-956a-31a55d8cd6c9"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/employer/banner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employer",
+						"banner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/employer/imgall",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imgall",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1ef20da4-1c7b-40a0-96b8-d345ea9af030",
+								"postman-cloud:///1ef1f2d8-a8c8-48f0-b17f-7b7e08fe720f",
+								"postman-cloud:///1ef12d92-ec5e-48a0-a915-e596a45b88bd"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/employer/imgall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employer",
+						"imgall"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

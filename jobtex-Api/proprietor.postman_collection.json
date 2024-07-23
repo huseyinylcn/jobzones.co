@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "e6f84ddf-3e82-4d2f-a1ca-929726db3195",
+		"name": "proprietor",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26695562"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/proprietor",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"location\":\"\",\r\n    \"size\":\"\",\r\n    \"sector\":\"\",\r\n    \"keyword\":\"ewqewqe\",\r\n    \"page\":0\r\n}\r\n// yanlış olabilir",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/proprietor",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"proprietor"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/employer/hseyinyaln",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/employer/hseyinyaln",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"employer",
+						"hseyinyaln"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

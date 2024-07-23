@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "2e99d1a0-fe65-427e-b9b5-06753ee466a9",
+		"name": "candidates",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26695562"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/candidates/cv",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "cv",
+							"type": "file",
+							"src": "postman-cloud:///1ef20085-b675-42e0-95a6-e39854f54572"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/candidates/cv",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"candidates",
+						"cv"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/candidates/imgall",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "imgall",
+							"type": "file",
+							"src": [
+								"postman-cloud:///1ef1f2d8-a8c8-48f0-b17f-7b7e08fe720f",
+								"postman-cloud:///1ef12d92-ec5e-48a0-a915-e596a45b88bd",
+								"postman-cloud:///1ef1f3f1-bc76-4db0-9242-7a09c0c32a91"
+							]
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/candidates/imgall",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"candidates",
+						"imgall"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/candidates/banner",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "banner",
+							"type": "file",
+							"src": "postman-cloud:///1ef170b6-02c2-4680-9ac1-d6f99ad4bd3b"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/candidates/banner",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"candidates",
+						"banner"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/candidates/img",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "profile",
+							"type": "file",
+							"src": "postman-cloud:///1ef1f3f1-bc76-4db0-9242-7a09c0c32a91"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:3000/candidates/img",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"candidates",
+						"img"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/candidates",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\":\"hüseyin yalçın\",\r\n    \"gender\":0,\r\n    \"birth\":\"2023-11-11\",\r\n    \"category\":\"kategori verdim sana\",\r\n    \"phone\":\"78484 84ew84 4848\",\r\n    \"adres\":\"edirne li kamil babab\",\r\n    \"city\":\"edirne\",\r\n    \"coordinate\":\"131221 3213123\",\r\n    \"videoURL\":\"/dadas/dasd\",\r\n    \"social\":[\"/wqeqwe\",\"fdsfsdf\",\"fdsfsdf\"],\r\n    \"education\":[{\"a\":3232,\"b\":3433},{},{}],\r\n    \"qualdegree\":\"dasdasd\",\r\n    \"careerlevel\":\"sadasd\",\r\n    \"experience\":[{\"c\":3232,\"d\":3433},{},{}],\r\n    \"language\":[\"/wqeqwe\",\"fdsfsdf\",\"fdsfsdf\"],\r\n    \"reference\":[{\"a\":3232,\"b\":3433},{},{}],\r\n    \"hobby\":[\"/wqeqwe\",\"fdsfsdf\",\"fdsfsdf\"],\r\n    \"workmode\":[\"remote\",\"fdsfsdf\",\"fdsfsdf\"],\r\n    \"salary\":[{\"c\":3232,\"d\":3433},{},{}],\r\n    \"dayandtimework\":[{\"a\":3232,\"b\":3433},{},{}],\r\n    \"views\":1,\r\n    \"job\":\"sdasd\",\r\n    \"department\":\"dadasd\"\r\n\r\n}\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/candidates",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"candidates"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

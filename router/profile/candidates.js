@@ -21,7 +21,6 @@ let info = {
   birth: "/js/kk/kk.jpg",
   category: "kategori ver bana",
   job: "",
-  cvpath: "/dasdas/asdas",
   phone: "78484 84ew84 4848",
   adres: "edirne li kamil babab",
   city: "edirne",
@@ -384,6 +383,10 @@ router.post("/", (req, res, next) => {
     info.workmode = JSON.stringify(req.body.workmode).replace(/'/g, '"');
     info.salary = JSON.stringify(req.body.salary).replace(/'/g, '"');
     info.dayandtimework = JSON.stringify(req.body.dayandtimework).replace(
+      /'/g,
+      '"'
+    );
+    info.experience = JSON.stringify(req.body.experience).replace(
       /'/g,
       '"'
     );

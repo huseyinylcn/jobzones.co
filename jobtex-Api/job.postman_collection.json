@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "f6b3f52e-e38a-4044-a00b-a540d313f5b1",
+		"name": "job",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26695562"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/job/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\" Soft ee\",\r\n    \"requirements\":\"gereksinimler olacak burda \",\r\n    \"obligations\":\"yükümlülükler olacak burada\",\r\n    \"personalnumber\":\"8\",\r\n    \"finish\":\"2024-12-12\",\r\n    \"gender\":2,\r\n    \"qualdegree\":\"highschool\",\r\n    \"careerlevel\":\"management\",\r\n    \"workmode\":[\"fulltime\",\"remote\",\"hybrid\"],\r\n    \"category\":\"Maliyyə Və Mühasibat Uçotu\",\r\n    \"departmen\":\"departmanınmmm\",\r\n    \"agemin\":\"2024-11-12\",\r\n    \"agemax\":\"2024-11-12\",\r\n    \"staj\":0,\r\n    \"salary\":[{\"max\":21,\"min\":12,\"mode\":\"aylik\"}],\r\n    \"city\":\"Azerbeycan Ağdərə\",\r\n    \"coordinate\":\"41.679339754509485, 26.548287777806337\",\r\n    \"dayendtimework\":[{\"gün\":\"pzt\",\"start\":\"12\",\"finis\":\"16\"}],\r\n    \"commentpermit\":0,\r\n    \"applicationpermit\":0,\r\n    \"urgent\":0,\r\n    \"taking\":[{\"name\":\"tel\",\"value\":\"05417281588\"}]\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/job/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/job/update",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\":\"bbbbaaaa\",\r\n    \"requirements\":\"gereksinimler olacak burda ereksinimler olacak burda <br> ereksinimler olacak burda ereksinimler olacak burda ereksinimler olacak burda <br> ereksinimler olacak burda ereksinimler olacak burda ereksinimler olacak burda <br> ereksinimler olacak burda ereksinimler olacak burda ereksinimler olacak burda ereksinimler olacak burda  <br> ereksinimler olacak burda ereksinimler olacak burda \",\r\n    \"obligations\":\" <li> Support the Creative Directors and Associate Creative Directors of experience design to concept  and oversee the <li> Make strategic and tactical UX decisions related to design and usability as well as features and functions.</li> <li> Creates  <li> Effectively pitch wireframes to and solutions to stakeholders. Youll be the greatest advocate for our work, but you ll also  that exceeds expectations.</li>\",\r\n    \"personalnumber\":\"bu iş için alıncak kişi sayısı\",\r\n    \"finish\":\"2024-12-12\",\r\n    \"gender\":2,\r\n    \"qualdegree\":\"paşa mektebi\",\r\n    \"careerlevel\":\"idare etme\",\r\n    \"workmode\":[\"full\",\"remote\",\"hybrid\"],\r\n    \"category\":\"it departmanı\",\r\n    \"departmen\":\"departmanınmmm\",\r\n    \"agemin\":\"2024-11-12\",\r\n    \"agemax\":\"2024-11-12\",\r\n    \"staj\":0,\r\n    \"salary\":[{\"max\":21,\"min\":12,\"mode\":\"aylik\"}],\r\n    \"city\":\"edirne\",\r\n    \"coordinate\":\"0,0\",\r\n    \"dayendtimework\":[{\"gün\":\"pzt\",\"start\":\"12\",\"finis\":\"16\"}],\r\n    \"commentpermit\":0,\r\n    \"applicationpermit\":0,\r\n    \"urgent\":0,\r\n    \"taking\":[\"url\",\"email\"],\r\n    \"jobID\":\"fc9fdf7e4967247b237ae2fc6f6ba3306cf5d5d4fb2f3b00b4c405375da5\"\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/job/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job",
+						"update"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/job/application",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jobID\":\"fc9fdf7e4967247b237ae2fc6f6ba3306cf5d5d4fb2f3b00b4c405375da5\",\r\n    \"cvpath\":\"/cv/sdas.pdf\",\r\n    \"message\":\"aaaaaaaaaaaaaaaapsum\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/job/application",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job",
+						"application"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/job/mail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"jobID\":\"4b676e63fd4edffa1f8478baf5299fd68d259f9b12e0a05fc0c4f51ea08b\",\r\n    \"cvpath\":\"/cv/e611ada9ffe4cce823b4.pdf\",\r\n    \"name\":\"Hüseyin Yalçın\",\r\n    \"message\":\"Ben hÜseyin Yalçın BU işe Layık olduğumu düşünüyorum bu bir deneme mesajıdır lay lay lom galiba sana göre sevmeler o başına nay \"\r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/job/mail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job",
+						"mail"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/job",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\":\"2021-12-12\",\r\n    \"workmode\":[],\r\n    \"city\":\"\",\r\n    \"salary\":[{\"max\":21,\"min\":62,\"mode\":\"aylik\"}],\r\n    \"staj\":\"0\",\r\n    \"category\":\"\",\r\n    \"careerlevel\":[],\r\n    \"qualdegree\":[],\r\n    \"coordinate\":\"0,0\",\r\n    \"keyword\":\"software developer\",\r\n    \"r\":100\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/job",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/job/fec1f428d68f0d61e56cc91b7606035fa4bf5e487eb93b9ffc1ff6ffc10d",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/job/fec1f428d68f0d61e56cc91b7606035fa4bf5e487eb93b9ffc1ff6ffc10d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"job",
+						"fec1f428d68f0d61e56cc91b7606035fa4bf5e487eb93b9ffc1ff6ffc10d"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
